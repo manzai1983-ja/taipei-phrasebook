@@ -1,0 +1,4149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>*,*::before,*::after{box-sizing:border-box}img,svg{max-width:100%}button{font-family:inherit}</style>
+<title>台北 会話台本 30場面｜英語と中国語</title>
+<style>
+  :root {
+    --paper:   #EFF2F0;
+    --surface: #FFFFFF;
+    --ink:     #17201D;
+    --muted:   #5E6C66;
+    --faint:   #8C9A94;
+    --jade:    #1C6A53;
+    --jade-tint: #E3EEE9;
+    --lantern: #A8541C;
+    --lantern-tint: #F7E9DD;
+    --rule:    #D6DDD9;
+    --rule-soft: #E4E9E6;
+    --lv1: #DCEBE4;
+    --lv2: #A8CFBE;
+    --lv3: #56A088;
+    --lv4: #1C6A53;
+    --on-accent: #FFFFFF;
+
+    --font-en: "Palatino Linotype", Palatino, "Iowan Old Style", Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --font-jp: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, Meiryo, system-ui, sans-serif;
+    --font-zh: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", "Hiragino Sans", "Yu Gothic", sans-serif;
+    --font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+
+    --step-0: 0.9375rem;
+    --step-1: 1.0625rem;
+    --step-2: 1.375rem;
+    --step-3: 1.875rem;
+    --step-4: 2.625rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:   #0E1413;
+      --surface: #161E1C;
+      --ink:     #E6EBE8;
+      --muted:   #9BA9A3;
+      --faint:   #75837D;
+      --jade:    #56C09C;
+      --jade-tint: #15302A;
+      --lantern: #E09A4E;
+      --lantern-tint: #32241A;
+      --rule:    #27332F;
+      --rule-soft: #1E2926;
+      --lv1: #1B322A;
+      --lv2: #24503F;
+      --lv3: #35785F;
+      --lv4: #56C09C;
+      --on-accent: #0E1413;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:   #0E1413;
+    --surface: #161E1C;
+    --ink:     #E6EBE8;
+    --muted:   #9BA9A3;
+    --faint:   #75837D;
+    --jade:    #56C09C;
+    --jade-tint: #15302A;
+    --lantern: #E09A4E;
+    --lantern-tint: #32241A;
+    --rule:    #27332F;
+    --rule-soft: #1E2926;
+    --lv1: #1B322A;
+    --lv2: #24503F;
+    --lv3: #35785F;
+    --lv4: #56C09C;
+    --on-accent: #0E1413;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-jp);
+    font-size: var(--step-0);
+    line-height: 1.75;
+    margin: 0;
+    padding: 0 1.25rem 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  a { color: var(--jade); }
+  a:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0;
+  }
+
+  /* ---------- header ---------- */
+
+  header {
+    padding-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-family: var(--font-en);
+    font-size: var(--step-4);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .lede {
+    color: var(--muted);
+    max-width: 34rem;
+    margin: 0;
+  }
+
+  .route {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 0;
+    margin-top: 0.5rem;
+  }
+  .route span::after {
+    content: "→";
+    color: var(--faint);
+    margin-left: 0.75rem;
+  }
+  .route span:last-child::after { content: ""; margin: 0; }
+
+  /* ---------- panels ---------- */
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .panel h2 {
+    font-family: var(--font-jp);
+    font-size: var(--step-0);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .panel p { margin: 0; color: var(--muted); }
+
+  .panel ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--muted);
+  }
+  .panel ol strong { color: var(--ink); }
+
+  .split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .split > div {
+    background: var(--surface);
+    padding: 0.875rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .split .lang {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+  }
+  .split .en-side .lang { color: var(--jade); }
+  .split .zh-side .lang { color: var(--lantern); }
+  .split .mins {
+    font-family: var(--font-en);
+    font-size: var(--step-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .split .why { font-size: 0.8125rem; color: var(--muted); }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px dotted var(--rule);
+    padding-top: 1rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+  .legend div { display: flex; gap: 0.625rem; align-items: baseline; flex-wrap: wrap; }
+
+  /* ---------- table of contents ---------- */
+
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 0.25rem 1.5rem;
+  }
+  .toc a {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px dotted var(--rule);
+    padding: 0.4rem 0;
+  }
+  .toc a:hover { color: var(--jade); }
+  .toc .num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- 指で操作するとき ----------
+     読み上げと発音チェックの印は、マウスなら 0.9rem で足りるが
+     指では小さすぎて隣を押してしまう。触る画面でだけ大きくする。 */
+
+  @media (pointer: coarse) {
+    .speak, .rec {
+      padding: 0.45rem;
+      margin-left: 0.05rem;
+    }
+    .speak svg, .rec svg { width: 1.15rem; height: 1.15rem; }
+
+    .playall, .micbtn, .stopbtn {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.8125rem;
+    }
+    .seg button { padding: 0.45rem 0.75rem; }
+
+    .rec-out { font-size: 0.8125rem; padding: 0.5rem 0.65rem; }
+    .rec-out .play { padding: 0.42rem 0.85rem; font-size: 0.75rem; }
+    .menu-body a { padding: 0.62rem 0.3rem; }
+    .menu-close { padding: 0.4rem 0.7rem; }
+
+    /* 行の折り返しに印が巻き込まれると押しにくいので、直前で切らせない */
+    .line .en, .line .zh { text-wrap: pretty; }
+  }
+
+  /* ---------- マイク確認 ---------- */
+
+  .micbtn {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    border-radius: 2px;
+    font-family: var(--font-jp);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    cursor: pointer;
+  }
+  .micbtn:hover { color: var(--jade); border-color: var(--jade); }
+  .micbtn[aria-pressed="true"] { color: var(--lantern); border-color: var(--lantern); }
+  .micbtn:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+
+  .miccheck {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .miccheck[hidden] { display: none; }
+  .mc-dev { color: var(--ink); font-weight: 700; }
+  .mc-dev span { font-weight: 400; color: var(--faint); }
+
+  .mc-bar {
+    position: relative;
+    height: 0.9rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .mc-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    background: var(--lv3);
+  }
+  .mc-fill.loud { background: var(--jade); }
+  .mc-peak {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--lantern);
+    left: 0;
+  }
+  .mc-scale {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--faint);
+    letter-spacing: 0.08em;
+  }
+  .mc-verdict { color: var(--ink); }
+  .mc-verdict.good { color: var(--jade); font-weight: 700; }
+  .mc-verdict.bad { color: var(--lantern); font-weight: 700; }
+  .mc-note { color: var(--faint); font-size: 0.75rem; line-height: 1.6; margin: 0; }
+
+  /* ---------- 発音チェック（音声認識） ---------- */
+
+  .rec {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0.1rem;
+    margin-left: 0.15rem;
+    color: var(--faint);
+    cursor: pointer;
+    line-height: 0;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .rec svg { width: 0.9rem; height: 0.9rem; display: block; }
+  .rec:hover { color: var(--jade); }
+  .rec.zh:hover { color: var(--lantern); }
+  .rec:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+  .rec.on { color: var(--lantern); }
+  .rec[disabled] { opacity: 0.3; cursor: default; }
+
+  .rec-out {
+    display: block;
+    margin-top: 0.35rem;
+    padding: 0.35rem 0.55rem;
+    border-left: 2px solid var(--rule);
+    font-family: var(--font-jp);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--muted);
+    letter-spacing: 0;
+  }
+  .rec-out .verdict { font-weight: 700; }
+  .rec-out.ok { border-left-color: var(--jade); }
+  .rec-out.ok .verdict { color: var(--jade); }
+  .rec-out.near { border-left-color: var(--lantern); }
+  .rec-out.near .verdict { color: var(--lantern); }
+  .rec-out.ng { border-left-color: var(--lantern); }
+  .rec-out.ng .verdict { color: var(--lantern); }
+  .rec-out .heard { color: var(--ink); }
+  .rec-out .miss { color: var(--lantern); font-weight: 700; }
+  .rec-out .sub { display: block; color: var(--faint); }
+  .rec-out .fix-head {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    color: var(--faint);
+  }
+  .rec-out .fix {
+    display: block;
+    color: var(--ink);
+    padding-left: 0.8rem;
+    text-indent: -0.8rem;
+  }
+  .rec-out .fix::before { content: "・"; color: var(--faint); }
+
+  .rec-tally {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+  }
+  .vhelp code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--jade-tint);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+
+  .rec-out .plays { display: block; margin-top: 0.4rem; }
+  .rec-out .play {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    font-family: var(--font-jp);
+    font-size: 0.6875rem;
+    padding: 0.22rem 0.6rem;
+    margin-right: 0.4rem;
+    cursor: pointer;
+  }
+  .rec-out .play:hover { color: var(--jade); border-color: var(--jade); }
+  .rec-out .play.mine { color: var(--lantern); border-color: var(--lantern); }
+
+  /* ---------- floating scene menu ---------- */
+
+  .menu-fab {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 40;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--jade);
+    border-radius: 2px;
+    background: var(--jade);
+    color: var(--on-accent);
+    font-size: 0.8125rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  }
+  .menu-fab .fab-num {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+  }
+  .menu-fab[aria-expanded="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  .menu-panel {
+    position: fixed;
+    right: 1rem;
+    bottom: 4.1rem;
+    z-index: 45;
+    width: min(23rem, calc(100vw - 2rem));
+    max-height: min(70vh, 34rem);
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+  }
+  .menu-panel[hidden] { display: none; }
+
+  .menu-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0.9rem 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .menu-title {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    color: var(--faint);
+    margin: 0;
+  }
+  .menu-close {
+    border: 1px solid var(--rule);
+    background: none;
+    color: var(--muted);
+    border-radius: 2px;
+    font-size: 0.6875rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+  }
+  .menu-close:hover { color: var(--jade); border-color: var(--jade); }
+
+  .menu-body {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 0.9rem 0.9rem;
+  }
+  .menu-head {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--faint);
+    margin: 0.9rem 0 0.2rem;
+  }
+  .menu-head:first-child { margin-top: 0.6rem; }
+  .menu-body a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.38rem 0.3rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.875rem;
+    border-bottom: 1px dotted var(--rule-soft);
+  }
+  .menu-body a:last-child { border-bottom: 0; }
+  .menu-body a:hover { color: var(--jade); background: var(--jade-tint); }
+  .menu-body .mn {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+    min-width: 1.3rem;
+  }
+  .menu-body a:hover .mn { color: var(--jade); }
+
+  @media (max-width: 34rem) {
+    .menu-panel { right: 0.5rem; left: 0.5rem; width: auto; bottom: 3.9rem; max-height: 68vh; }
+    .menu-fab { right: 0.75rem; bottom: 0.75rem; }
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.5rem;
+  }
+
+  .sec-head h2 {
+    font-family: var(--font-en);
+    font-size: var(--step-2);
+    font-weight: 400;
+    margin: 0;
+    flex: 1;
+  }
+
+  .sec-head .range {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sec-note {
+    color: var(--muted);
+    font-size: 0.8125rem;
+    margin: -0.5rem 0 0;
+  }
+
+  /* ---------- cards ---------- */
+
+  .card {
+    scroll-margin-top: 4.5rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.375rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    break-inside: avoid;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+  }
+
+  .card-num {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .card-title {
+    font-size: var(--step-1);
+    font-weight: 700;
+    margin: 0;
+    flex: 1 1 12rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+    padding: 0.12rem 0.45rem;
+    white-space: nowrap;
+  }
+  .tag-en { color: var(--jade); background: var(--jade-tint); }
+  .tag-zh { color: var(--lantern); background: var(--lantern-tint); }
+  .tag-both {
+    color: var(--ink);
+    background: linear-gradient(100deg, var(--jade-tint) 0 50%, var(--lantern-tint) 50% 100%);
+  }
+  .tag-wife {
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    background: transparent;
+  }
+
+  .scene {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin: -0.5rem 0 0;
+  }
+
+  .lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .line {
+    display: grid;
+    grid-template-columns: 4.25rem 1fr;
+    gap: 0 0.875rem;
+    align-items: baseline;
+  }
+
+  .who {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+    padding-top: 0.35rem;
+  }
+  .who.self { color: var(--jade); }
+
+  .en {
+    font-family: var(--font-en);
+    font-size: var(--step-1);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .ja {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0.125rem 0 0;
+  }
+
+  .stage {
+    grid-column: 2;
+    font-size: 0.8125rem;
+    color: var(--faint);
+    margin: 0;
+  }
+
+  .keep {
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 0.875rem;
+    display: flex;
+    gap: 0.875rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .keep-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    white-space: nowrap;
+    flex: 0 0 5.25rem;
+  }
+
+  .keep-phrase {
+    font-family: var(--font-en);
+    font-size: var(--step-1);
+    color: var(--jade);
+    margin: 0;
+    flex: 1;
+    min-width: 12rem;
+  }
+
+  /* chinese line inside a card */
+
+  .zh-line {
+    border-top: 1px dotted var(--rule);
+    padding-top: 0.875rem;
+    display: flex;
+    gap: 0.875rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .zh-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    color: var(--lantern);
+    white-space: nowrap;
+    flex: 0 0 5.25rem;
+  }
+  .zh-say { margin: 0; flex: 1; min-width: 12rem; display: flex; flex-direction: column; gap: 0.25rem; }
+  .zh-say b {
+    font-weight: 400;
+    font-size: var(--step-1);
+    color: var(--lantern);
+    letter-spacing: 0.02em;
+  }
+  .zh-say b + span { color: var(--muted); font-size: 0.8125rem; }
+  .rom { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-left: 0.5rem; }
+
+  /* ---------- chinese section ---------- */
+
+  .zh-group { display: flex; flex-direction: column; gap: 0.75rem; }
+  .zh-group h3 {
+    font-size: var(--step-0);
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .zh-group h3 span {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--faint);
+    font-weight: 400;
+  }
+
+  .zh-wrap { overflow-x: auto; }
+  .zh-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .zh-table th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    font-weight: 400;
+    border-bottom: 1px solid var(--rule);
+    padding: 0 0.75rem 0.5rem 0;
+    white-space: nowrap;
+  }
+  .zh-table td {
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 0.5rem 0.75rem 0.5rem 0;
+    vertical-align: baseline;
+  }
+  .zh-table td.han {
+    font-size: var(--step-1);
+    white-space: nowrap;
+    color: var(--lantern);
+  }
+  .zh-table td.pin, .zh-table td.kana {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .zh-table td.use { color: var(--ink); }
+
+  .tw {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    color: var(--lantern);
+    border: 1px solid var(--lantern);
+    border-radius: 2px;
+    padding: 0 0.25rem;
+    margin-left: 0.375rem;
+    white-space: nowrap;
+  }
+
+  .numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .numbers div {
+    background: var(--surface);
+    padding: 0.625rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .numbers b { font-weight: 400; font-size: var(--step-1); color: var(--lantern); }
+  .numbers span { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted); }
+
+  /* ---------- plan table ---------- */
+
+  .plan-wrap { overflow-x: auto; }
+  .plan { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+  .plan th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    font-weight: 400;
+    border-bottom: 1px solid var(--rule);
+    padding: 0 0.75rem 0.5rem 0;
+    white-space: nowrap;
+  }
+  .plan td {
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 0.625rem 0.75rem 0.625rem 0;
+    vertical-align: top;
+  }
+  .plan td.wk {
+    font-family: var(--font-mono);
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .plan td.e { color: var(--ink); }
+  .plan td.z { color: var(--ink); }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  footer p { margin: 0; }
+
+  @media (max-width: 34rem) {
+    .line { grid-template-columns: 1fr; gap: 0; }
+    .who { padding-top: 0; }
+    .stage { grid-column: 1; }
+    h1 { font-size: var(--step-3); }
+    .keep-label, .zh-label { flex-basis: auto; }
+  }
+
+  .lines-tag {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    color: var(--faint);
+    margin: 0;
+  }
+  .lines-tag.zh { color: var(--lantern); }
+
+  .zh {
+    font-family: var(--font-zh);
+    font-size: var(--step-1);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .zh .rom {
+    display: block;
+    margin: 0.1rem 0 0;
+    letter-spacing: 0;
+  }
+  .lines-zh .who.self { color: var(--lantern); }
+
+  body.show-en .lines-zh,
+  body.show-en .zh-line,
+  body.show-zh .lines-en,
+  body.show-zh .keep,
+  body.show-en .lines-tag,
+  body.show-zh .lines-tag { display: none; }
+
+  .tone-svg { width: 3rem; height: 1.25rem; color: var(--lantern); display: block; }
+  .zh-table td.tone { padding-right: 1rem; }
+
+  .pron-steps {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+  .pron-steps strong { color: var(--ink); }
+
+  .zh-group .sec-note { margin: 0; }
+
+  /* ---------- daily log ---------- */
+
+  .log-card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .log-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .log-date {
+    font-family: var(--font-en);
+    font-size: var(--step-2);
+    flex: 1;
+  }
+  .log-today {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    font-family: var(--font-jp);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+  }
+  .log-today:hover { color: var(--jade); border-color: var(--jade); }
+
+  .log-toggles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 0.5rem;
+  }
+  .log-toggles button {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    color: var(--muted);
+    font-family: var(--font-jp);
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    min-height: 3.25rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .log-toggles .tk { font-size: 0.9375rem; font-weight: 700; color: var(--ink); }
+  .log-toggles .td { font-size: 0.6875rem; line-height: 1.4; }
+  .log-toggles button[aria-pressed="true"] {
+    background: var(--jade-tint);
+    border-color: var(--jade);
+  }
+  .log-toggles button[aria-pressed="true"] .tk { color: var(--jade); }
+  .log-toggles button[aria-pressed="true"] .tk::after { content: " ✓"; }
+  .log-toggles button:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+
+  .log-memo { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.75rem; color: var(--faint); }
+  .log-memo input {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    font-family: var(--font-jp);
+    font-size: 0.9375rem;
+    padding: 0.4rem 0;
+  }
+  .log-memo input:focus { outline: none; border-bottom-color: var(--jade); }
+
+  .log-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .log-stats div { background: var(--surface); padding: 0.75rem 0.9rem; display: flex; flex-direction: column; gap: 0.1rem; }
+  .log-stats b { font-family: var(--font-en); font-size: var(--step-2); font-weight: 400; font-variant-numeric: tabular-nums; }
+  .log-stats span { font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.14em; color: var(--faint); }
+
+  .grid-wrap { display: flex; flex-direction: column; gap: 0.4rem; }
+  .grid-head, .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.3rem; }
+  .grid-head span { font-family: var(--font-mono); font-size: 0.625rem; color: var(--faint); text-align: center; }
+  .grid button {
+    appearance: none;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    aspect-ratio: 1 / 1;
+    min-height: 2.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    background: var(--surface);
+    cursor: pointer;
+    padding: 0;
+  }
+  .grid button.lv1 { background: var(--lv1); color: var(--ink); }
+  .grid button.lv2 { background: var(--lv2); color: var(--ink); }
+  .grid button.lv3 { background: var(--lv3); color: var(--on-accent); border-color: transparent; }
+  .grid button.lv4 { background: var(--lv4); color: var(--on-accent); border-color: transparent; }
+  .grid button.sel { outline: 2px solid var(--lantern); outline-offset: 1px; }
+  .grid button.today { border-color: var(--lantern); border-width: 2px; }
+  .grid button:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+
+  .grid-legend { display: flex; align-items: center; gap: 0.3rem; font-family: var(--font-mono); font-size: 0.625rem; color: var(--faint); }
+  .grid-legend i { width: 0.9rem; height: 0.9rem; border-radius: 2px; border: 1px solid var(--rule); }
+  .grid-legend i.lv0 { background: var(--surface); }
+  .grid-legend i.lv1 { background: var(--lv1); }
+  .grid-legend i.lv2 { background: var(--lv2); }
+  .grid-legend i.lv3 { background: var(--lv3); border-color: transparent; }
+  .grid-legend i.lv4 { background: var(--lv4); border-color: transparent; }
+
+  .log-status { font-size: 0.75rem; color: var(--faint); margin: 0; }
+  .log-status.warn { color: var(--lantern); }
+
+  .log-export { font-size: 0.8125rem; color: var(--muted); }
+  .log-export summary { cursor: pointer; color: var(--jade); font-size: 0.75rem; font-family: var(--font-mono); letter-spacing: 0.06em; }
+  .log-export summary:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; }
+  .log-export p { margin: 0.75rem 0; }
+  .log-export strong { color: var(--ink); }
+  .log-export textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    padding: 0.5rem;
+    resize: vertical;
+  }
+  .log-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .log-btns button {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    font-family: var(--font-jp);
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+  }
+  .log-btns button:hover { color: var(--jade); border-color: var(--jade); }
+
+  /* ---------- audio ---------- */
+
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -1.25rem;
+    padding: 0.5rem 1.25rem;
+    display: flex;
+    gap: 0.75rem 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.8125rem;
+  }
+  .bar-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    color: var(--faint);
+  }
+  .seg {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .seg button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-jp);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { background: var(--jade-tint); color: var(--jade); }
+  .seg button:focus-visible { outline: 2px solid var(--jade); outline-offset: -2px; }
+
+  .stopbtn {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--lantern);
+    color: var(--lantern);
+    border-radius: 2px;
+    font-family: var(--font-jp);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    cursor: pointer;
+  }
+  .stopbtn:focus-visible { outline: 2px solid var(--lantern); outline-offset: 2px; }
+
+  .vstat { color: var(--muted); font-size: 0.75rem; }
+  .vstat b { font-weight: 400; color: var(--jade); }
+  .vstat i { font-style: normal; color: var(--lantern); }
+
+  .vhelp {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1rem 1.25rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .vhelp strong { color: var(--ink); }
+
+  .speak {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0.1rem;
+    margin-left: 0.35rem;
+    color: var(--faint);
+    cursor: pointer;
+    line-height: 0;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .speak svg { width: 0.95rem; height: 0.95rem; display: block; }
+  .speak:hover { color: var(--jade); }
+  .speak.zh:hover { color: var(--lantern); }
+  .speak:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+  .speak.on { color: var(--jade); }
+  .speak.zh.on { color: var(--lantern); }
+
+  .playall {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    padding: 0.12rem 0.45rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .playall:hover { color: var(--jade); border-color: var(--jade); }
+  .playall:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+  .playall.on { color: var(--lantern); border-color: var(--lantern); }
+
+  @media print {
+    body { background: #fff; color: #000; padding: 0; font-size: 10pt; }
+    .toc, .menu-fab, .menu-panel, .panel, .toolbar, .vhelp, .miccheck, .micbtn, .speak, .rec, .rec-out, .playall, .log-export, .log-today { display: none; }
+    .card { border-color: #bbb; page-break-inside: avoid; }
+    header { padding-top: 0; }
+    .wrap { gap: 1.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header id="top">
+  <p class="eyebrow">台北 / 出発まで約2か月 / 英語30場面＋中国語49</p>
+  <h1>Thirty Scenes in Taipei</h1>
+  <p class="lede">この旅程で実際に口を開く30場面を、英語と中国語の会話でそのまま。どちらも話すことだけに絞り、読み書きは扱いません。英語はすべて A2 レベル、中国語は文法なしの丸暗記です。上のバーで表示する言語を切り替えられます。</p>
+  <div class="route">
+    <span>松山空港</span>
+    <span>リージェント台北</span>
+    <span>鼎泰豐 台北101</span>
+    <span>九份</span>
+    <span>十分</span>
+    <span>故宮博物院</span>
+  </div>
+</header>
+
+<div class="toolbar" id="audiobar">
+  <span class="bar-label">音声</span>
+  <span class="seg" role="group" aria-label="読み上げ速度">
+    <button type="button" id="spd-s" aria-pressed="false">ゆっくり</button>
+    <button type="button" id="spd-n" aria-pressed="true">ふつう</button>
+    <button type="button" id="spd-f" aria-pressed="false">はやい</button>
+  </span>
+  <span class="bar-label">表示</span>
+  <span class="seg" role="group" aria-label="表示する言語">
+    <button type="button" id="lg-b" aria-pressed="true">両方</button>
+    <button type="button" id="lg-e" aria-pressed="false">英語</button>
+    <button type="button" id="lg-z" aria-pressed="false">中国語</button>
+  </span>
+  <button type="button" class="stopbtn" id="stopall" hidden>停止</button>
+  <button type="button" class="micbtn" id="micCheckBtn" aria-pressed="false" aria-controls="micCheck">マイク確認</button>
+  <span class="vstat" id="vstat">音声を確認しています…</span>
+  <span class="rec-tally" id="recTally" hidden></span>
+</div>
+
+<p class="vhelp" id="vhelp" hidden></p>
+<p class="vhelp" id="rhelp" hidden></p>
+<div class="miccheck" id="micCheck" hidden>
+  <p class="mc-dev"></p>
+  <div class="mc-bar"><div class="mc-fill"></div><div class="mc-peak"></div></div>
+  <div class="mc-scale"><span>無音</span><span>話し声の目安</span><span>大</span></div>
+  <p class="mc-verdict"></p>
+  <p class="mc-note">声を出して棒が動くかを見てください。動かないなら音声認識も拾えません。その場合は Windows の 設定 → システム → サウンド で、<b>入力デバイスが使いたいマイクになっているか</b>と<b>入力音量</b>を確認してください。Chrome 側の入力先は、アドレスバーの錠前アイコン → サイトの設定 → マイク で選べます。</p>
+</div>
+
+<section id="plan">
+  <div class="sec-head">
+    <h2>8週間の進め方</h2>
+    <span class="range">8/17 — 10/11</span>
+  </div>
+  <p class="sec-note">英語は家庭内の会話が本体なので、学習枠では補充だけ。枠の厚みは中国語に寄せます。1日45分（英語15分／中国語30分）。</p>
+  <div class="plan-wrap">
+    <table class="plan">
+      <thead><tr><th>週</th><th>期間</th><th>英語 15分＋家庭内</th><th>中国語 30分</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">1–2</td><td class="wk">8/17–8/30</td><td class="e">台本30本の音読。1日3本</td><td class="z">ピンインと四声だけ。フレーズはまだ覚えない → <a href="#pron">発音の入口</a></td></tr>
+        <tr><td class="wk">3–4</td><td class="wk">8/31–9/13</td><td class="e">数字の聞き取り、台本を崩す練習</td><td class="z">49フレーズを 基本 → 買う → 食べる の順に</td></tr>
+        <tr><td class="wk">5–6</td><td class="wk">9/14–9/27</td><td class="e">ホテル・鼎泰豐・故宮の場面を通し稽古</td><td class="z">移動と困ったとき。屋台・タクシーのロールプレイ</td></tr>
+        <tr><td class="wk">7–8</td><td class="wk">9/28–10/11</td><td class="e">雑談3往復の型、トラブル系の暗唱</td><td class="z">数字の聞き取り。場面を混ぜた切替訓練</td></tr>
+        <tr><td class="wk">出発</td><td class="wk">10/14</td><td class="e" colspan="2">松山空港着 10:55。<a href="#s1">01番</a>から本番</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sec-note">10/12–13 は予備日。開始が8/17より早い場合は、その分だけ1–2週目（発音とピンイン）を長く取ってください。ここを厚くして損はありません。</p>
+</section>
+
+<section id="log">
+  <div class="sec-head">
+    <h2>毎日の記録</h2>
+    <span class="range">56日</span>
+  </div>
+  <p class="sec-note">正確さではなく<strong>やった日数</strong>を測ります。4つのうちいくつできたかだけを押してください。完璧な1日より、半端でも続いた56日のほうが結果が出ます。</p>
+
+  <div class="log-card">
+    <div class="log-head">
+      <span class="log-date" id="logDate">—</span>
+      <button type="button" class="log-today" id="logToday">今日に戻す</button>
+    </div>
+    <div class="log-toggles" id="logToggles">
+      <button type="button" data-k="e"><span class="tk">英語</span><span class="td">音読・シャドーイング 15分</span></button>
+      <button type="button" data-k="z"><span class="tk">中国語</span><span class="td">発音・フレーズ 30分</span></button>
+      <button type="button" data-k="r"><span class="tk">二人で</span><span class="td">ロールプレイをした</span></button>
+      <button type="button" data-k="v"><span class="tk">録音</span><span class="td">自分の声を録って聞いた</span></button>
+    </div>
+    <label class="log-memo">
+      <span>詰まった単語・気づき（任意）</span>
+      <input type="text" id="logMemo" placeholder="例：菜箸、排水口、四と十が聞き分けられない">
+    </label>
+  </div>
+
+  <div class="log-stats" id="logStats"></div>
+
+  <div class="grid-wrap">
+    <div class="grid-head"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
+    <div class="grid" id="logGrid"></div>
+    <div class="grid-legend">
+      <span>少ない</span>
+      <i class="lv0"></i><i class="lv1"></i><i class="lv2"></i><i class="lv3"></i><i class="lv4"></i>
+      <span>4つ全部</span>
+    </div>
+  </div>
+
+  <p class="log-status" id="logStatus"></p>
+
+  <details class="log-export">
+    <summary>記録の保存と持ち出し</summary>
+    <p>メールの添付から開くと、端末によっては記録が残りません。<strong>週に一度、下の文字列をコピーしてメモアプリか自分宛てのメールに貼っておいてください。</strong>別の端末やファイルを開き直したときは、それを貼り付けて「復元」を押せば戻ります。</p>
+    <textarea id="logData" rows="3" spellcheck="false"></textarea>
+    <div class="log-btns">
+      <button type="button" id="logCopy">コピー</button>
+      <button type="button" id="logRestore">貼り付けた内容で復元</button>
+      <button type="button" id="logClear">全部消す</button>
+    </div>
+  </details>
+</section>
+
+<div class="panel">
+  <h2>1日45分の配分</h2>
+  <div class="split">
+    <div class="en-side">
+      <span class="lang">ENGLISH</span>
+      <span class="mins">15分</span>
+      <span class="why">本体は家庭内の会話。学習枠は台本の音読と数字の聞き取りに使う</span>
+    </div>
+    <div class="zh-side">
+      <span class="lang">中文</span>
+      <span class="mins">30分</span>
+      <span class="why">日常の接触がゼロなので、枠のほうを厚くする</span>
+    </div>
+  </div>
+  <p>時間を半分ずつに割らないのは、英語には家での練習時間がすでにあり、中国語にはないからです。実際の接触時間で見れば英語のほうがまだ多い。</p>
+
+  <h2>言語は時間ではなく場面で切り替える</h2>
+  <p>初級で二言語を持つと「日本語じゃないほうの引き出し」がひとつしかなく、ホテルで中国語、屋台で英語が出ます。対策は、練習の段階から<strong>場面と言語を固定して紐づけること</strong>。だから各場面に言語の札を貼ってあります。</p>
+
+  <h2>練習のしかた</h2>
+  <ol>
+    <li><strong>声に出して10回</strong>。黙読は効果がありません。</li>
+    <li><strong>役を固定してロールプレイ</strong>。夫が店員・受付・運転手役、妻が客役。表示を片方の言語に絞ると、その言語だけの練習になります。</li>
+    <li><strong>訂正は語順と単語の誤りだけ</strong>。冠詞と三単現は無視。</li>
+    <li><strong>スピーカーの印を押すと読み上げます</strong>。英語と中国語の全行に付いています。カードの「通し再生」は、いま表示している言語の会話をまるごと流します。</li>
+    <li><strong>速さは3段階</strong>。<strong>ゆっくり</strong>は口の形をなぞる用、<strong>ふつう</strong>は覚える用、<strong>はやい</strong>は現地の話す速さに近く聞き取りの練習用です。自分が言う練習はゆっくりで、店員の行を聞く練習ははやいで。本番で困るのは言えないことより<strong>聞き取れないこと</strong>なので、後半はこちらを増やしてください。</li>
+    <li><strong>中国語のカナは目安</strong>。声調はカナでは表せません。必ず音を鳴らして、そちらを真似すること。</li>
+    <li><strong>店員側の行にもカナが付いています</strong>。これは言うためではなく、<strong>聞いたときに気づくため</strong>のものです。相手の返事は3〜4種類しか来ないので、音のかたまりごと覚えておくと聞き取れる確率が上がります。ロールプレイでは店員役もカナを見ながら声に出してください。</li>
+    <li><strong>マイクの印は発音チェックです</strong>。押してその行を声に出すと、端末の音声認識が<strong>何と聞き取ったか</strong>を返し、ずれた字については<strong>子音・母音・声調のどれが違ったのか</strong>まで出ます。英語と中国語の両方に付いています。中国語は字ではなく音で判定するので、同じ音の別の字が出た場合は正解の扱いです。ただし<strong>判定できるのは通じたかどうかまで</strong>で、発音の良し悪しの採点はできません。音のお手本はスピーカーの印のほうです。</li>
+  </ol>
+
+  <div class="legend">
+    <div><span class="tag tag-en">英語</span><span>英語が確実に通じる場所。ホテル、鼎泰豐、博物館、駅。</span></div>
+    <div><span class="tag tag-zh">中国語</span><span>英語が通じにくい場所。屋台、タクシー、小さな店、道端。</span></div>
+    <div><span class="tag tag-both">両方</span><span>相手によって変わる場所。英語で始めて、通じなければ中国語へ。</span></div>
+    <div><span class="tag tag-wife">妻が担当</span><span>現地で必ず本人に言ってもらう場面。夫が代行すると2か月が無駄になります。</span></div>
+  </div>
+</div>
+
+<nav class="toc" aria-label="目次">
+  <a href="#plan"><span>8週間の進め方</span><span class="num">計画</span></a>
+  <a href="#log"><span>毎日の記録</span><span class="num">56日</span></a>
+  <a href="#s1"><span>移動と基本</span><span class="num">01–05</span></a>
+  <a href="#s2"><span>リージェント台北</span><span class="num">06–10</span></a>
+  <a href="#s3"><span>鼎泰豐 台北101店</span><span class="num">11–15</span></a>
+  <a href="#s4"><span>台北101 展望台</span><span class="num">16</span></a>
+  <a href="#s5"><span>九份</span><span class="num">17–20</span></a>
+  <a href="#s6"><span>十分</span><span class="num">21–24</span></a>
+  <a href="#s7"><span>故宮博物院</span><span class="num">25–27</span></a>
+  <a href="#s8"><span>困ったとき</span><span class="num">28–30</span></a>
+  <a href="#pron"><span>発音の入口</span><span class="num">1–2週目</span></a>
+  <a href="#zh"><span>中国語 49フレーズ</span><span class="num">中文</span></a>
+</nav>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <div class="sec-head">
+    <h2>移動と基本</h2>
+    <span class="range">01 — 05</span>
+  </div>
+  <p class="sec-note">到着日の最初の1時間で全部使います。ここが一番緊張するので、一番多く練習しておく。</p>
+
+  <article class="card" id="c01">
+    <div class="card-head">
+      <span class="card-num">01</span>
+      <h3 class="card-title">空港で悠遊カードを買う</h3>
+      <span class="tag tag-en">英語</span>
+      <span class="tag tag-wife">妻が担当</span>
+    </div>
+    <p class="scene">松山空港の到着ロビー。小さな空港ですが、カウンターやコンビニで買えます。英語は通じます。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Hello. One EasyCard, please.</p><p class="ja">こんにちは。悠遊カードを1枚ください。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Do you want to add money?</p><p class="ja">チャージしますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Yes. Five hundred, please.</p><p class="ja">はい。500元お願いします。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Six hundred in total. The card is one hundred.</p><p class="ja">合計600元です。カード代が100元。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Here you are. Thank you.</p><p class="ja">どうぞ。ありがとう。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">你好，我要一張悠遊卡。<span class="rom">nǐ hǎo, wǒ yào yì zhāng yōuyóu kǎ</span></p><p class="ja">ニーハオ、ウォヤオ イーヂャン ヨウヨウカー ── こんにちは、悠遊カードを1枚ください</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">要加值嗎？<span class="rom">yào jiāzhí ma</span></p><p class="ja">ヤオ ジアヂー マ ── チャージしますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">加五百。<span class="rom">jiā wǔbǎi</span></p><p class="ja">ジア ウーバイ ── 500元チャージしてください</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">一共六百。<span class="rom">yígòng liùbǎi</span></p><p class="ja">イーゴン リウバイ ── 合計600元です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">好，謝謝。<span class="rom">hǎo, xièxie</span></p><p class="ja">ハオ、シエシエ ── はい、ありがとう</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">One ___, please. / Here you are.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>我要這個<span class="rom">wǒ yào zhège</span></b><span>ウォヤオ ジェイガ ── これをください</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c02">
+    <div class="card-head">
+      <span class="card-num">02</span>
+      <h3 class="card-title">タクシーでホテルへ</h3>
+      <span class="tag tag-zh">中国語</span>
+    </div>
+    <p class="scene">松山空港からホテルまでは車で15分ほど。運転手に英語は期待せず、画面の漢字を見せるのが最速です。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Hello. To the Regent Taipei, please.</p><p class="ja">こんにちは。リージェント台北までお願いします。</p></div></div>
+      <p class="stage">（画面の「晶華酒店」を見せる。これで9割は片づく）</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">How long does it take?</p><p class="ja">どのくらいかかりますか。</p></div></div>
+      <div class="line"><span class="who">運転手</span><div><p class="en">About fifteen minutes.</p><p class="ja">15分くらい。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can I pay by card?</p><p class="ja">カードで払えますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">你好，到這裡。<span class="rom">nǐ hǎo, dào zhèlǐ</span></p><p class="ja">ニーハオ、ダオ ジャーリ ── こんにちは、ここまで</p></div></div>
+      <div class="line"><span class="who">運転手</span><div><p class="zh">晶華酒店嗎？<span class="rom">jīnghuá jiǔdiàn ma</span></p><p class="ja">ジンホア ジウディエン マ ── 晶華酒店ですね</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">對，謝謝。<span class="rom">duì, xièxie</span></p><p class="ja">ドゥイ、シエシエ ── そうです</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">要多久？<span class="rom">yào duōjiǔ</span></p><p class="ja">ヤオ ドゥオジウ ── どのくらいかかりますか</p></div></div>
+      <div class="line"><span class="who">運転手</span><div><p class="zh">十五分鐘。<span class="rom">shíwǔ fēnzhōng</span></p><p class="ja">シーウー フェンヂョン ── 15分です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">停這裡，謝謝。<span class="rom">tíng zhèlǐ, xièxie</span></p><p class="ja">ティン ジャーリ、シエシエ ── ここで停めてください</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">To ___, please. / How long does it take?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>到這裡<span class="rom">dào zhèlǐ</span></b><span>ダオ ジャーリ ── ここまで（画面を見せる）</span><b>停這裡<span class="rom">tíng zhèlǐ</span></b><span>ティン ジャーリ ── ここで停めてください</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c03">
+    <div class="card-head">
+      <span class="card-num">03</span>
+      <h3 class="card-title">MRTで行き方を聞く</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">捷運（MRT）の駅員は英語が通じます。聞き取れなくて当たり前なので、聞き返す文を先に覚える。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. How do I get to Taipei 101?</p><p class="ja">すみません。台北101へはどう行きますか。</p></div></div>
+      <div class="line"><span class="who">駅員</span><div><p class="en">Take the red line to Daan, then change to the brown line.</p><p class="ja">赤い線で大安、そこで茶色い線に乗り換えです。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Sorry, can you say that again, slowly?</p><p class="ja">すみません、もう一度ゆっくりお願いします。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Red line to Daan. Then brown line. Which exit?</p><p class="ja">赤で大安、次に茶色。出口は何番ですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，台北101怎麼走？<span class="rom">bù hǎo yìsi, Táiběi yāo líng yāo zěnme zǒu</span></p><p class="ja">ブーハオイース、タイベイ ヤオリンヤオ ゼンマゾウ ── すみません、台北101へはどう行きますか</p></div></div>
+      <div class="line"><span class="who">駅員</span><div><p class="zh">坐紅線到大安，換棕線。<span class="rom">zuò hóng xiàn dào Dà'ān, huàn zōng xiàn</span></p><p class="ja">ズオ ホンシエン ダオ ダーアン、ホアン ゾンシエン ── 赤い線で大安、茶色い線に乗り換えです</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">聽不懂，可以再說一次嗎？<span class="rom">tīng bù dǒng, kěyǐ zài shuō yí cì ma</span></p><p class="ja">ティンブドン、クーイー ザイシュオ イーツー マ ── 聞き取れません、もう一度お願いします</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">幾號出口？<span class="rom">jǐ hào chūkǒu</span></p><p class="ja">ジー ハオ チューコウ ── 何番出口ですか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Can you say that again, slowly?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>怎麼走<span class="rom">zěnme zǒu</span></b><span>ゼンマ ゾウ ── どう行きますか。地名の後ろに付ける</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c04">
+    <div class="card-head">
+      <span class="card-num">04</span>
+      <h3 class="card-title">コンビニで買う</h3>
+      <span class="tag tag-zh">中国語</span>
+      <span class="tag tag-wife">妻が担当</span>
+    </div>
+    <p class="scene">毎回ほぼ同じやり取り。中国語の3語で終わるので、ここは中国語で通したほうが速い。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Just this, please.</p><p class="ja">これだけお願いします。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Do you need a bag?</p><p class="ja">袋は要りますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">No, thank you. I have one.</p><p class="ja">大丈夫です。持っています。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can I use my EasyCard?</p><p class="ja">悠遊カードで払えますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">這個。<span class="rom">zhège</span></p><p class="ja">ジェイガ ── これ（品物を置いて）</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">要袋子嗎？<span class="rom">yào dàizi ma</span></p><p class="ja">ヤオ ダイズ マ ── 袋は要りますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不用，謝謝。<span class="rom">búyòng, xièxie</span></p><p class="ja">ブーヨン、シエシエ ── 結構です</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">有會員卡嗎？<span class="rom">yǒu huìyuán kǎ ma</span></p><p class="ja">ヨウ フイユエンカー マ ── 会員カードはお持ちですか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">沒有。悠遊卡可以嗎？<span class="rom">méiyǒu. yōuyóu kǎ kěyǐ ma</span></p><p class="ja">メイヨウ。ヨウヨウカー クーイー マ ── ありません。悠遊カードで払えますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Just this, please. / No bag, thank you.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>這個<span class="rom">zhège</span></b><span>ジェイガ ── これ</span><b>不用袋子<span class="rom">búyòng dàizi</span></b><span>ブーヨン ダイズ ── 袋は要りません</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c05">
+    <div class="card-head">
+      <span class="card-num">05</span>
+      <h3 class="card-title">道を聞く</h3>
+      <span class="tag tag-both">両方</span>
+    </div>
+    <p class="scene">聞く相手は店の人が当たり。若い人なら英語、年配なら中国語で入る。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. Where is the bus stop?</p><p class="ja">すみません。バス停はどこですか。</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="en">It's over there, next to the bank.</p><p class="ja">あそこ、銀行の隣です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Is it far?</p><p class="ja">遠いですか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can you show me on the map?</p><p class="ja">地図で教えてもらえますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，公車站在哪裡？<span class="rom">bù hǎo yìsi, gōngchē zhàn zài nǎlǐ</span></p><p class="ja">ブーハオイース、ゴンチャーヂャン ザイナーリ ── すみません、バス停はどこですか</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="zh">在那邊，銀行旁邊。<span class="rom">zài nàbiān, yínháng pángbiān</span></p><p class="ja">ザイ ナービエン、インハン パンビエン ── あちら、銀行の隣です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">遠嗎？<span class="rom">yuǎn ma</span></p><p class="ja">ユエン マ ── 遠いですか</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="zh">不遠，走五分鐘。<span class="rom">bù yuǎn, zǒu wǔ fēnzhōng</span></p><p class="ja">ブーユエン、ゾウ ウー フェンヂョン ── 近いです、歩いて5分</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">謝謝你。<span class="rom">xièxie nǐ</span></p><p class="ja">シエシエ ニー ── ありがとうございます</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Where is ___? / Can you show me on the map?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>⋯在哪裡<span class="rom">zài nǎlǐ</span></b><span>ザイ ナーリ ── ⋯はどこですか</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <div class="sec-head">
+    <h2>リージェント台北</h2>
+    <span class="range">06 — 10</span>
+  </div>
+  <p class="sec-note">全編英語の区画。高級ホテルなので確実に通じます。安心して練習台にできる場所。</p>
+
+  <article class="card" id="c06">
+    <div class="card-head">
+      <span class="card-num">06</span>
+      <h3 class="card-title">チェックイン</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Hello. I have a reservation. The name is Yamada.</p><p class="ja">こんにちは。予約しています。山田です。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">May I see your passport, please?</p><p class="ja">パスポートを拝見できますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Here you are. Two nights, one room.</p><p class="ja">どうぞ。2泊、1部屋です。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">You are in room 1205, on the twelfth floor.</p><p class="ja">1205号室、12階です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Is the Wi-Fi free? What is the password?</p><p class="ja">Wi-Fiは無料ですか。パスワードは何ですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">你好，我有訂房。<span class="rom">nǐ hǎo, wǒ yǒu dìngfáng</span></p><p class="ja">ニーハオ、ウォヨウ ディンファン ── こんにちは、予約しています</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">請給我護照。<span class="rom">qǐng gěi wǒ hùzhào</span></p><p class="ja">チン ゲイウォ フーヂャオ ── パスポートをお願いします</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">好，這個。<span class="rom">hǎo, zhège</span></p><p class="ja">ハオ、ジェイガ ── はい、これです</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">你的房間是1205。<span class="rom">nǐ de fángjiān shì yāo èr líng wǔ</span></p><p class="ja">ニーダ ファンジエン シー ヤオアルリンウー ── お部屋は1205です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">Wi-Fi密碼是什麼？<span class="rom">Wi-Fi mìmǎ shì shénme</span></p><p class="ja">ミーマー シー シェンマ ── Wi-Fiのパスワードは何ですか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">I have a reservation. The name is ___.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>我有訂房<span class="rom">wǒ yǒu dìngfáng</span></b><span>ウォ ヨウ ディンファン ── 予約しています</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c07">
+    <div class="card-head">
+      <span class="card-num">07</span>
+      <h3 class="card-title">早く着いた・荷物を預ける</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">到着日と最終日の2回使います。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">We are early. Can we leave our bags here?</p><p class="ja">早く着いてしまいました。荷物を預けられますか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Of course. What time will you come back?</p><p class="ja">もちろんです。何時に戻られますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Around three. Two bags.</p><p class="ja">3時ごろです。荷物は2つ。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Here is your ticket. Please keep it.</p><p class="ja">こちらが引換券です。なくさないでください。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，可以寄放行李嗎？<span class="rom">bù hǎo yìsi, kěyǐ jìfàng xínglǐ ma</span></p><p class="ja">ブーハオイース、クーイー ジーファン シンリー マ ── 荷物を預けられますか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">可以。幾點回來？<span class="rom">kěyǐ. jǐ diǎn huílái</span></p><p class="ja">クーイー。ジーディエン フイライ ── できます。何時に戻りますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">三點左右。兩件。<span class="rom">sān diǎn zuǒyòu. liǎng jiàn</span></p><p class="ja">サンディエン ズオヨウ。リャンジエン ── 3時ごろ。2つです</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">這是號碼牌。<span class="rom">zhè shì hàomǎ pái</span></p><p class="ja">ヂェー シー ハオマーパイ ── これが引換札です</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Can we leave our bags here?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>可以寄放行李嗎<span class="rom">kěyǐ jìfàng xínglǐ ma</span></b><span>クーイー ジーファン シンリー マ ── 荷物を預けられますか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c08">
+    <div class="card-head">
+      <span class="card-num">08</span>
+      <h3 class="card-title">朝食について聞く</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">What time is breakfast?</p><p class="ja">朝食は何時からですか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">From six thirty to ten thirty.</p><p class="ja">6時半から10時半までです。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Where is it? Do we need a ticket?</p><p class="ja">場所はどこですか。券は必要ですか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Just tell them your room number.</p><p class="ja">部屋番号をお伝えください。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Room 1205. Table for two, please.</p><p class="ja">1205号室です。2名でお願いします。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">早餐幾點開始？<span class="rom">zǎocān jǐ diǎn kāishǐ</span></p><p class="ja">ザオツァン ジーディエン カイシー ── 朝食は何時からですか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">六點半到十點半。<span class="rom">liù diǎn bàn dào shí diǎn bàn</span></p><p class="ja">リウディエンバン ダオ シーディエンバン ── 6時半から10時半までです</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">在哪裡？<span class="rom">zài nǎlǐ</span></p><p class="ja">ザイ ナーリ ── どこですか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">三樓。<span class="rom">sān lóu</span></p><p class="ja">サンロウ ── 3階です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">要券嗎？<span class="rom">yào quàn ma</span></p><p class="ja">ヤオ チュエン マ ── 券は要りますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">What time is ___? / Table for two, please.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>幾點開始<span class="rom">jǐ diǎn kāishǐ</span></b><span>ジーディエン カイシー ── 何時からですか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c09">
+    <div class="card-head">
+      <span class="card-num">09</span>
+      <h3 class="card-title">部屋の不具合を伝える</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">言えないと我慢することになる場面。1文の型で全部片づきます。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Hello, this is room 1205.</p><p class="ja">もしもし、1205号室です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">The air conditioner is not working.</p><p class="ja">エアコンが動きません。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">I'm sorry. I will send someone now.</p><p class="ja">申し訳ありません。すぐ人をやります。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Also, we need two more towels.</p><p class="ja">あと、タオルを2枚お願いします。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">你好，我是1205。<span class="rom">nǐ hǎo, wǒ shì yāo èr líng wǔ</span></p><p class="ja">ニーハオ、ウォシー ヤオアルリンウー ── 1205号室です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">冷氣壞了。<span class="rom">lěngqì huài le</span></p><p class="ja">ロンチー ホアイラ ── エアコンが壊れています</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">不好意思，馬上請人過去。<span class="rom">bù hǎo yìsi, mǎshàng qǐng rén guòqù</span></p><p class="ja">ブーハオイース、マーシャン チンレン グオチュイ ── 申し訳ありません、すぐ人をやります</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">還要兩條毛巾。<span class="rom">hái yào liǎng tiáo máojīn</span></p><p class="ja">ハイヤオ リャンティアオ マオジン ── あとタオルを2枚</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">The ___ is not working. / We need more ___.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>⋯壞了<span class="rom">huài le</span></b><span>ホアイ ラ ── ⋯が壊れています。物の名前の後ろに付ける</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c10">
+    <div class="card-head">
+      <span class="card-num">10</span>
+      <h3 class="card-title">チェックアウトとタクシー手配</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Check out, please. Room 1205.</p><p class="ja">チェックアウトをお願いします。1205号室です。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Did you use the minibar?</p><p class="ja">ミニバーはお使いになりましたか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Only two waters.</p><p class="ja">水を2本だけ。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can you call a taxi to Songshan Airport?</p><p class="ja">松山空港までのタクシーを呼んでもらえますか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">It will be here in ten minutes.</p><p class="ja">10分ほどで参ります。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">我要退房，1205。<span class="rom">wǒ yào tuìfáng, yāo èr líng wǔ</span></p><p class="ja">ウォヤオ トゥイファン、ヤオアルリンウー ── チェックアウトします、1205号室</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">有用冰箱的東西嗎？<span class="rom">yǒu yòng bīngxiāng de dōngxi ma</span></p><p class="ja">ヨウヨン ビンシアン ダ ドンシ マ ── 冷蔵庫のものは使いましたか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">只有兩瓶水。<span class="rom">zhǐ yǒu liǎng píng shuǐ</span></p><p class="ja">ヂーヨウ リャンピン シュイ ── 水を2本だけ</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">可以幫我叫計程車嗎？到松山機場。<span class="rom">kěyǐ bāng wǒ jiào jìchéngchē ma? dào Sōngshān jīchǎng</span></p><p class="ja">クーイー バンウォ ジャオ ジーチョンチャー マ ── タクシーを呼んでもらえますか。松山空港まで</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Can you call a taxi to ___?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>我要退房<span class="rom">wǒ yào tuìfáng</span></b><span>ウォヤオ トゥイファン ── チェックアウトします</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <div class="sec-head">
+    <h2>鼎泰豐 台北101店</h2>
+    <span class="range">11 — 15</span>
+  </div>
+  <p class="sec-note">観光客が多く英語のメニューがあります。ただし「パクチー抜き」だけは中国語のほうが確実。</p>
+
+  <article class="card" id="c11">
+    <div class="card-head">
+      <span class="card-num">11</span>
+      <h3 class="card-title">受付で人数と待ち時間</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">入口で番号札をもらう方式。待ち時間を聞けると行動を決められます。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two people, please.</p><p class="ja">2名です。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Here is your number. Please wait over there.</p><p class="ja">番号札です。あちらでお待ちください。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">How long is the wait?</p><p class="ja">どのくらい待ちますか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">About forty minutes.</p><p class="ja">40分ほどです。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">OK. Can we come back later?</p><p class="ja">わかりました。あとで戻ってもいいですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">兩位。<span class="rom">liǎng wèi</span></p><p class="ja">リャンウェイ ── 2名です</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">這是號碼牌，請稍等。<span class="rom">zhè shì hàomǎ pái, qǐng shāo děng</span></p><p class="ja">ヂェー シー ハオマーパイ、チン シャオドン ── 番号札です、少々お待ちください</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">要等多久？<span class="rom">yào děng duōjiǔ</span></p><p class="ja">ヤオドン ドゥオジウ ── どのくらい待ちますか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">大概四十分鐘。<span class="rom">dàgài sìshí fēnzhōng</span></p><p class="ja">ダーガイ スーシー フェンヂョン ── 40分ほどです</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">好，我們等一下。<span class="rom">hǎo, wǒmen děng yíxià</span></p><p class="ja">ハオ、ウォメン ドン イーシア ── では待ちます</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Two people, please. / How long is the wait?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>兩位<span class="rom">liǎng wèi</span></b><span>リャンウェイ ── 2名です</span><b>要等多久<span class="rom">yào děng duōjiǔ</span></b><span>ヤオドン ドゥオジウ ── どのくらい待ちますか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c12">
+    <div class="card-head">
+      <span class="card-num">12</span>
+      <h3 class="card-title">注文する</h3>
+      <span class="tag tag-en">英語</span>
+      <span class="tag tag-wife">妻が担当</span>
+    </div>
+    <p class="scene">この旅で一番練習させたい30秒。夫は口を出さないこと。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. Can we order, please?</p><p class="ja">すみません。注文をお願いします。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two orders of xiaolongbao, please.</p><p class="ja">小籠包を2つお願いします。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">And one fried rice, and one hot and sour soup.</p><p class="ja">それとチャーハンを1つ、酸辣湯を1つ。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Anything to drink?</p><p class="ja">お飲み物は。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two jasmine teas, please. That's all.</p><p class="ja">ジャスミン茶を2つ。以上です。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，我要點餐。<span class="rom">bù hǎo yìsi, wǒ yào diǎn cān</span></p><p class="ja">ブーハオイース、ウォヤオ ディエンツァン ── すみません、注文をお願いします</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">兩籠小籠包。<span class="rom">liǎng lóng xiǎolóngbāo</span></p><p class="ja">リャンロン シャオロンバオ ── 小籠包を2セイロ</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">一個炒飯，一個酸辣湯。<span class="rom">yí ge chǎofàn, yí ge suānlàtāng</span></p><p class="ja">イーガ チャオファン、イーガ スアンラータン ── チャーハン1つ、酸辣湯1つ</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">要喝什麼？<span class="rom">yào hē shénme</span></p><p class="ja">ヤオ ホー シェンマ ── お飲み物は</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">兩杯茶。就這樣。<span class="rom">liǎng bēi chá. jiù zhèyàng</span></p><p class="ja">リャンベイ チャー。ジウ ヂェイヤン ── お茶を2つ。以上です</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Two orders of ___, please. / That's all.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>我要點餐<span class="rom">wǒ yào diǎn cān</span></b><span>ウォヤオ ディエンツァン ── 注文をお願いします</span><b>就這樣<span class="rom">jiù zhèyàng</span></b><span>ジウ ヂェイヤン ── 以上です</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c13">
+    <div class="card-head">
+      <span class="card-num">13</span>
+      <h3 class="card-title">追加注文・取り皿・パクチー抜き</h3>
+      <span class="tag tag-both">両方</span>
+      <span class="tag tag-wife">妻が担当</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. One more order of this, please.</p><p class="ja">すみません。これをもう1つください。</p></div></div>
+      <p class="stage">（メニューを指さす。名前が言えなくても this で足りる）</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can we have two small plates?</p><p class="ja">取り皿を2枚もらえますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">No coriander, please.</p><p class="ja">パクチーは抜いてください。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，再一個這個。<span class="rom">bù hǎo yìsi, zài yí ge zhège</span></p><p class="ja">ブーハオイース、ザイ イーガ ジェイガ ── これをもう1つください</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">要兩個小盤子。<span class="rom">yào liǎng ge xiǎo pánzi</span></p><p class="ja">ヤオ リャンガ シャオパンズ ── 取り皿を2枚</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不要香菜。<span class="rom">bú yào xiāngcài</span></p><p class="ja">ブーヤオ シャンツァイ ── パクチーは抜いてください</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">好的。<span class="rom">hǎo de</span></p><p class="ja">ハオ ダ ── かしこまりました</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">One more ___, please. / No coriander, please.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>不要香菜<span class="rom">bú yào xiāngcài</span></b><span>ブーヤオ シャンツァイ ── パクチー抜きで</span><b>再一個<span class="rom">zài yí ge</span></b><span>ザイ イーガ ── もう1つください</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c14">
+    <div class="card-head">
+      <span class="card-num">14</span>
+      <h3 class="card-title">食べ方を聞く</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">雑談の入口として優秀。店員が笑顔になる質問です。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. How do we eat this?</p><p class="ja">すみません。これはどう食べるんですか。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Put it on the spoon, make a small hole, and drink the soup first.</p><p class="ja">レンゲに乗せて、小さく穴を開けて、先にスープを飲みます。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Is it very hot?</p><p class="ja">熱いですか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">It's delicious. Thank you!</p><p class="ja">おいしいです。ありがとう。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">這個怎麼吃？<span class="rom">zhège zěnme chī</span></p><p class="ja">ジェイガ ゼンマ チー ── これはどう食べるんですか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">放在湯匙上，咬一個小洞。<span class="rom">fàng zài tāngchí shàng, yǎo yí ge xiǎo dòng</span></p><p class="ja">ファン ザイ タンチーシャン、ヤオ イーガ シャオドン ── レンゲに乗せて、小さく穴を開けます</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">很燙嗎？<span class="rom">hěn tàng ma</span></p><p class="ja">ヘン タン マ ── 熱いですか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">對，小心。<span class="rom">duì, xiǎoxīn</span></p><p class="ja">ドゥイ、シャオシン ── はい、気をつけて</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">很好吃！謝謝。<span class="rom">hěn hǎochī! xièxie</span></p><p class="ja">ヘン ハオチー、シエシエ ── とてもおいしいです</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">How do we eat this? / It's delicious.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>怎麼吃<span class="rom">zěnme chī</span></b><span>ゼンマ チー ── どう食べますか</span><b>很好吃<span class="rom">hěn hǎochī</span></b><span>ヘン ハオチー ── とてもおいしい</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c15">
+    <div class="card-head">
+      <span class="card-num">15</span>
+      <h3 class="card-title">会計・持ち帰り</h3>
+      <span class="tag tag-both">両方</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Check, please.</p><p class="ja">お会計をお願いします。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can we take this to go?</p><p class="ja">これ、持ち帰れますか。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Sure. I'll bring a box.</p><p class="ja">はい、箱をお持ちします。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can I pay by credit card?</p><p class="ja">クレジットカードで払えますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">買單。<span class="rom">mǎidān</span></p><p class="ja">マイダン ── お会計をお願いします</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">這個可以外帶嗎？<span class="rom">zhège kěyǐ wàidài ma</span></p><p class="ja">ジェイガ クーイー ワイダイ マ ── これ、持ち帰れますか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">可以，我幫你打包。<span class="rom">kěyǐ, wǒ bāng nǐ dǎbāo</span></p><p class="ja">クーイー、ウォ バンニー ダーバオ ── できます、包みます</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">可以刷卡嗎？<span class="rom">kěyǐ shuākǎ ma</span></p><p class="ja">クーイー シュアカー マ ── カードで払えますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">謝謝，很好吃。<span class="rom">xièxie, hěn hǎochī</span></p><p class="ja">シエシエ、ヘン ハオチー ── ありがとう、おいしかったです</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Check, please. / To go, please.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>買單<span class="rom">mǎidān</span></b><span>マイダン ── お会計</span><b>外帶<span class="rom">wàidài</span></b><span>ワイダイ ── 持ち帰り</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <div class="sec-head">
+    <h2>台北101 展望台</h2>
+    <span class="range">16</span>
+  </div>
+
+  <article class="card" id="c16">
+    <div class="card-head">
+      <span class="card-num">16</span>
+      <h3 class="card-title">展望台のチケットを買う</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">鼎泰豐と同じ建物なので、食事とセットで。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two tickets for the observatory, please.</p><p class="ja">展望台のチケットを2枚ください。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Two adults?</p><p class="ja">大人2名ですね。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Yes. Is the outdoor deck open today?</p><p class="ja">はい。屋外デッキは今日開いていますか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Yes, but it is windy.</p><p class="ja">開いていますが、風が強いです。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Where is the elevator?</p><p class="ja">エレベーターはどこですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">兩張觀景台的票。<span class="rom">liǎng zhāng guānjǐngtái de piào</span></p><p class="ja">リャンヂャン グアンジンタイ ダ ピアオ ── 展望台のチケットを2枚</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">兩位大人嗎？<span class="rom">liǎng wèi dàrén ma</span></p><p class="ja">リャンウェイ ダーレン マ ── 大人2名ですね</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">對。戶外的有開嗎？<span class="rom">duì. hùwài de yǒu kāi ma</span></p><p class="ja">ドゥイ。フーワイ ダ ヨウカイ マ ── はい。屋外は開いていますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">電梯在哪裡？<span class="rom">diàntī zài nǎlǐ</span></p><p class="ja">ディエンティー ザイナーリ ── エレベーターはどこですか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Two tickets for ___, please.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>兩張⋯的票<span class="rom">liǎng zhāng ... de piào</span></b><span>リャンヂャン ⋯ ダ ピアオ ── ⋯のチケットを2枚</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <div class="sec-head">
+    <h2>九份</h2>
+    <span class="range">17 — 20</span>
+  </div>
+  <p class="sec-note">中国語の出番が増える区画。屋台の相手には英語が通じないと思っておくこと。</p>
+
+  <article class="card" id="c17">
+    <div class="card-head">
+      <span class="card-num">17</span>
+      <h3 class="card-title">バス乗り場を探す</h3>
+      <span class="tag tag-both">両方</span>
+    </div>
+    <p class="scene">台北市内からバス、または電車で瑞芳へ出て乗り継ぎ。系統番号は当日必ず確認を。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. Which bus goes to Jiufen?</p><p class="ja">すみません。九份へ行くバスはどれですか。</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="en">That one. The stop is across the street.</p><p class="ja">あれです。停留所は道の向かいです。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">How long does it take?</p><p class="ja">どのくらいかかりますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can I use my EasyCard on the bus?</p><p class="ja">バスで悠遊カードは使えますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，哪一班到九份？<span class="rom">bù hǎo yìsi, nǎ yì bān dào Jiǔfèn</span></p><p class="ja">ブーハオイース、ナー イーバン ダオ ジウフェン ── どのバスが九份へ行きますか</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="zh">那一台。站牌在對面。<span class="rom">nà yì tái. zhànpái zài duìmiàn</span></p><p class="ja">ナー イータイ。ヂャンパイ ザイ ドゥイミエン ── あれです。停留所は向かいです</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">要多久？<span class="rom">yào duōjiǔ</span></p><p class="ja">ヤオ ドゥオジウ ── どのくらいかかりますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">可以刷悠遊卡嗎？<span class="rom">kěyǐ shuā yōuyóu kǎ ma</span></p><p class="ja">クーイー シュア ヨウヨウカー マ ── 悠遊カードは使えますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Which bus goes to ___?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>哪一班到⋯<span class="rom">nǎ yì bān dào</span></b><span>ナー イーバン ダオ ── どのバスが⋯に行きますか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c18">
+    <div class="card-head">
+      <span class="card-num">18</span>
+      <h3 class="card-title">茶藝館で席につく</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">観光客向けの店は英語が通じます。席料や時間制のことがあるので先に確認を。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two people, please. Do you have a window seat?</p><p class="ja">2名です。窓際の席はありますか。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">This way, please.</p><p class="ja">こちらへどうぞ。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">What tea do you recommend?</p><p class="ja">おすすめのお茶は何ですか。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Oolong tea is popular.</p><p class="ja">烏龍茶が人気です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">We'll have that. Is there a time limit?</p><p class="ja">それにします。時間制限はありますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">兩位。有靠窗的位子嗎？<span class="rom">liǎng wèi. yǒu kào chuāng de wèizi ma</span></p><p class="ja">リャンウェイ。ヨウ カオチュアン ダ ウェイズ マ ── 2名です。窓際の席はありますか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">這邊請。<span class="rom">zhèbiān qǐng</span></p><p class="ja">ヂェービエン チン ── こちらへどうぞ</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">有推薦的茶嗎？<span class="rom">yǒu tuījiàn de chá ma</span></p><p class="ja">ヨウ トゥイジエン ダ チャー マ ── おすすめのお茶はありますか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">烏龍茶很受歡迎。<span class="rom">wūlóngchá hěn shòu huānyíng</span></p><p class="ja">ウーロンチャー ヘン ショウ ホアンイン ── 烏龍茶が人気です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">就這個。有時間限制嗎？<span class="rom">jiù zhège. yǒu shíjiān xiànzhì ma</span></p><p class="ja">ジウ ジェイガ。ヨウ シージエン シエンヂー マ ── それにします。時間制限はありますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">What do you recommend? / We'll have that.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>有推薦的嗎<span class="rom">yǒu tuījiàn de ma</span></b><span>ヨウ トゥイジエン ダ マ ── おすすめはありますか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c19">
+    <div class="card-head">
+      <span class="card-num">19</span>
+      <h3 class="card-title">屋台で買う</h3>
+      <span class="tag tag-zh">中国語</span>
+      <span class="tag tag-wife">妻が担当</span>
+    </div>
+    <p class="scene">英語が通じない相手。中国語3語で完結する、という成功体験を作る場面です。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. What is this?</p><p class="ja">すみません。これは何ですか。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Taro balls. It's a dessert.</p><p class="ja">芋圓です。デザートですよ。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">One, please. How much is it?</p><p class="ja">1つください。いくらですか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Cash only? OK, here you are.</p><p class="ja">現金だけですか。では、どうぞ。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，這個是什麼？<span class="rom">bù hǎo yìsi, zhège shì shénme</span></p><p class="ja">ブーハオイース、ジェイガ シー シェンマ ── すみません、これは何ですか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">芋圓，是甜點。<span class="rom">yùyuán, shì tiándiǎn</span></p><p class="ja">ユーユエン、シー ティエンディエン ── 芋圓です、デザートですよ</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">我要一個。多少錢？<span class="rom">wǒ yào yí ge. duōshǎo qián</span></p><p class="ja">ウォヤオ イーガ。ドゥオシャオ チエン ── 1つください。いくらですか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">六十。<span class="rom">liùshí</span></p><p class="ja">リウシー ── 60元</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">只能付現嗎？好，給你。<span class="rom">zhǐ néng fù xiàn ma? hǎo, gěi nǐ</span></p><p class="ja">ヂーノン フーシエン マ ── 現金だけですか。はい、どうぞ</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">What is this? / How much is it?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>這個是什麼<span class="rom">zhège shì shénme</span></b><span>ジェイガ シー シェンマ ── これは何ですか</span><b>多少錢<span class="rom">duōshǎo qián</span></b><span>ドゥオシャオ チエン ── いくらですか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c20">
+    <div class="card-head">
+      <span class="card-num">20</span>
+      <h3 class="card-title">写真を撮ってもらう</h3>
+      <span class="tag tag-both">両方</span>
+      <span class="tag tag-wife">妻が担当</span>
+    </div>
+    <p class="scene">階段の上の定番スポットで。相手が観光客なら英語、地元の人なら中国語。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. Could you take our picture?</p><p class="ja">すみません。写真を撮ってもらえますか。</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="en">Sure. Ready?</p><p class="ja">いいですよ。いきますよ。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Just press here. Thank you!</p><p class="ja">ここを押すだけです。ありがとう。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Would you like me to take yours?</p><p class="ja">お返しに撮りましょうか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，可以幫我們拍照嗎？<span class="rom">bù hǎo yìsi, kěyǐ bāng wǒmen pāizhào ma</span></p><p class="ja">ブーハオイース、クーイー バンウォメン パイジャオ マ ── 写真を撮ってもらえますか</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="zh">好啊。<span class="rom">hǎo a</span></p><p class="ja">ハオ ア ── いいですよ</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">按這裡就好。謝謝！<span class="rom">àn zhèlǐ jiù hǎo. xièxie</span></p><p class="ja">アン ヂャーリ ジウハオ、シエシエ ── ここを押すだけです</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">再一張，好嗎？<span class="rom">zài yì zhāng, hǎo ma</span></p><p class="ja">ザイ イーヂャン、ハオ マ ── もう1枚いいですか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Could you take our picture?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>可以幫我們拍照嗎<span class="rom">kěyǐ bāng wǒmen pāizhào ma</span></b><span>クーイー バンウォメン パイジャオ マ ── 写真を撮ってもらえますか</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <div class="sec-head">
+    <h2>十分</h2>
+    <span class="range">21 — 24</span>
+  </div>
+  <p class="sec-note">天燈の店は日本人慣れしていて、写真も撮ってくれます。駅と道端は中国語のほうが速い。</p>
+
+  <article class="card" id="c21">
+    <div class="card-head">
+      <span class="card-num">21</span>
+      <h3 class="card-title">平渓線の切符を買う</h3>
+      <span class="tag tag-zh">中国語</span>
+    </div>
+    <p class="scene">小さな駅の窓口。英語より、行き先の漢字と枚数を言うほうが確実です。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two tickets to Shifen, please.</p><p class="ja">十分まで2枚ください。</p></div></div>
+      <div class="line"><span class="who">駅員</span><div><p class="en">One way or round trip?</p><p class="ja">片道ですか、往復ですか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Round trip, please. Which platform?</p><p class="ja">往復でお願いします。何番線ですか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">What time is the last train back?</p><p class="ja">帰りの最終は何時ですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">兩張，到十分。<span class="rom">liǎng zhāng, dào Shífēn</span></p><p class="ja">リャンヂャン、ダオ シーフェン ── 2枚、十分まで</p></div></div>
+      <div class="line"><span class="who">駅員</span><div><p class="zh">單程還是來回？<span class="rom">dānchéng háishì láihuí</span></p><p class="ja">ダンチョン ハイシー ライフイ ── 片道ですか、往復ですか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">來回。第幾月台？<span class="rom">láihuí. dì jǐ yuètái</span></p><p class="ja">ライフイ。ディージー ユエタイ ── 往復で。何番ホームですか</p></div></div>
+      <div class="line"><span class="who">駅員</span><div><p class="zh">第二月台。<span class="rom">dì èr yuètái</span></p><p class="ja">ディー アル ユエタイ ── 2番ホームです</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">最後一班幾點？<span class="rom">zuìhòu yì bān jǐ diǎn</span></p><p class="ja">ズイホウ イーバン ジーディエン ── 最終は何時ですか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Two tickets to ___, please. / Which platform?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>兩張，到⋯<span class="rom">liǎng zhāng, dào</span></b><span>リャンヂャン、ダオ ── 2枚、⋯まで</span><b>第幾月台<span class="rom">dì jǐ yuètái</span></b><span>ディージー ユエタイ ── 何番ホームですか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c22">
+    <div class="card-head">
+      <span class="card-num">22</span>
+      <h3 class="card-title">天燈を上げる</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">線路沿いの店で申し込む。観光客慣れしているので英語で足ります。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">We want to fly a lantern. Two people.</p><p class="ja">天燈を上げたいです。2人です。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">One color or four colors?</p><p class="ja">1色ですか、4色ですか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Four colors, please. What do the colors mean?</p><p class="ja">4色でお願いします。色の意味は何ですか。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Red is health, orange is money, and so on.</p><p class="ja">赤は健康、オレンジはお金、という具合です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Where do we write? Can we write in Japanese?</p><p class="ja">どこに書きますか。日本語で書いてもいいですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">我們要放天燈，兩個人。<span class="rom">wǒmen yào fàng tiāndēng, liǎng ge rén</span></p><p class="ja">ウォメン ヤオ ファン ティエンドン、リャンガ レン ── 天燈を上げたいです、2人です</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">單色還是四色？<span class="rom">dān sè háishì sì sè</span></p><p class="ja">ダンスー ハイシー スースー ── 1色ですか、4色ですか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">四色。顏色是什麼意思？<span class="rom">sì sè. yánsè shì shénme yìsi</span></p><p class="ja">スースー。イエンスー シー シェンマ イース ── 4色で。色の意味は何ですか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">紅色是健康，橘色是財運。<span class="rom">hóngsè shì jiànkāng, júsè shì cáiyùn</span></p><p class="ja">ホンスー シー ジエンカン、ジュースー シー ツァイユン ── 赤は健康、オレンジは金運です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">在哪裡寫？可以寫日文嗎？<span class="rom">zài nǎlǐ xiě? kěyǐ xiě rìwén ma</span></p><p class="ja">ザイナーリ シエ。クーイー シエ リーウェン マ ── どこに書きますか。日本語でもいいですか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">We want to ___. / What does it mean?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>我們要放天燈<span class="rom">wǒmen yào fàng tiāndēng</span></b><span>ウォメン ヤオ ファン ティエンドン ── 天燈を上げたいです</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c23">
+    <div class="card-head">
+      <span class="card-num">23</span>
+      <h3 class="card-title">天燈の写真と動画を頼む</h3>
+      <span class="tag tag-both">両方</span>
+    </div>
+    <p class="scene">店の人が撮影を引き受けてくれるのが普通。動画も頼まないと写真だけになります。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Could you take a video, please?</p><p class="ja">動画を撮ってもらえますか。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">Yes. Give me your phone.</p><p class="ja">はい。スマホを貸してください。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">A video and some photos, please.</p><p class="ja">動画と写真、両方お願いします。</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="en">When I say three, let go.</p><p class="ja">3と言ったら離してください。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">可以幫我拍影片嗎？<span class="rom">kěyǐ bāng wǒ pāi yǐngpiàn ma</span></p><p class="ja">クーイー バンウォ パイ インピエン マ ── 動画を撮ってもらえますか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">好，手機給我。<span class="rom">hǎo, shǒujī gěi wǒ</span></p><p class="ja">ハオ、ショウジー ゲイウォ ── はい、スマホをください</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">影片和照片都要。<span class="rom">yǐngpiàn hé zhàopiàn dōu yào</span></p><p class="ja">インピエン ホー ヂャオピエン ドウ ヤオ ── 動画も写真も両方お願いします</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">什麼時候放手？<span class="rom">shénme shíhòu fàngshǒu</span></p><p class="ja">シェンマ シーホウ ファンショウ ── いつ手を離しますか</p></div></div>
+      <div class="line"><span class="who">店員</span><div><p class="zh">我說三，就放。<span class="rom">wǒ shuō sān, jiù fàng</span></p><p class="ja">ウォ シュオ サン、ジウ ファン ── 3と言ったら離してください</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Could you take a video, please?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>可以幫我拍影片嗎<span class="rom">kěyǐ bāng wǒ pāi yǐngpiàn ma</span></b><span>クーイー バンウォ パイ インピエン マ ── 動画を撮ってもらえますか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c24">
+    <div class="card-head">
+      <span class="card-num">24</span>
+      <h3 class="card-title">十分瀑布への道を聞く</h3>
+      <span class="tag tag-zh">中国語</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. How do we get to Shifen Waterfall?</p><p class="ja">すみません。十分瀑布へはどう行きますか。</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="en">Walk that way for about fifteen minutes.</p><p class="ja">あちらへ15分ほど歩きます。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Is there a bus?</p><p class="ja">バスはありますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">What time does it close?</p><p class="ja">何時までやっていますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，瀑布怎麼走？<span class="rom">bù hǎo yìsi, pùbù zěnme zǒu</span></p><p class="ja">ブーハオイース、プーブー ゼンマゾウ ── すみません、滝へはどう行きますか</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="zh">往那邊走十五分鐘。<span class="rom">wǎng nàbiān zǒu shíwǔ fēnzhōng</span></p><p class="ja">ワン ナービエン ゾウ シーウー フェンヂョン ── あちらへ15分歩きます</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">有公車嗎？<span class="rom">yǒu gōngchē ma</span></p><p class="ja">ヨウ ゴンチャー マ ── バスはありますか</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="zh">沒有，走路就到。<span class="rom">méiyǒu, zǒulù jiù dào</span></p><p class="ja">メイヨウ、ゾウルー ジウダオ ── ありません、歩けば着きます</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">幾點關？<span class="rom">jǐ diǎn guān</span></p><p class="ja">ジーディエン グアン ── 何時に閉まりますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">How do we get to ___? / What time does it close?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>⋯怎麼走<span class="rom">zěnme zǒu</span></b><span>ゼンマ ゾウ ── ⋯へはどう行きますか</span><b>幾點關<span class="rom">jǐ diǎn guān</span></b><span>ジーディエン グアン ── 何時に閉まりますか</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <div class="sec-head">
+    <h2>故宮博物院</h2>
+    <span class="range">25 — 27</span>
+  </div>
+  <p class="sec-note">全編英語の区画。日本語の音声ガイドがあれば迷わず借りたほうが体験の質が上がります。</p>
+
+  <article class="card" id="c25">
+    <div class="card-head">
+      <span class="card-num">25</span>
+      <h3 class="card-title">チケットと音声ガイド</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two adult tickets, please.</p><p class="ja">大人2枚ください。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Do you need an audio guide?</p><p class="ja">音声ガイドは要りますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Do you have Japanese?</p><p class="ja">日本語はありますか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Yes. Two hundred each.</p><p class="ja">はい。1台200元です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Two, please. Where do we return them?</p><p class="ja">2台ください。返却はどこですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">兩張全票。<span class="rom">liǎng zhāng quánpiào</span></p><p class="ja">リャンヂャン チュエンピアオ ── 大人2枚</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">要語音導覽嗎？<span class="rom">yào yǔyīn dǎolǎn ma</span></p><p class="ja">ヤオ ユーイン ダオラン マ ── 音声ガイドは要りますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">有日文的嗎？<span class="rom">yǒu rìwén de ma</span></p><p class="ja">ヨウ リーウェン ダ マ ── 日本語のものはありますか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">有，一台兩百。<span class="rom">yǒu, yì tái liǎngbǎi</span></p><p class="ja">ヨウ、イータイ リャンバイ ── あります、1台200元です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">要兩台。在哪裡還？<span class="rom">yào liǎng tái. zài nǎlǐ huán</span></p><p class="ja">ヤオ リャンタイ。ザイナーリ ホアン ── 2台ください。どこで返しますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Do you have Japanese? / Where do we return them?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>有日文的嗎<span class="rom">yǒu rìwén de ma</span></b><span>ヨウ リーウェン ダ マ ── 日本語のものはありますか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c26">
+    <div class="card-head">
+      <span class="card-num">26</span>
+      <h3 class="card-title">荷物と館内のルール</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can I take my bag inside?</p><p class="ja">カバンを持って入れますか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Please use the locker. Big bags are not allowed.</p><p class="ja">ロッカーをお使いください。大きい荷物は不可です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can I take photos?</p><p class="ja">写真は撮れますか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Yes, but no flash.</p><p class="ja">はい、フラッシュは禁止です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Where is the restroom?</p><p class="ja">お手洗いはどこですか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">包包可以帶進去嗎？<span class="rom">bāobāo kěyǐ dài jìnqù ma</span></p><p class="ja">バオバオ クーイー ダイ ジンチュイ マ ── カバンを持って入れますか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">請用置物櫃。<span class="rom">qǐng yòng zhìwù guì</span></p><p class="ja">チン ヨン ヂーウーグイ ── ロッカーをお使いください</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">可以拍照嗎？<span class="rom">kěyǐ pāizhào ma</span></p><p class="ja">クーイー パイジャオ マ ── 写真は撮れますか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">可以，不能開閃光燈。<span class="rom">kěyǐ, bù néng kāi shǎnguāngdēng</span></p><p class="ja">クーイー、ブーノン カイ シャングアンドン ── 撮れます、フラッシュは禁止です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">廁所在哪裡？<span class="rom">cèsuǒ zài nǎlǐ</span></p><p class="ja">ツースオ ザイナーリ ── トイレはどこですか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Can I take photos? / Is this allowed?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>可以⋯嗎<span class="rom">kěyǐ ... ma</span></b><span>クーイー ⋯ マ ── ⋯してもいいですか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c27">
+    <div class="card-head">
+      <span class="card-num">27</span>
+      <h3 class="card-title">展示を探す・ショップ</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">名品は貸出や入れ替えで不在のことがあるので、先に「今日は出ているか」を聞くのが正解。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. Where is the Jadeite Cabbage?</p><p class="ja">すみません。翠玉白菜はどこですか。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">Third floor, room 302.</p><p class="ja">3階、302室です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Is it on display today?</p><p class="ja">今日は展示されていますか。</p></div></div>
+      <p class="stage">（ミュージアムショップで）</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Do you have a smaller one? Can you gift wrap it?</p><p class="ja">もっと小さいものはありますか。包装してもらえますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，翠玉白菜在哪裡？<span class="rom">bù hǎo yìsi, cuìyù báicài zài nǎlǐ</span></p><p class="ja">ブーハオイース、ツイユー バイツァイ ザイナーリ ── 翠玉白菜はどこですか</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">三樓，302室。<span class="rom">sān lóu, sān líng èr shì</span></p><p class="ja">サンロウ、サンリンアル シー ── 3階、302室です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">今天有展出嗎？<span class="rom">jīntiān yǒu zhǎnchū ma</span></p><p class="ja">ジンティエン ヨウ ヂャンチュー マ ── 今日は展示されていますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">有小一點的嗎？<span class="rom">yǒu xiǎo yìdiǎn de ma</span></p><p class="ja">ヨウ シャオ イーディエン ダ マ ── もっと小さいものはありますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">Is it on display today? / Do you have a smaller one?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>今天有展出嗎<span class="rom">jīntiān yǒu zhǎnchū ma</span></b><span>ジンティエン ヨウ ヂャンチュー マ ── 今日は展示されていますか</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <div class="sec-head">
+    <h2>困ったとき</h2>
+    <span class="range">28 — 30</span>
+  </div>
+  <p class="sec-note">使わずに終わるのが理想ですが、言えないと旅が終わる3場面。ここは英語も中国語も両方暗唱を。</p>
+
+  <article class="card" id="c28">
+    <div class="card-head">
+      <span class="card-num">28</span>
+      <h3 class="card-title">体調が悪い・薬局</h3>
+      <span class="tag tag-both">両方</span>
+    </div>
+    <p class="scene">薬局の店員に英語が通じるとは限りません。症状の中国語2つだけは覚えておくこと。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">I don't feel well. My stomach hurts.</p><p class="ja">具合が悪いです。お腹が痛い。</p></div></div>
+      <div class="line"><span class="who">薬剤師</span><div><p class="en">Do you have a fever?</p><p class="ja">熱はありますか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">A little. Do you have medicine for this?</p><p class="ja">少し。これに効く薬はありますか。</p></div></div>
+      <div class="line"><span class="who">薬剤師</span><div><p class="en">Take one after meals.</p><p class="ja">食後に1錠飲んでください。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Is there a hospital near here?</p><p class="ja">この近くに病院はありますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">我不舒服，肚子痛。<span class="rom">wǒ bù shūfú, dùzi tòng</span></p><p class="ja">ウォ ブーシューフー、ドゥーズ トン ── 具合が悪いです。お腹が痛い</p></div></div>
+      <div class="line"><span class="who">薬剤師</span><div><p class="zh">有發燒嗎？<span class="rom">yǒu fāshāo ma</span></p><p class="ja">ヨウ ファーシャオ マ ── 熱はありますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">有一點。有藥嗎？<span class="rom">yǒu yìdiǎn. yǒu yào ma</span></p><p class="ja">ヨウ イーディエン。ヨウ ヤオ マ ── 少し。薬はありますか</p></div></div>
+      <div class="line"><span class="who">薬剤師</span><div><p class="zh">飯後吃一顆。<span class="rom">fàn hòu chī yì kē</span></p><p class="ja">ファンホウ チー イーカー ── 食後に1錠飲んでください</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">附近有醫院嗎？<span class="rom">fùjìn yǒu yīyuàn ma</span></p><p class="ja">フージン ヨウ イーユエン マ ── 近くに病院はありますか</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">I don't feel well. / My ___ hurts.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>我不舒服<span class="rom">wǒ bù shūfú</span></b><span>ウォ ブーシューフー ── 具合が悪いです</span><b>肚子痛<span class="rom">dùzi tòng</span></b><span>ドゥーズ トン ── お腹が痛い</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c29">
+    <div class="card-head">
+      <span class="card-num">29</span>
+      <h3 class="card-title">忘れ物・落とし物</h3>
+      <span class="tag tag-en">英語</span>
+    </div>
+    <p class="scene">相談先はホテルのフロント。ここは英語が確実に通じます。自分で交渉しないこと。</p>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">I think I left my bag in the taxi.</p><p class="ja">タクシーにカバンを忘れたようです。</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="en">What does it look like?</p><p class="ja">どんなものですか。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">It's a black backpack. My passport is inside.</p><p class="ja">黒いリュックです。中にパスポートが入っています。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Can you help me, please?</p><p class="ja">助けてもらえますか。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">我的包包掉在計程車上。<span class="rom">wǒ de bāobāo diào zài jìchéngchē shàng</span></p><p class="ja">ウォダ バオバオ ディアオ ザイ ジーチョンチャー シャン ── カバンをタクシーに忘れました</p></div></div>
+      <div class="line"><span class="who">係員</span><div><p class="zh">長什麼樣子？<span class="rom">zhǎng shénme yàngzi</span></p><p class="ja">ヂャン シェンマ ヤンズ ── どんなものですか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">黑色的背包，裡面有護照。<span class="rom">hēisè de bēibāo, lǐmiàn yǒu hùzhào</span></p><p class="ja">ヘイスー ダ ベイバオ、リーミエン ヨウ フーヂャオ ── 黒いリュック、中にパスポートが入っています</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">可以幫幫我嗎？<span class="rom">kěyǐ bāngbang wǒ ma</span></p><p class="ja">クーイー バンバンウォ マ ── 助けてもらえますか</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">這是我的電話。<span class="rom">zhè shì wǒ de diànhuà</span></p><p class="ja">ヂェー シー ウォダ ディエンホア ── これが私の電話番号です</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">I left my ___ in the ___. / Can you help me?</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>可以幫幫我嗎<span class="rom">kěyǐ bāngbang wǒ ma</span></b><span>クーイー バンバンウォ マ ── 助けてもらえますか</span></p>
+    </div>
+  </article>
+
+  <article class="card" id="c30">
+    <div class="card-head">
+      <span class="card-num">30</span>
+      <h3 class="card-title">道に迷った</h3>
+      <span class="tag tag-zh">中国語</span>
+    </div>
+    <div class="lines lines-en">
+      <p class="lines-tag">ENGLISH</p>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Excuse me. I think we are lost.</p><p class="ja">すみません。道に迷ったみたいです。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">We want to go to Zhongshan Station.</p><p class="ja">中山駅へ行きたいです。</p></div></div>
+      <p class="stage">（地図を見せる。漢字の駅名を指さす）</p>
+      <div class="line"><span class="who">相手</span><div><p class="en">Go straight, then turn left at the corner.</p><p class="ja">まっすぐ行って、角を左です。</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="en">Straight, then left. Thank you so much!</p><p class="ja">まっすぐ、それから左ですね。ありがとうございます。</p></div></div>
+    </div>
+    <div class="lines lines-zh">
+      <p class="lines-tag zh">中文</p>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">不好意思，我迷路了。<span class="rom">bù hǎo yìsi, wǒ mílù le</span></p><p class="ja">ブーハオイース、ウォ ミールーラ ── すみません、道に迷いました</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">我要去中山站。<span class="rom">wǒ yào qù Zhōngshān zhàn</span></p><p class="ja">ウォヤオ チュイ ヂョンシャンヂャン ── 中山駅へ行きたいです</p></div></div>
+      <div class="line"><span class="who">相手</span><div><p class="zh">直走，路口左轉。<span class="rom">zhí zǒu, lùkǒu zuǒ zhuǎn</span></p><p class="ja">ヂーゾウ、ルーコウ ズオヂュアン ── まっすぐ行って、角を左です</p></div></div>
+      <div class="line"><span class="who self">自分</span><div><p class="zh">直走，左轉。謝謝！<span class="rom">zhí zǒu, zuǒ zhuǎn. xièxie</span></p><p class="ja">ヂーゾウ、ズオヂュアン、シエシエ ── まっすぐ、それから左ですね</p></div></div>
+    </div>
+    <div class="keep">
+      <span class="keep-label">覚える</span>
+      <p class="keep-phrase">We are lost. / Straight, then left.</p>
+    </div>
+    <div class="zh-line">
+      <span class="zh-label">決め台詞</span>
+      <p class="zh-say"><b>我迷路了<span class="rom">wǒ mílù le</span></b><span>ウォ ミールー ラ ── 道に迷いました</span><b>我要去⋯<span class="rom">wǒ yào qù</span></b><span>ウォヤオ チュイ ── ⋯へ行きたいです</span></p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ pronunciation ============ -->
+<section id="pron">
+  <div class="sec-head">
+    <h2>発音の入口</h2>
+    <span class="range">1 — 2週目</span>
+  </div>
+  <p class="sec-note">中国語の最初の2週間は、フレーズを増やさずにここだけをやります。声調を間違えると「発音が下手」ではなく<strong>別の単語になる</strong>からです。ここを飛ばすと、49フレーズが間違った高さのまま固定されて、後から直すのに何倍もかかります。通じるかどうかを決めるのは<strong>声調</strong>と<strong>息の強弱</strong>の2つで、他は後回しで構いません。</p>
+
+  <div class="zh-group">
+    <h3>ピンイン <span>漢字の読み方をローマ字で書いた発音記号</span></h3>
+    <p class="sec-note">日本語のふりがなに当たるもの。漢字は見ただけでは音が分からず、日本人は「謝謝」を「シャシャ」と読んでしまいます。それを防ぐのがピンインの役目です。ただし<strong>英語のローマ字読みをすると全く通じません</strong>。ピンインは英語の綴りではなく、中国語専用の記号です。</p>
+    <p class="sec-note">ピンインは<strong>声母（子音）・韻母（母音）・声調</strong>の3つの部品でできています。「謝 xiè」を分解すると次のとおりです。</p>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>部品</th><th>謝 xiè では</th><th>役割</th></tr></thead>
+        <tbody>
+          <tr><td class="pin">声母（子音）</td><td class="pin">x</td><td class="use">音の出だし。1つだけ。無いこともある（愛 ài、五 wǔ）</td></tr>
+          <tr><td class="pin">韻母（母音）</td><td class="pin">ie</td><td class="use">音の本体。必ず1つある</td></tr>
+          <tr><td class="pin">声調</td><td class="pin">ˋ ＝ 第4声</td><td class="use">高さの動き。母音の上に印を付ける</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-note">大事なのは<strong>漢字1文字＝1音節＝ピンイン1かたまり</strong>という点です。「謝謝 xièxie」は2かたまりなので<strong>2拍</strong>。カナの「シエシエ」につられて4拍で言うと、それだけで通じにくくなります。カナは音を思い出すための手がかりで、拍の数はピンインのかたまりで数えてください。逆に、聞き取れなかったときも<strong>いくつの音だったかを数える</strong>だけで、相手が何文字言ったかが分かります。</p>
+  </div>
+
+  <div class="zh-group">
+    <h3>子音 <span>息を出すか出さないかで別の語になる</span></h3>
+    <p class="sec-note">日本人の最大の関門です。日本語は「バ／パ」を<strong>濁るか濁らないか</strong>で区別しますが、中国語の b と p は<strong>どちらも濁りません</strong>。違いは息の量だけ。b は息を止めたまま、p は口の前に垂らした紙が揺れるほど息を吐きます。ここを濁音・清音で置き換えると、b と p が同じ音になって区別が消えます。</p>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>綴り</th><th>例</th><th>読み</th><th>出し方</th></tr></thead>
+        <tbody>
+          <tr><td class="pin">b</td><td class="han">百</td><td class="kana">bǎi ／ バイ</td><td class="use">息を出さない。「バ」ではなく、息を止めた「パ」</td></tr>
+          <tr><td class="pin">p</td><td class="han">票</td><td class="kana">piào ／ ピアオ</td><td class="use">息を強く出す。b との差は息の量だけ</td></tr>
+          <tr><td class="pin">d</td><td class="han">大</td><td class="kana">dà ／ ダー</td><td class="use">息を出さない。息を止めた「タ」</td></tr>
+          <tr><td class="pin">t</td><td class="han">太</td><td class="kana">tài ／ タイ</td><td class="use">息を強く出す</td></tr>
+          <tr><td class="pin">g</td><td class="han">貴</td><td class="kana">guì ／ グイ</td><td class="use">息を出さない。息を止めた「カ」</td></tr>
+          <tr><td class="pin">k</td><td class="han">卡</td><td class="kana">kǎ ／ カー</td><td class="use">息を強く出す</td></tr>
+          <tr><td class="pin">j</td><td class="han">幾</td><td class="kana">jǐ ／ ジー</td><td class="use">息を出さない。日本語の「ジ」でほぼ足りる</td></tr>
+          <tr><td class="pin">q</td><td class="han">錢</td><td class="kana">qián ／ チエン</td><td class="use">息を強く出す「チ」。j との差は息だけ</td></tr>
+          <tr><td class="pin">z</td><td class="han">走</td><td class="kana">zǒu ／ ゾウ</td><td class="use">息を出さない。「ヅ」に近く、濁らせない</td></tr>
+          <tr><td class="pin">c</td><td class="han">菜</td><td class="kana">cài ／ ツァイ</td><td class="use">息を強く出す「ツ」</td></tr>
+          <tr><td class="pin">zh</td><td class="han">這</td><td class="kana">zhè ／ ヂェー</td><td class="use">舌先を上あごへ反らせて、息を出さない</td></tr>
+          <tr><td class="pin">ch</td><td class="han">吃</td><td class="kana">chī ／ チー</td><td class="use">舌先を反らせて、息を強く出す</td></tr>
+          <tr><td class="pin">s</td><td class="han">四</td><td class="kana">sì ／ スー</td><td class="use">舌先を上の歯の裏へ。日本語の「ス」でよい</td></tr>
+          <tr><td class="pin">sh</td><td class="han">十</td><td class="kana">shí ／ シー</td><td class="use">舌先を反らせた「シ」。s との差が 四／十 の聞き分けになる</td></tr>
+          <tr><td class="pin">x</td><td class="han">謝</td><td class="kana">xiè ／ シエ</td><td class="use">舌を平らにした「シ」。日本語の「シ」でよい</td></tr>
+          <tr><td class="pin">r</td><td class="han">日</td><td class="kana">rì ／ リー</td><td class="use">舌先を反らせたまま出す。英語の r と l の中間で、日本語のラ行ではない</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-note">舌の位置で3系列に分かれます。<strong>z・c・s</strong> は舌先を歯の裏、<strong>j・q・x</strong> は舌を平らにして日本語のジ・チ・シ、<strong>zh・ch・sh・r</strong> は舌先を反らせる音（そり舌）。旅行では、そり舌が甘くても文脈で通じます。優先すべきは<strong>息の強弱</strong>のほうです。</p>
+  </div>
+
+  <div class="zh-group">
+    <h3>母音 <span>綴りどおりに読むと別の音になるもの</span></h3>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>綴り</th><th>実際の音</th><th>例</th><th>読み</th></tr></thead>
+        <tbody>
+          <tr><td class="pin">e</td><td class="use">「エ」ではない。口を軽く開けたまま出す曖昧な「ウ」</td><td class="han">喝</td><td class="kana">hē ／ ホー</td></tr>
+          <tr><td class="pin">i（z c s zh ch sh r の後）</td><td class="use">「イ」と読まない。子音の口の形のまま伸ばすだけ</td><td class="han">四</td><td class="kana">sì ／ スー</td></tr>
+          <tr><td class="pin">ü</td><td class="use">「ユ」の口の形のまま「イ」と言う</td><td class="han">女</td><td class="kana">nǚ ／ ニュイ</td></tr>
+          <tr><td class="pin">ian</td><td class="use">「イアン」ではなく「イエン」</td><td class="han">天</td><td class="kana">tiān ／ ティエン</td></tr>
+          <tr><td class="pin">uan（yuan）</td><td class="use">j q x y の後では「ユアン」ではなく「ユエン」</td><td class="han">元</td><td class="kana">yuán ／ ユエン</td></tr>
+          <tr><td class="pin">ui</td><td class="use">uei を縮めた形。「ウイ」ではなく「ウェイ」寄り</td><td class="han">對</td><td class="kana">duì ／ ドゥイ</td></tr>
+          <tr><td class="pin">iu</td><td class="use">iou を縮めた形。「イウ」ではなく「イオウ」寄り</td><td class="han">六</td><td class="kana">liù ／ リウ</td></tr>
+          <tr><td class="pin">un</td><td class="use">uen を縮めた形。「ウン」ではなく「ウエン」寄り</td><td class="han">春</td><td class="kana">chūn ／ チュン</td></tr>
+          <tr><td class="pin">uo</td><td class="use">「オ」ではなく「ウオ」</td><td class="han">我</td><td class="kana">wǒ ／ ウオ</td></tr>
+          <tr><td class="pin">ao</td><td class="use">「ア・オ」と切らず、1拍でなめらかに</td><td class="han">好</td><td class="kana">hǎo ／ ハオ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-note"><strong>n と ng</strong> はカナではどちらも「ン」ですが、別の音です。日本語で「案内（アンナイ）」と言うときのンが n、「案外（アンガイ）」のンが ng。日本人は無意識に使い分けているので、この2語を言い比べれば体で分かります。站 zhàn（駅）と 張 zhāng（枚）のように、混ざると別の語になる組み合わせがあります。</p>
+  </div>
+
+  <div class="zh-group">
+    <h3>綴りの約束ごと <span>知らないと読み違える5つ</span></h3>
+    <ol class="pron-steps">
+      <li><strong>j・q・x・y の後の u は、u ではなく ü。</strong>去 qù は「クー」でも「チュー」でもなく、口をすぼめた「チュイ」。ü の点が省略されているだけで、音は ü のままです。</li>
+      <li><strong>語頭の i と u は y と w に書き換える。</strong>一 yī、五 wǔ、悠遊 yōuyóu。音は i・u と同じで、単語の切れ目を見やすくするための綴りの都合です。</li>
+      <li><strong>声調記号は母音の上に1つだけ。</strong>a があれば a に、なければ o か e に付けます。iu と ui は後ろの字に付ける（liù、duì）と決まっています。</li>
+      <li><strong>アポストロフィ ' は音の切れ目。</strong>大安 Dà'ān は「ダー・アン」の2音節。これが無いと dàn の1音節と読めてしまうため、区切りを示す印です。</li>
+      <li><strong>声調記号の無い字は軽声。</strong>謝謝 xièxie の後ろ、東西 dōngxi、這個 zhège の ge がそれで、軽く短く添えるだけです。</li>
+    </ol>
+    <p class="sec-note">台湾では本来「注音符号（ㄅㄆㄇㄈ）」という別の記号を使いますが、学習者はピンインで問題ありません。ただし<strong>街の看板やパスポートのローマ字はピンインとは限りません</strong>。台北 Taipei（ピンインなら Táiběi）、高雄 Kaohsiung（Gāoxióng）のように別系統の綴りが残っているので、看板のローマ字をそのまま読んでも通じないことがあります。</p>
+    <p class="sec-note">なお、この台本で「這個」のカナを<strong>ジェイガ</strong>としているのは、台湾では zhèige と発音されることが多いためです。ピンインどおりの zhège でも通じます。</p>
+  </div>
+
+  <div class="zh-group">
+    <h3>四声 <span>音の高さの動き</span></h3>
+    <p class="sec-note">同じ「ma」でも、高さの動かし方が4通りあり、<strong>それぞれ別の単語</strong>になります。日本語で「はし」を高低で「橋／箸」と言い分けるのと同じ理屈です。違いは、日本語は単語ごと、中国語は<strong>漢字1文字ごとに高さが決まっている</strong>点です。</p>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>声調</th><th>形</th><th>動き</th><th>例</th><th>意味</th></tr></thead>
+        <tbody>
+          <tr><td class="pin">第1声 mā</td><td class="tone"><svg class="tone-svg" viewBox="0 0 48 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 5 H45"/></svg></td><td class="use">高いまま平ら</td><td class="han">媽</td><td class="use">お母さん</td></tr>
+          <tr><td class="pin">第2声 má</td><td class="tone"><svg class="tone-svg" viewBox="0 0 48 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 16 L45 4"/></svg></td><td class="use">下から上へ上げる</td><td class="han">麻</td><td class="use">しびれる</td></tr>
+          <tr><td class="pin">第3声 mǎ</td><td class="tone"><svg class="tone-svg" viewBox="0 0 48 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7 L16 16 L45 8"/></svg></td><td class="use">低く沈めて少し上げる</td><td class="han">馬</td><td class="use">馬</td></tr>
+          <tr><td class="pin">第4声 mà</td><td class="tone"><svg class="tone-svg" viewBox="0 0 48 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 4 L45 17"/></svg></td><td class="use">上から下へ落とす</td><td class="han">罵</td><td class="use">ののしる</td></tr>
+          <tr><td class="pin">軽声 ma</td><td class="tone"><svg class="tone-svg" viewBox="0 0 48 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M19 10 H29"/></svg></td><td class="use">軽く添えるだけ</td><td class="han">嗎</td><td class="use">〜か（疑問）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-note">最大の落とし穴は、<strong>カナだけで覚えると全部が第1声（高く平ら）になる</strong>ことです。「シエシエ」と平坦に言っても通じません。実際は xiè が上から落ちる第4声、xie が軽声です。</p>
+  </div>
+
+  <div class="zh-group">
+    <h3>変調 <span>となり合うと高さが変わる</span></h3>
+    <p class="sec-note">声調には例外規則が3つだけあります。この台本のピンインは<strong>すでに変調したあとの形で書いてある</strong>ので、書いてあるとおりに読めば正しくなります。覚える必要はありません。「なぜ辞書と綴りが違うのか」を知っておくためのものです。</p>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>規則</th><th>例</th><th>言い方</th></tr></thead>
+        <tbody>
+          <tr><td class="use">第3声が続くと、前が第2声になる</td><td class="kana">你好 nǐ hǎo → ní hǎo</td><td class="use">「ニー」を沈めずに上げる。ニーハオが上がり調子に聞こえるのはこのため</td></tr>
+          <tr><td class="use">不 bù は第4声の前で bú になる</td><td class="kana">不要 bú yào、不用 búyòng</td><td class="use">「ブー」を上げてから「ヤオ」を落とす</td></tr>
+          <tr><td class="use">一 yī は第4声の前で yí、それ以外の前で yì</td><td class="kana">一個 yí ge、一張 yì zhāng</td><td class="use">単独で数を数えるときだけ yī のまま</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-note">49フレーズの表で 不要 が bú yào、一個 が yí ge と書いてあるのはこの規則によるものです。そのまま読めば正しい高さになります。</p>
+  </div>
+
+  <div class="zh-group">
+    <h3>間違えると困る組み合わせ <span>旅行で実害が出る例</span></h3>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th colspan="2">こちらと</th><th colspan="2">こちら</th><th>実害</th></tr></thead>
+        <tbody>
+          <tr><td class="han">四</td><td class="pin">sì 第4声</td><td class="han">十</td><td class="pin">shí 第2声</td><td class="use">値段の聞き取り。40元と14元を取り違える</td></tr>
+          <tr><td class="han">買</td><td class="pin">mǎi 第3声</td><td class="han">賣</td><td class="pin">mài 第4声</td><td class="use">買うと売るが逆になる</td></tr>
+          <tr><td class="han">水餃</td><td class="pin">shuǐjiǎo</td><td class="han">睡覺</td><td class="pin">shuìjiào</td><td class="use">水餃子と「寝る」。店で言い間違えると妙なことになる</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-note">2つを続けて再生して、違いが聞き分けられるようになれば1〜2週目は合格です。</p>
+  </div>
+
+  <div class="zh-group">
+    <h3>練習のしかた <span>1日30分</span></h3>
+    <ol class="pron-steps">
+      <li><strong>音を聞いて、そのまま真似る。</strong>カナは補助輪で、音のほうが正解です。上の表のスピーカーを押して、聞こえたとおりに繰り返してください。</li>
+      <li><strong>手で高さを描きながら言う。</strong>第2声なら手を下から上へ、第4声なら上から下へ振る。恥ずかしいですが、これが一番速く定着します。</li>
+      <li><strong>紙を1枚持って息を確かめる。</strong>口の前に垂らした紙が、p・t・k・q・c・ch では揺れ、b・d・g・j・z・zh では揺れない。これが有気音と無気音の差です。声調と並んで、通じるかどうかを分ける2本柱がこれです。</li>
+      <li><strong>録音して聞き比べる。</strong>自分では平坦に言っているつもりがないので、録音でしか気づけません。</li>
+      <li><strong>この2週間はフレーズを覚えない。</strong>音の型ができてから語を足すほうが、結果的に速く進みます。</li>
+    </ol>
+    <p class="sec-note">日本人はこれが得意です。日本語も「雨／飴」を高低で区別する言語なので、その感覚がそのまま使えます。英語話者が最も苦労するところで、ここは近道ができます。</p>
+  </div>
+</section>
+
+<!-- ============ chinese ============ -->
+<section id="zh">
+  <div class="sec-head">
+    <h2>中国語 49フレーズ</h2>
+    <span class="range">中文</span>
+  </div>
+  <p class="sec-note">文法はやりません。この49個を音のかたまりとして覚えるだけで、屋台とタクシーは足ります。カナは目安なので、必ずアプリの音を聞いて上書きしてください。</p>
+
+  <div class="zh-group">
+    <h3>基本 <span>11</span></h3>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>中国語</th><th>ピンイン</th><th>カナ</th><th>使う場面</th></tr></thead>
+        <tbody>
+          <tr><td class="han">謝謝</td><td class="pin">xièxie</td><td class="kana">シエシエ</td><td class="use">ありがとう。全場面</td></tr>
+          <tr><td class="han">不好意思</td><td class="pin">bù hǎo yìsi</td><td class="kana">ブーハオイース</td><td class="use">すみません。呼びかけにも謝罪にも使う万能語</td></tr>
+          <tr><td class="han">對不起</td><td class="pin">duìbùqǐ</td><td class="kana">ドゥイブチー</td><td class="use">ごめんなさい。ぶつかった時</td></tr>
+          <tr><td class="han">你好</td><td class="pin">nǐ hǎo</td><td class="kana">ニーハオ</td><td class="use">こんにちは</td></tr>
+          <tr><td class="han">再見</td><td class="pin">zàijiàn</td><td class="kana">ザイジエン</td><td class="use">さようなら</td></tr>
+          <tr><td class="han">好</td><td class="pin">hǎo</td><td class="kana">ハオ</td><td class="use">はい・OK。返事はこれ一つで足りる</td></tr>
+          <tr><td class="han">不用</td><td class="pin">búyòng</td><td class="kana">ブーヨン</td><td class="use">結構です。断りの基本形</td></tr>
+          <tr><td class="han">可以嗎</td><td class="pin">kěyǐ ma</td><td class="kana">クーイー マ</td><td class="use">いいですか。動作を指さして付ける</td></tr>
+          <tr><td class="han">聽不懂</td><td class="pin">tīng bù dǒng</td><td class="kana">ティンブドン</td><td class="use">聞き取れません。困ったらこれで仕切り直す</td></tr>
+          <tr><td class="han">我是日本人</td><td class="pin">wǒ shì Rìběn rén</td><td class="kana">ウォシー リーベンレン</td><td class="use">日本人です。台湾では空気が和らぐ一言</td></tr>
+          <tr><td class="han">你會說日文嗎</td><td class="pin">nǐ huì shuō Rìwén ma</td><td class="kana">ニー ホイ シュオ リーウェン マ</td><td class="use">日本語は話せますか。通じれば以降は日本語で進む</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="zh-group">
+    <h3>買う <span>12</span></h3>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>中国語</th><th>ピンイン</th><th>カナ</th><th>使う場面</th></tr></thead>
+        <tbody>
+          <tr><td class="han">這個</td><td class="pin">zhège</td><td class="kana">ジェイガ</td><td class="use">これ。指さしとセットで注文が完結する</td></tr>
+          <tr><td class="han">我要這個</td><td class="pin">wǒ yào zhège</td><td class="kana">ウォヤオ ジェイガ</td><td class="use">これをください</td></tr>
+          <tr><td class="han">多少錢</td><td class="pin">duōshǎo qián</td><td class="kana">ドゥオシャオ チエン</td><td class="use">いくらですか。屋台で必須</td></tr>
+          <tr><td class="han">太貴了</td><td class="pin">tài guì le</td><td class="kana">タイ グイ ラ</td><td class="use">高すぎます。土産物屋で</td></tr>
+          <tr><td class="han">有沒有⋯</td><td class="pin">yǒu méiyǒu</td><td class="kana">ヨウメイヨウ</td><td class="use">⋯はありますか</td></tr>
+          <tr><td class="han">一個</td><td class="pin">yí ge</td><td class="kana">イーガ</td><td class="use">1つ</td></tr>
+          <tr><td class="han">兩個</td><td class="pin">liǎng ge</td><td class="kana">リャンガ</td><td class="use">2つ。二個とは言わないので注意</td></tr>
+          <tr><td class="han">買單</td><td class="pin">mǎidān</td><td class="kana">マイダン</td><td class="use">お会計。食堂で手を挙げて一言</td></tr>
+          <tr><td class="han">可以刷卡嗎</td><td class="pin">kěyǐ shuākǎ ma</td><td class="kana">クーイー シュアカー マ</td><td class="use">カードは使えますか</td></tr>
+          <tr><td class="han">要袋子</td><td class="pin">yào dàizi</td><td class="kana">ヤオ ダイズ</td><td class="use">袋をください</td></tr>
+          <tr><td class="han">不用袋子</td><td class="pin">búyòng dàizi</td><td class="kana">ブーヨン ダイズ</td><td class="use">袋は要りません</td></tr>
+          <tr><td class="han">我看看</td><td class="pin">wǒ kànkan</td><td class="kana">ウォ カンカン</td><td class="use">見ているだけです。声をかけられた時</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="zh-group">
+    <h3>食べる <span>10</span></h3>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>中国語</th><th>ピンイン</th><th>カナ</th><th>使う場面</th></tr></thead>
+        <tbody>
+          <tr><td class="han">不要香菜</td><td class="pin">bú yào xiāngcài</td><td class="kana">ブーヤオ シャンツァイ</td><td class="use">パクチー抜きで。苦手なら最重要</td></tr>
+          <tr><td class="han">不要辣</td><td class="pin">bú yào là</td><td class="kana">ブーヤオ ラー</td><td class="use">辛くしないで</td></tr>
+          <tr><td class="han">小辣</td><td class="pin">xiǎo là</td><td class="kana">シャオ ラー</td><td class="use">辛さ控えめで</td></tr>
+          <tr><td class="han">好吃</td><td class="pin">hǎochī</td><td class="kana">ハオチー</td><td class="use">おいしい。言うと必ず喜ばれる</td></tr>
+          <tr><td class="han">內用</td><td class="pin">nèiyòng</td><td class="kana">ネイヨン</td><td class="use">店内で食べます<span class="tw">台湾</span></td></tr>
+          <tr><td class="han">外帶</td><td class="pin">wàidài</td><td class="kana">ワイダイ</td><td class="use">持ち帰りで<span class="tw">台湾</span></td></tr>
+          <tr><td class="han">菜單</td><td class="pin">càidān</td><td class="kana">ツァイダン</td><td class="use">メニュー</td></tr>
+          <tr><td class="han">一杯水</td><td class="pin">yì bēi shuǐ</td><td class="kana">イーベイ シュイ</td><td class="use">お水を1杯</td></tr>
+          <tr><td class="han">再一個</td><td class="pin">zài yí ge</td><td class="kana">ザイ イーガ</td><td class="use">もう1つください</td></tr>
+          <tr><td class="han">兩位</td><td class="pin">liǎng wèi</td><td class="kana">リャンウェイ</td><td class="use">2名です。店に入って最初の一言</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="zh-group">
+    <h3>移動 <span>11</span></h3>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>中国語</th><th>ピンイン</th><th>カナ</th><th>使う場面</th></tr></thead>
+        <tbody>
+          <tr><td class="han">計程車</td><td class="pin">jìchéngchē</td><td class="kana">ジーチョンチャー</td><td class="use">タクシー<span class="tw">台湾</span></td></tr>
+          <tr><td class="han">松山機場</td><td class="pin">Sōngshān jīchǎng</td><td class="kana">ソンシャン ジーチャン</td><td class="use">松山空港。帰りのタクシーで行き先として言う</td></tr>
+          <tr><td class="han">捷運站</td><td class="pin">jiéyùn zhàn</td><td class="kana">ジエユン ヂャン</td><td class="use">MRTの駅<span class="tw">台湾</span></td></tr>
+          <tr><td class="han">到這裡</td><td class="pin">dào zhèlǐ</td><td class="kana">ダオ ジャーリ</td><td class="use">ここまで。画面を見せながら</td></tr>
+          <tr><td class="han">停這裡</td><td class="pin">tíng zhèlǐ</td><td class="kana">ティン ジャーリ</td><td class="use">ここで停めてください</td></tr>
+          <tr><td class="han">要多久</td><td class="pin">yào duōjiǔ</td><td class="kana">ヤオ ドゥオジウ</td><td class="use">どのくらいかかりますか</td></tr>
+          <tr><td class="han">直走</td><td class="pin">zhí zǒu</td><td class="kana">ヂー ゾウ</td><td class="use">まっすぐ。答えに出る語</td></tr>
+          <tr><td class="han">左轉</td><td class="pin">zuǒ zhuǎn</td><td class="kana">ズオ ヂュアン</td><td class="use">左に曲がる</td></tr>
+          <tr><td class="han">右轉</td><td class="pin">yòu zhuǎn</td><td class="kana">ヨウ ヂュアン</td><td class="use">右に曲がる</td></tr>
+          <tr><td class="han">⋯在哪裡</td><td class="pin">zài nǎlǐ</td><td class="kana">ザイ ナーリ</td><td class="use">⋯はどこですか。地名の後ろに付けるだけ</td></tr>
+          <tr><td class="han">廁所在哪裡</td><td class="pin">cèsuǒ zài nǎlǐ</td><td class="kana">ツースオ ザイ ナーリ</td><td class="use">トイレはどこですか</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="zh-group">
+    <h3>困ったとき <span>5</span></h3>
+    <div class="zh-wrap">
+      <table class="zh-table">
+        <thead><tr><th>中国語</th><th>ピンイン</th><th>カナ</th><th>使う場面</th></tr></thead>
+        <tbody>
+          <tr><td class="han">幫幫我</td><td class="pin">bāngbang wǒ</td><td class="kana">バンバン ウォ</td><td class="use">助けてください</td></tr>
+          <tr><td class="han">我不舒服</td><td class="pin">wǒ bù shūfú</td><td class="kana">ウォ ブーシューフー</td><td class="use">具合が悪いです</td></tr>
+          <tr><td class="han">肚子痛</td><td class="pin">dùzi tòng</td><td class="kana">ドゥーズ トン</td><td class="use">お腹が痛い</td></tr>
+          <tr><td class="han">醫院在哪裡</td><td class="pin">yīyuàn zài nǎlǐ</td><td class="kana">イーユエン ザイ ナーリ</td><td class="use">病院はどこですか</td></tr>
+          <tr><td class="han">我迷路了</td><td class="pin">wǒ mílù le</td><td class="kana">ウォ ミールー ラ</td><td class="use">道に迷いました</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="zh-group">
+    <h3>数字 <span>値段の聞き取りに直結</span></h3>
+    <div class="numbers">
+      <div><b>一 <span class="nospeak">1</span></b><span>yī イー</span></div>
+      <div><b>二 <span class="nospeak">2</span></b><span>èr アル</span></div>
+      <div><b>三 <span class="nospeak">3</span></b><span>sān サン</span></div>
+      <div><b>四 <span class="nospeak">4</span></b><span>sì スー</span></div>
+      <div><b>五 <span class="nospeak">5</span></b><span>wǔ ウー</span></div>
+      <div><b>六 <span class="nospeak">6</span></b><span>liù リウ</span></div>
+      <div><b>七 <span class="nospeak">7</span></b><span>qī チー</span></div>
+      <div><b>八 <span class="nospeak">8</span></b><span>bā バー</span></div>
+      <div><b>九 <span class="nospeak">9</span></b><span>jiǔ ジウ</span></div>
+      <div><b>十 <span class="nospeak">10</span></b><span>shí シー</span></div>
+      <div><b>百 <span class="nospeak">100</span></b><span>bǎi バイ</span></div>
+      <div><b>兩百 <span class="nospeak">200</span></b><span>liǎngbǎi リャンバイ</span></div>
+    </div>
+    <p class="sec-note">「2つ」は 二個 ではなく <strong>兩個</strong>。値段は 五十（50）、一百（100）、兩百五（250）のように言われます。屋台の会話は結局この数字の聞き取りが山場なので、毎日2分だけでも音で練習してください。</p>
+    <p class="sec-note">部屋番号や建物の名前のように<strong>番号を1桁ずつ読むとき、1 は yī ではなく 幺 yāo</strong> になります。台北101は「ヤオリンヤオ」、1205号室は「ヤオアルリンウー」。電話番号も同じです。読み上げもこの読み方で鳴ります。</p>
+  </div>
+</section>
+
+<footer>
+  <p>中国語の学習アプリは大陸の普通話・簡体字が前提のものが大半です。学習自体はそれで構いませんが、旅行で使う単語だけは台湾の言い方（<span class="tw">台湾</span> の印がついたもの）で覚えてください。</p>
+  <p>バスの系統番号、営業時間、料金、展示の有無といった運用面の情報は変わります。この台本は言い方の練習用で、出発前に現地の最新情報で確認してください。</p>
+  <p>読み上げは端末に入っている音声を使っています。発音の傾向をつかむには十分ですが、声調の細かい判定は専用アプリの録音音声のほうが正確です。</p>
+</footer>
+
+</div>
+
+<button type="button" class="menu-fab" id="menuFab" aria-expanded="false" aria-controls="menuPanel">
+  <span>場面</span><span class="fab-num">30</span>
+</button>
+
+<div class="menu-panel" id="menuPanel" role="dialog" aria-label="場面へ移動" hidden>
+  <div class="menu-top">
+    <p class="menu-title">JUMP TO</p>
+    <button type="button" class="menu-close" id="menuClose">閉じる</button>
+  </div>
+  <nav class="menu-body" aria-label="場面へのジャンプ">
+      <p class="menu-head">ページ</p>
+      <a href="#top"><span class="mn">▲</span><span>先頭へ</span></a>
+      <a href="#plan"><span class="mn">計画</span><span>8週間の進め方</span></a>
+      <a href="#log"><span class="mn">記録</span><span>毎日の記録</span></a>
+      <p class="menu-head">移動と基本</p>
+      <a href="#c01"><span class="mn">01</span><span>空港で悠遊カードを買う</span></a>
+      <a href="#c02"><span class="mn">02</span><span>タクシーでホテルへ</span></a>
+      <a href="#c03"><span class="mn">03</span><span>MRTで行き方を聞く</span></a>
+      <a href="#c04"><span class="mn">04</span><span>コンビニで買う</span></a>
+      <a href="#c05"><span class="mn">05</span><span>道を聞く</span></a>
+      <p class="menu-head">リージェント台北</p>
+      <a href="#c06"><span class="mn">06</span><span>チェックイン</span></a>
+      <a href="#c07"><span class="mn">07</span><span>早く着いた・荷物を預ける</span></a>
+      <a href="#c08"><span class="mn">08</span><span>朝食について聞く</span></a>
+      <a href="#c09"><span class="mn">09</span><span>部屋の不具合を伝える</span></a>
+      <a href="#c10"><span class="mn">10</span><span>チェックアウトとタクシー手配</span></a>
+      <p class="menu-head">鼎泰豐 台北101店</p>
+      <a href="#c11"><span class="mn">11</span><span>受付で人数と待ち時間</span></a>
+      <a href="#c12"><span class="mn">12</span><span>注文する</span></a>
+      <a href="#c13"><span class="mn">13</span><span>追加注文・取り皿・パクチー抜き</span></a>
+      <a href="#c14"><span class="mn">14</span><span>食べ方を聞く</span></a>
+      <a href="#c15"><span class="mn">15</span><span>会計・持ち帰り</span></a>
+      <p class="menu-head">台北101 展望台</p>
+      <a href="#c16"><span class="mn">16</span><span>展望台のチケットを買う</span></a>
+      <p class="menu-head">九份</p>
+      <a href="#c17"><span class="mn">17</span><span>バス乗り場を探す</span></a>
+      <a href="#c18"><span class="mn">18</span><span>茶藝館で席につく</span></a>
+      <a href="#c19"><span class="mn">19</span><span>屋台で買う</span></a>
+      <a href="#c20"><span class="mn">20</span><span>写真を撮ってもらう</span></a>
+      <p class="menu-head">十分</p>
+      <a href="#c21"><span class="mn">21</span><span>平渓線の切符を買う</span></a>
+      <a href="#c22"><span class="mn">22</span><span>天燈を上げる</span></a>
+      <a href="#c23"><span class="mn">23</span><span>天燈の写真と動画を頼む</span></a>
+      <a href="#c24"><span class="mn">24</span><span>十分瀑布への道を聞く</span></a>
+      <p class="menu-head">故宮博物院</p>
+      <a href="#c25"><span class="mn">25</span><span>チケットと音声ガイド</span></a>
+      <a href="#c26"><span class="mn">26</span><span>荷物と館内のルール</span></a>
+      <a href="#c27"><span class="mn">27</span><span>展示を探す・ショップ</span></a>
+      <p class="menu-head">困ったとき</p>
+      <a href="#c28"><span class="mn">28</span><span>体調が悪い・薬局</span></a>
+      <a href="#c29"><span class="mn">29</span><span>忘れ物・落とし物</span></a>
+      <a href="#c30"><span class="mn">30</span><span>道に迷った</span></a>
+      <p class="menu-head">資料</p>
+      <a href="#pron"><span class="mn">音</span><span>発音の入口</span></a>
+      <a href="#zh"><span class="mn">中文</span><span>中国語 49フレーズ</span></a>
+  </nav>
+</div>
+
+<script>
+(function () {
+  var synth = window.speechSynthesis;
+  var vstat = document.getElementById('vstat');
+  var vhelp = document.getElementById('vhelp');
+  var stopBtn = document.getElementById('stopall');
+
+  if (!synth) {
+    vstat.textContent = 'このブラウザは読み上げに対応していません。';
+    document.getElementById('audiobar').querySelector('.seg').hidden = true;
+    return;
+  }
+
+  var RATES = {
+    slow:   { en: 0.6,  zh: 0.55 },
+    normal: { en: 0.9,  zh: 0.85 },
+    fast:   { en: 1.2,  zh: 1.1  }   // 現地の話す速さに近い。聞き取りの練習用
+  };
+  // 行と行の間。ゆっくりのときは復唱の間を長く取る
+  var GAPS = {
+    slow:   { en: 400, zh: 500 },
+    normal: { en: 250, zh: 350 },
+    fast:   { en: 150, zh: 200 }
+  };
+  var speed = 'normal';
+  var voice = { en: null, zh: null };
+  var queue = [];
+  var active = null;
+
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6.5 9H3v6h3.5L11 19V5z"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.8 6.7a8 8 0 0 1 0 10.6"/></svg>';
+
+  /* ---- voice selection ---- */
+
+  function pick(list, prefixes) {
+    for (var p = 0; p < prefixes.length; p++) {
+      for (var i = 0; i < list.length; i++) {
+        var lang = (list[i].lang || '').toLowerCase().replace('_', '-');
+        if (lang.indexOf(prefixes[p]) === 0) return list[i];
+      }
+    }
+    return null;
+  }
+
+  function loadVoices() {
+    var list = synth.getVoices() || [];
+    if (!list.length) return false;
+    voice.en = pick(list, ['en-us', 'en-gb', 'en-au', 'en']);
+    voice.zh = pick(list, ['zh-tw', 'zh-hk', 'zh-cn', 'zh', 'cmn']);
+    report();
+    return true;
+  }
+
+  function report() {
+    var out = [];
+    out.push(voice.en ? '<b>英語 ✓</b>' : '<i>英語 ✗</i>');
+    out.push(voice.zh ? '<b>中国語 ✓ ' + (voice.zh.lang || '') + '</b>' : '<i>中国語 ✗</i>');
+    vstat.innerHTML = out.join(' &nbsp;/&nbsp; ');
+
+    if (!voice.zh || !voice.en) {
+      var miss = !voice.zh ? '中国語' : '英語';
+      vhelp.innerHTML = '<strong>' + miss + 'の音声が端末に入っていません。</strong> ' +
+        'Windows は 設定 → 時刻と言語 → 音声 → 音声の追加、' +
+        'iPhone は 設定 → アクセシビリティ → 読み上げコンテンツ → 声、' +
+        'Android は 設定 → システム → 言語と入力 → 音声出力、から追加できます。' +
+        (!voice.zh ? '中国語は台湾（zh-TW）を選んでください。' : '');
+      vhelp.hidden = false;
+    } else {
+      vhelp.hidden = true;
+    }
+  }
+
+  if (!loadVoices()) {
+    synth.addEventListener('voiceschanged', loadVoices);
+    setTimeout(loadVoices, 800);
+  }
+
+  /* ---- speaking ---- */
+
+  function clearActive() {
+    if (active) {
+      active.classList.remove('on');
+      if (active.classList.contains('playall')) active.textContent = '通し再生';
+      active = null;
+    }
+    stopBtn.hidden = true;
+  }
+
+  function stopAll() {
+    queue = [];
+    synth.cancel();
+    clearActive();
+  }
+
+  function run() {
+    if (!queue.length) { clearActive(); return; }
+    var item = queue.shift();
+    var u = new SpeechSynthesisUtterance(item.text);
+    if (voice[item.lang]) u.voice = voice[item.lang];
+    u.lang = voice[item.lang] ? voice[item.lang].lang : (item.lang === 'zh' ? 'zh-TW' : 'en-US');
+    u.rate = RATES[speed][item.lang];
+    u.onend = function () { setTimeout(run, GAPS[speed][item.lang]); };
+    u.onerror = function () { setTimeout(run, 200); };
+    synth.speak(u);
+  }
+
+  function play(items, btn) {
+    stopAll();
+    if (!items.length) return;
+    queue = items;
+    active = btn;
+    btn.classList.add('on');
+    if (btn.classList.contains('playall')) btn.textContent = '停止';
+    stopBtn.hidden = false;
+    run();
+  }
+
+  stopBtn.addEventListener('click', stopAll);
+
+  /* ---- text extraction ---- */
+
+  function enText(el) {
+    return el.textContent
+      .replace(/_+/g, ' something ')
+      .replace(/\s*\/\s*/g, '. ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /* 台北101、1205号室、302室のように、算用数字は1桁ずつ読ませる。
+     1 は yī ではなく 幺 yāo。番号を読むときの台湾での言い方に合わせる。 */
+  var DIGIT = { '0': '零', '1': '幺', '2': '二', '3': '三', '4': '四',
+                '5': '五', '6': '六', '7': '七', '8': '八', '9': '九' };
+
+  /** 読み上げない要素を落とし、算用数字を漢数字に置き換えた素の文字列 */
+  function zhSrc(el) {
+    var clone = el.cloneNode(true);
+    var skip = clone.querySelectorAll('.rom, .tw, .nospeak');
+    for (var i = 0; i < skip.length; i++) skip[i].remove();
+    return clone.textContent
+      .replace(/[⋯…]/g, '')
+      .replace(/[0-9]/g, function (d) { return DIGIT[d]; });
+  }
+
+  /** 中国語音声に渡す部分。ラテン文字と記号を落とす */
+  function zhClean(s) {
+    return s
+      .replace(/[A-Za-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ·,.'"()-]/gi, '')
+      .replace(/\s+/g, '')
+      .trim();
+  }
+
+  /**
+   * 中国語の行を、言語ごとの読み上げ断片に分ける。
+   * 「Wi-Fi密碼是什麼？」→ 英語音声で Wi-Fi、続けて中国語音声で 密碼是什麼。
+   * ラテン文字を中国語音声にそのまま渡すと、端末によって読み方が変わったり
+   * 読み飛ばされたりするため、その部分だけ英語音声に回す。
+   */
+  function zhParts(el) {
+    var src = zhSrc(el);
+    var out = [];
+    var re = /[A-Za-z][A-Za-z'.-]*/g;
+    var last = 0, m, zh;
+    while ((m = re.exec(src)) !== null) {
+      zh = zhClean(src.slice(last, m.index));
+      if (zh) out.push({ text: zh, lang: 'zh' });
+      out.push({ text: m[0], lang: 'en' });
+      last = m.index + m[0].length;
+    }
+    zh = zhClean(src.slice(last));
+    if (zh) out.push({ text: zh, lang: 'zh' });
+    return out;
+  }
+
+  /* ---- attach buttons ---- */
+
+  function addButton(el, items, lang) {
+    if (!items.length) return;
+    var label = [];
+    for (var n = 0; n < items.length; n++) label.push(items[n].text);
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'speak' + (lang === 'zh' ? ' zh' : '');
+    b.innerHTML = ICON;
+    b.setAttribute('aria-label',
+      (lang === 'zh' ? '中国語を読み上げる' : '英語を読み上げる') + '：' + label.join(' '));
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (active === b) { stopAll(); return; }
+      play(items.slice(), b);
+    });
+    el.appendChild(b);
+  }
+
+  var enSel = document.querySelectorAll('.en, .keep-phrase');
+  for (var i = 0; i < enSel.length; i++) {
+    var et = enText(enSel[i]);
+    if (et) addButton(enSel[i], [{ text: et, lang: 'en' }], 'en');
+  }
+
+  // .lines-tag（「中文」の見出し）は本文ではないので読み上げない
+  var zhSel = document.querySelectorAll(
+    '.zh:not(.lines-tag), .zh-say b, .zh-table td.han, .numbers b');
+  for (var j = 0; j < zhSel.length; j++) addButton(zhSel[j], zhParts(zhSel[j]), 'zh');
+
+  /* ---- per-card sequential playback ---- */
+
+  var cards = document.querySelectorAll('.card');
+  for (var c = 0; c < cards.length; c++) {
+    (function (card) {
+      var head = card.querySelector('.card-head');
+      if (!head) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'playall';
+      btn.textContent = '通し再生';
+      btn.addEventListener('click', function () {
+        if (active === btn) { stopAll(); return; }
+        var mode = (document.body.className.match(/show-(\w+)/) || [0, 'both'])[1];
+        var sel = mode === 'zh' ? '.lines-zh .zh:not(.lines-tag)'
+          : mode === 'en' ? '.lines-en .en'
+          : '.lines-en .en, .lines-zh .zh:not(.lines-tag)';
+        var nodes = card.querySelectorAll(sel);
+        var items = [];
+        for (var k = 0; k < nodes.length; k++) {
+          if (nodes[k].classList.contains('zh')) {
+            items = items.concat(zhParts(nodes[k]));
+          } else {
+            var t = enText(nodes[k]);
+            if (t) items.push({ text: t, lang: 'en' });
+          }
+        }
+        play(items, btn);
+      });
+      head.appendChild(btn);
+    })(cards[c]);
+  }
+
+  /* ---- speed ---- */
+
+  document.body.classList.add('show-both');
+  var lgb = document.getElementById('lg-b');
+  var lge = document.getElementById('lg-e');
+  var lgz = document.getElementById('lg-z');
+  function setLang(mode) {
+    document.body.classList.remove('show-both', 'show-en', 'show-zh');
+    document.body.classList.add('show-' + mode);
+    lgb.setAttribute('aria-pressed', String(mode === 'both'));
+    lge.setAttribute('aria-pressed', String(mode === 'en'));
+    lgz.setAttribute('aria-pressed', String(mode === 'zh'));
+    stopAll();
+  }
+  lgb.addEventListener('click', function () { setLang('both'); });
+  lge.addEventListener('click', function () { setLang('en'); });
+  lgz.addEventListener('click', function () { setLang('zh'); });
+
+  var SPEEDS = [['spd-s', 'slow'], ['spd-n', 'normal'], ['spd-f', 'fast']];
+  function setSpeed(next) {
+    speed = next;
+    for (var s = 0; s < SPEEDS.length; s++) {
+      document.getElementById(SPEEDS[s][0])
+        .setAttribute('aria-pressed', String(SPEEDS[s][1] === next));
+    }
+    stopAll();
+  }
+  for (var sp = 0; sp < SPEEDS.length; sp++) {
+    (function (mode) {
+      document.getElementById(SPEEDS[sp][0])
+        .addEventListener('click', function () { setSpeed(mode); });
+    })(SPEEDS[sp][1]);
+  }
+
+  window.addEventListener('pagehide', stopAll);
+})();
+</script>
+
+<script>
+(function () {
+  var START = '2026-08-17';
+  var DAYS = 56;
+  var KEYS = ['e', 'z', 'r', 'v'];
+  var STORE = 'taipei-log-v1';
+
+  var elDate = document.getElementById('logDate');
+  var elToggles = document.getElementById('logToggles');
+  var elMemo = document.getElementById('logMemo');
+  var elGrid = document.getElementById('logGrid');
+  var elStats = document.getElementById('logStats');
+  var elStatus = document.getElementById('logStatus');
+  var elData = document.getElementById('logData');
+
+  var canStore = false;
+  try {
+    window.localStorage.setItem('__t', '1');
+    window.localStorage.removeItem('__t');
+    canStore = true;
+  } catch (e) { canStore = false; }
+
+  var data = { v: 1, d: {} };
+  if (canStore) {
+    try {
+      var raw = window.localStorage.getItem(STORE);
+      if (raw) data = JSON.parse(raw);
+      if (!data || !data.d) data = { v: 1, d: {} };
+    } catch (e2) { data = { v: 1, d: {} }; }
+  }
+
+  function save() {
+    if (canStore) {
+      try { window.localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
+    }
+    elData.value = JSON.stringify(data);
+  }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function parse(str) { var p = str.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function addDays(str, n) { var d = parse(str); d.setDate(d.getDate() + n); return iso(d); }
+
+  var dates = [];
+  for (var i = 0; i < DAYS; i++) dates.push(addDays(START, i));
+
+  var today = iso(new Date());
+  var selected = dates.indexOf(today) > -1 ? today : (today < START ? START : dates[DAYS - 1]);
+
+  function rec(day) { return data.d[day] || {}; }
+  function count(day) {
+    var r = rec(day), c = 0;
+    for (var i = 0; i < KEYS.length; i++) if (r[KEYS[i]]) c++;
+    return c;
+  }
+
+  var WD = ['日', '月', '火', '水', '木', '金', '土'];
+  function label(day) {
+    var d = parse(day);
+    return (d.getMonth() + 1) + '月' + d.getDate() + '日（' + WD[d.getDay()] + '）';
+  }
+
+  function renderToday() {
+    elDate.textContent = label(selected) + (selected === today ? '　今日' : '');
+    var r = rec(selected);
+    var btns = elToggles.querySelectorAll('button');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute('aria-pressed', r[btns[i].dataset.k] ? 'true' : 'false');
+    }
+    elMemo.value = r.m || '';
+  }
+
+  function renderGrid() {
+    elGrid.innerHTML = '';
+    for (var i = 0; i < DAYS; i++) {
+      var day = dates[i];
+      var c = count(day);
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'lv' + c + (day === selected ? ' sel' : '') + (day === today ? ' today' : '');
+      b.textContent = parse(day).getDate();
+      b.setAttribute('aria-label', label(day) + ' ' + c + '項目');
+      (function (dd) {
+        b.addEventListener('click', function () { selected = dd; renderAll(); });
+      })(day);
+      elGrid.appendChild(b);
+    }
+  }
+
+  function renderStats() {
+    var done = 0, total = 0, streak = 0;
+    for (var i = 0; i < DAYS; i++) {
+      var c = count(dates[i]);
+      if (c > 0) done++;
+      total += c;
+    }
+    var idx = dates.indexOf(selected);
+    for (var j = idx; j >= 0; j--) {
+      if (count(dates[j]) > 0) streak++; else break;
+    }
+    var elapsed = dates.indexOf(today) > -1 ? dates.indexOf(today) + 1 : (today < START ? 0 : DAYS);
+    var rate = elapsed > 0 ? Math.round((done / elapsed) * 100) : 0;
+    elStats.innerHTML =
+      '<div><b>' + done + ' / ' + DAYS + '</b><span>やった日</span></div>' +
+      '<div><b>' + streak + '</b><span>連続</span></div>' +
+      '<div><b>' + rate + '%</b><span>実施率</span></div>' +
+      '<div><b>' + total + '</b><span>合計項目</span></div>';
+  }
+
+  function renderStatus() {
+    if (canStore) {
+      elStatus.className = 'log-status';
+      elStatus.textContent = 'この端末に自動保存されます。ファイルを開き直すと消えることがあるので、週に一度は下の記録をコピーしておいてください。';
+    } else {
+      elStatus.className = 'log-status warn';
+      elStatus.textContent = '⚠ この開き方では自動保存できません。メールの添付をそのまま見ている場合は、共有ボタンから Safari や Chrome で開き直してください。それでも保存できないときは、下の記録をコピーして残してください。';
+    }
+  }
+
+  function renderAll() { renderToday(); renderGrid(); renderStats(); save(); }
+
+  elToggles.addEventListener('click', function (ev) {
+    var b = ev.target.closest('button');
+    if (!b) return;
+    var k = b.dataset.k;
+    if (!data.d[selected]) data.d[selected] = {};
+    data.d[selected][k] = data.d[selected][k] ? 0 : 1;
+    renderAll();
+  });
+
+  elMemo.addEventListener('input', function () {
+    if (!data.d[selected]) data.d[selected] = {};
+    data.d[selected].m = elMemo.value;
+    save();
+  });
+
+  document.getElementById('logToday').addEventListener('click', function () {
+    selected = dates.indexOf(today) > -1 ? today : (today < START ? START : dates[DAYS - 1]);
+    renderAll();
+  });
+
+  document.getElementById('logCopy').addEventListener('click', function () {
+    elData.select();
+    elData.setSelectionRange(0, 999999);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    if (!ok && navigator.clipboard) navigator.clipboard.writeText(elData.value);
+    this.textContent = 'コピーしました';
+    var btn = this;
+    setTimeout(function () { btn.textContent = 'コピー'; }, 1600);
+  });
+
+  document.getElementById('logRestore').addEventListener('click', function () {
+    try {
+      var next = JSON.parse(elData.value);
+      if (!next || !next.d) throw new Error('bad');
+      data = next;
+      renderAll();
+      this.textContent = '復元しました';
+    } catch (e) {
+      this.textContent = '読み取れません';
+    }
+    var btn = this;
+    setTimeout(function () { btn.textContent = '貼り付けた内容で復元'; }, 1600);
+  });
+
+  document.getElementById('logClear').addEventListener('click', function () {
+    if (!window.confirm('記録を全部消します。よろしいですか。')) return;
+    data = { v: 1, d: {} };
+    renderAll();
+  });
+
+  renderStatus();
+  renderAll();
+})();
+</script>
+
+<script>
+(function () {
+  var fab = document.getElementById("menuFab");
+  var panel = document.getElementById("menuPanel");
+  var closeBtn = document.getElementById("menuClose");
+  if (!fab || !panel || !closeBtn) return;
+
+  function open() {
+    panel.hidden = false;
+    fab.setAttribute("aria-expanded", "true");
+  }
+  function close() {
+    panel.hidden = true;
+    fab.setAttribute("aria-expanded", "false");
+  }
+
+  fab.addEventListener("click", function () {
+    if (panel.hidden) { open(); } else { close(); }
+  });
+  closeBtn.addEventListener("click", function () { close(); fab.focus(); });
+
+  /* jumping to a scene closes the menu */
+  panel.addEventListener("click", function (e) {
+    var t = e.target;
+    while (t && t !== panel) {
+      if (t.tagName === "A") { close(); return; }
+      t = t.parentNode;
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    if (panel.hidden) return;
+    if (panel.contains(e.target) || fab.contains(e.target)) return;
+    close();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (panel.hidden) return;
+    if (e.key === "Escape" || e.keyCode === 27) { close(); fab.focus(); }
+  });
+})();
+</script>
+<script>
+/* ============================================================
+   発音チェック
+
+   端末の音声認識に自分の発音を聞かせ、何と聞き取られたかを返す。
+   中国語は字ではなく「音」で判定する。認識エンジンは同音の別の字を
+   返すことがあり（錢 と 前 はどちらも qián）、字で比べると
+   正しく言えているのに×になってしまうため。
+
+   ずれた場所は、漢字の読みを引いて 子音・母音・声調 のどれが
+   違ったのかまで出す。四 sì を 十 shí と取られたなら、
+   子音（s→sh）と声調（第4声→第2声）の両方が原因だと分かる。
+
+   マイクの許可はページの出所ごとに出るため、file:// で直接開くと
+   使えない。その場合は案内を出す。
+   ============================================================ */
+(function () {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var help = document.getElementById('rhelp');
+  var tallyEl = document.getElementById('recTally');
+  if (!help) return;
+
+  function note(html) { help.innerHTML = html; help.hidden = false; }
+
+  if (!SR) {
+    note('<strong>このブラウザでは発音チェックが使えません。</strong> ' +
+         'Chrome、Edge、iPhone の Safari で開くと使えます。読み上げはこのままでも動きます。');
+    return;
+  }
+
+  var SERVE_HINT =
+    'このフォルダで <code>npx serve -l 8000</code> を実行し、' +
+    '<code>http://localhost:8000/</code> から開いてください。読み上げのほうは今のままでも使えます。';
+
+  if (location.protocol === 'file:') {
+    note('<strong>ファイルを直接開いているあいだは、発音チェックのマイクが使えません。</strong> ' +
+         'ブラウザは <code>file://</code> のページにマイクの許可を出せない決まりになっています。' + SERVE_HINT);
+  }
+
+  var MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<rect x="9" y="2.5" width="6" height="11" rx="3"/>' +
+    '<path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3.5"/></svg>';
+
+  /* ================= 漢字の読み ================= */
+
+  var PINYIN_SRC = '幺yao1 零ling2 兩liang3 一yi1 三san1 上shang4 下xia4 不bu4 中zhong1 久jiu3 九jiu3 了le5 二er4 五wu3 人ren2 什shen2 今jin1 付fu4 以yi3 件jian4 份fen4 位wei4 何he2 你ni3 來lai2 個ge5 們men5 候hou4 值zhi2 停ting2 健jian4 元yuan2 光guang1 內nei4 全quan2 公gong1 六liu4 共gong4 具ju4 再zai4 冰bing1 冷leng3 出chu1 分fen1 到dao4 制zhi4 刷shua1 券quan4 前qian2 加jia1 助zhu4 動dong4 包bao1 北bei3 匙chi2 十shi2 半ban4 卡ka3 去qu4 受shou4 口kou3 只zhi3 叫jiao4 可ke3 台tai2 右you4 吃chi1 合he2 名ming2 和he2 咬yao3 員yuan2 哪na3 啊a5 喝he1 單dan1 嗎ma5 四si4 回hui2 圓yuan2 在zai4 地di4 坐zuo4 場chang3 壞huai4 外wai4 多duo1 大da4 天tian1 太tai4 女nv3 好hao3 始shi3 媽ma1 子zi5 安an1 室shi4 寄ji4 密mi4 寫xie3 對dui4 導dao3 小xiao3 少shao3 就jiu4 展zhan3 山shan1 左zuo3 巾jin1 布bu4 帶dai4 幫bang1 幾ji3 店dian4 康kang1 廁ce4 張zhang1 影ying3 往wang3 待dai4 很hen3 後hou4 心xin1 怎zen3 思si1 悠you1 意yi4 懂dong3 我wo3 戶hu4 房fang2 所suo3 手shou3 打da3 拍pai1 持chi2 按an4 捷jie2 掉diao4 推tui1 換huan4 撮cuo1 放fang4 文wen2 旁pang2 日ri4 早zao3 春chun1 是shi4 時shi2 景jing3 晶jing1 最zui4 會hui4 月yue4 有you3 服fu2 本ben3 李li3 杯bei1 東dong1 松song1 枚mei2 條tiao2 梯ti1 棕zong1 概gai4 樓lou2 樣yang4 橘ju2 機ji1 櫃gui4 次ci4 歡huan1 毛mao2 氣qi4 水shui3 沒mei2 注zhu4 洞dong4 湯tang1 瀑pu4 炒chao3 烏wu1 照zhao4 燈deng1 燒shao1 燙tang4 片pian4 牌pai2 物wu4 玉yu4 班ban1 現xian4 瓶ping2 甜tian2 用yong4 番fan1 痛tong4 發fa1 白bai2 百bai3 的de5 盤pan2 直zhi2 看kan4 真zhen1 睡shui4 碼ma3 示shi4 票piao4 程cheng2 稍shao1 窗chuang1 站zhan4 第di4 等deng3 箱xiang1 籠long2 約yue1 紅hong2 給gei3 線xian4 置zhi4 罵ma4 翠cui4 聽ting1 肚du4 背bei4 能neng2 腹fu4 舒shu1 色se4 芋yu4 茶cha2 荷he2 菜cai4 華hua2 薦jian4 藥yao4 號hao4 行xing2 袋dai4 裡li3 西xi1 要yao4 見jian4 覺jue2 覽lan3 觀guan1 訂ding4 計ji4 話hua4 語yu3 說shuo1 請qing3 謝xie4 護hu4 財cai2 貴gui4 買mai3 賣mai4 走zou3 起qi3 路lu4 車che1 轉zhuan3 辣la4 迎ying2 近jin4 迷mi2 退tui4 這zhe4 進jin4 遊you2 運yun4 過guo4 道dao4 遠yuan3 還hai2 邊bian1 那na4 都dou1 酒jiu3 酸suan1 醫yi1 銀yin2 錢qian2 鐘zhong1 長chang2 閃shan3 閉bi4 開kai1 間jian1 關guan1 附fu4 限xian4 院yuan4 電dian4 靠kao4 面mian4 音yin1 預yu4 顆ke1 顏yan2 願yuan4 食shi2 飯fan4 餃jiao3 餐can1 香xiang1 馬ma3 麻ma2 麼me5 黑hei1 點dian3 龍long2 辦ban4 幣bi4 別bie2 錯cuo4 從cong2 得de5 跟gen1 國guo2 交jiao1 借jie4 客ke4 塊kuai4 老lao3 樂le4 里li3 慢man4 忙mang2 美mei3 妹mei4 門men2 米mi3 明ming2 拿na2 男nan2 難nan2 呢ne5 年nian2 您nin2 牛niu2 怕pa4 排pai2 朋peng2 便pian2 漂piao4 平ping2 七qi1 千qian1 淺qian3 橋qiao2 親qin1 情qing2 清qing1 秋qiu1 然ran2 熱re4 認ren4 肉rou4 如ru2 傘san3 森sen1 沙sha1 商shang1 誰shei2 身shen1 生sheng1 師shi1 書shu1 樹shu4 雙shuang1 送song4 蘇su1 算suan4 歲sui4 孫sun1 他ta1 她ta1 抬tai2 糖tang2 特te4 疼teng2 提ti2 體ti3 田tian2 鐵tie3 同tong2 頭tou2 圖tu2 團tuan2 腿tui3 完wan2 晚wan3 萬wan4 王wang2 網wang3 忘wang4 為wei4 問wen4 屋wu1 無wu2 午wu3 誤wu4 洗xi3 喜xi3 系xi4 夏xia4 先xian1 想xiang3 像xiang4 笑xiao4 些xie1 新xin1 信xin4 星xing1 姓xing4 兄xiong1 休xiu1 需xu1 學xue2 雪xue3 呀ya5 牙ya2 亞ya4 言yan2 眼yan3 羊yang2 養yang3 也ye3 業ye4 已yi3 由you2 又you4 魚yu2 雨yu3 遇yu4 雲yun2 找zhao3 者zhe3 正zheng4 支zhi1 知zhi1 紙zhi3 種zhong3 重zhong4 主zhu3 住zhu4 專zhuan1 準zhun3 桌zhuo1 字zi4 足zu2 昨zuo2 做zuo4';
+
+  var PY = {};
+  (function () {
+    var re = /(.)([a-z]+)([1-5])/g, m;
+    while ((m = re.exec(PINYIN_SRC)) !== null) {
+      PY[m[1]] = { py: m[2], tone: parseInt(m[3], 10) };
+    }
+  })();
+
+  /* 長いものから順に見る。zh/ch/sh を z/c/s より先に判定するため */
+  var INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l',
+                  'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
+
+  function splitPy(py) {
+    for (var i = 0; i < INITIALS.length; i++) {
+      var ini = INITIALS[i];
+      if (py.indexOf(ini) === 0 && py.length > ini.length) {
+        return { i: ini, f: py.slice(ini.length) };
+      }
+    }
+    return { i: '', f: py };
+  }
+
+  function reading(ch) {
+    var e = PY[ch];
+    if (!e) return null;
+    if (!e.parts) e.parts = splitPy(e.py);
+    return e;
+  }
+
+  var MARKS = {
+    a: ['ā', 'á', 'ǎ', 'à'], o: ['ō', 'ó', 'ǒ', 'ò'], e: ['ē', 'é', 'ě', 'è'],
+    i: ['ī', 'í', 'ǐ', 'ì'], u: ['ū', 'ú', 'ǔ', 'ù'], v: ['ǖ', 'ǘ', 'ǚ', 'ǜ']
+  };
+
+  /** qian2 → qián。表示用にピンインへ声調記号を戻す */
+  function marked(r) {
+    var py = r.py, tone = r.tone;
+    if (tone === 5) return py.replace(/v/g, 'ü');
+    var at = -1, i;
+    if (py.indexOf('a') >= 0) at = py.indexOf('a');
+    else if (py.indexOf('o') >= 0) at = py.indexOf('o');
+    else if (py.indexOf('e') >= 0) at = py.indexOf('e');
+    else for (i = py.length - 1; i >= 0; i--) {
+      if ('iuv'.indexOf(py.charAt(i)) >= 0) { at = i; break; }
+    }
+    if (at < 0) return py.replace(/v/g, 'ü');
+    return py.slice(0, at).replace(/v/g, 'ü') + MARKS[py.charAt(at)][tone - 1] +
+           py.slice(at + 1).replace(/v/g, 'ü');
+  }
+
+  /* ================= 対象の文字列を取り出す ================= */
+
+  var DIGIT = { '0': '零', '1': '幺', '2': '二', '3': '三', '4': '四',
+                '5': '五', '6': '六', '7': '七', '8': '八', '9': '九' };
+
+  function strip(el) {
+    var clone = el.cloneNode(true);
+    var skip = clone.querySelectorAll('.rom, .tw, .nospeak, .speak, .rec, .rec-out');
+    for (var i = 0; i < skip.length; i++) skip[i].parentNode.removeChild(skip[i]);
+    return clone.textContent;
+  }
+
+  /* 数字はここでは残す。お手本の表示は「1205」のままのほうが読みやすく、
+     音への変換は zhTokens 側でまとめて行う */
+  function zhRaw(el) {
+    return strip(el).replace(/[⋯…]/g, '').replace(/\s+/g, '').trim();
+  }
+
+  function enRaw(el) {
+    return strip(el).replace(/_+/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+
+  /* 認識エンジンが簡体字を返す端末があるので、読みを引く前にそろえる */
+  var FOLD_PAIRS =
+    '来來个個们們会會内內两兩对對导導厕廁带帶帮幫几幾张張条條楼樓样樣机機柜櫃' +
+    '欢歡气氣没沒汤湯灯燈烧燒烫燙现現发發盘盤码碼笼籠约約红紅给給线線骂罵听聽' +
+    '华華荐薦药藥号號里裡见見觉覺览覽观觀订訂计計话話语語说說请請谢謝护護财財' +
+    '贵貴买買卖賣车車转轉这這进進运運过過远遠还還边邊医醫银銀钱錢钟鐘长長闪閃' +
+    '闭閉开開间間关關电電预預颗顆颜顏愿願饭飯饺餃马馬么麼点點龙龍员員单單吗嗎' +
+    '圆圓场場动動坏壞乐樂应應让讓谁誰葱蔥鸡雞鱼魚虾蝦猪豬苹蘋柠檸写寫纸紙';
+
+  var FOLD = {};
+  for (var f = 0; f + 1 < FOLD_PAIRS.length; f += 2) {
+    FOLD[FOLD_PAIRS.charAt(f)] = FOLD_PAIRS.charAt(f + 1);
+  }
+  function unfold(c) { return FOLD[c] || c; }
+
+  /* 多音字。1字だけでは読みが決まらないものは、語として先に引く。
+     睡覺 は jué ではなく jiào、銀行 は xíng ではなく háng。 */
+  var WORDS = [
+    ['睡覺', ['shui4', 'jiao4']],
+    ['銀行', ['yin2', 'hang2']],
+    ['行李', ['xing2', 'li3']],
+    ['謝謝', ['xie4', 'xie5']],
+    ['意思', ['yi4', 'si5']],
+    ['東西', ['dong1', 'xi5']],
+    ['看看', ['kan4', 'kan5']],
+    ['幫幫', ['bang1', 'bang5']],
+    ['哪裡還', ['na3', 'li3', 'huan2']],
+    ['長什麼樣', ['zhang3', 'shen2', 'me5', 'yang4']]
+  ];
+  WORDS.sort(function (a, b) { return b[0].length - a[0].length; });
+
+  /** 比較の単位。disp が画面に出す形、key が突き合わせる音 */
+  function zhTokens(s) {
+    /* 認識結果は「1205」とも「幺二零五」とも返る。お手本側と同じ形にそろえる */
+    var raw = [], i, c;
+    for (i = 0; i < s.length; i++) {
+      c = s.charAt(i);
+      if (DIGIT[c]) raw.push(DIGIT[c]);
+      else if (/[㐀-鿿]/.test(c)) raw.push(c);
+    }
+
+    var disp = [], key = [];
+    i = 0;
+    while (i < raw.length) {
+      var hit = null;
+      for (var w = 0; w < WORDS.length; w++) {
+        var word = WORDS[w][0];
+        if (i + word.length > raw.length) continue;
+        var got = '';
+        for (var n = 0; n < word.length; n++) got += unfold(raw[i + n]);
+        if (got === word) { hit = WORDS[w]; break; }
+      }
+      if (hit) {
+        for (var k = 0; k < hit[0].length; k++) {
+          disp.push(raw[i + k]);
+          key.push(hit[1][k]);
+        }
+        i += hit[0].length;
+      } else {
+        var t = unfold(raw[i]);
+        var r = reading(t);
+        disp.push(raw[i]);
+        key.push(r ? (r.py + r.tone) : t);
+        i++;
+      }
+    }
+    return { disp: disp, key: key };
+  }
+
+  var ONES = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
+              'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
+              'seventeen', 'eighteen', 'nineteen'];
+  var TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+  /* 認識は値段を "500" とも "five hundred" とも返す。数字は語に開いてそろえる */
+  function numWords(n) {
+    var out = [];
+    if (n >= 1000) { out = out.concat(numWords(Math.floor(n / 1000)), ['thousand']); n = n % 1000; }
+    if (n >= 100) { out = out.concat(numWords(Math.floor(n / 100)), ['hundred']); n = n % 100; }
+    if (n >= 20) {
+      out.push(TENS[Math.floor(n / 10)]);
+      n = n % 10;
+      if (n) out.push(ONES[n]);
+      return out;
+    }
+    if (n > 0 || !out.length) out.push(ONES[n]);
+    return out;
+  }
+
+  function enTokens(s) {
+    var raw = s.toLowerCase().replace(/[^a-z0-9']+/g, ' ').replace(/\s+/g, ' ').trim();
+    var disp = [], key = [];
+    if (!raw) return { disp: disp, key: key };
+    var parts = raw.split(' ');
+    for (var i = 0; i < parts.length; i++) {
+      var w = parts[i].replace(/^'+|'+$/g, '');
+      if (!w) continue;
+      if (/^[0-9]{1,4}$/.test(w)) {
+        var words = numWords(parseInt(w, 10));
+        for (var k = 0; k < words.length; k++) { disp.push(words[k]); key.push(words[k]); }
+      } else {
+        disp.push(w);
+        key.push(w);
+      }
+    }
+    return { disp: disp, key: key };
+  }
+
+  function tokens(s, lang) { return lang === 'zh' ? zhTokens(s) : enTokens(s); }
+
+  /* ================= 突き合わせ ================= */
+
+  /** 編集距離をたどり直して、どこが置き換わり・余分・不足かを返す */
+  function align(a, b) {
+    var m = a.length, n = b.length, i, j;
+    var d = [], from = [];
+    for (i = 0; i <= m; i++) { d[i] = [i]; from[i] = ['u']; }
+    for (j = 0; j <= n; j++) { d[0][j] = j; from[0][j] = 'l'; }
+    from[0][0] = null;
+
+    for (i = 1; i <= m; i++) {
+      for (j = 1; j <= n; j++) {
+        var same = a[i - 1] === b[j - 1];
+        var sub = d[i - 1][j - 1] + (same ? 0 : 1);
+        var del = d[i - 1][j] + 1;
+        var ins = d[i][j - 1] + 1;
+        var best = Math.min(sub, del, ins);
+        d[i][j] = best;
+        from[i][j] = (best === sub) ? (same ? 'e' : 's') : (best === del ? 'u' : 'l');
+      }
+    }
+
+    var ops = [];
+    i = m; j = n;
+    while (i > 0 || j > 0) {
+      var dir = (i > 0 && j > 0) ? from[i][j] : (i > 0 ? 'u' : 'l');
+      if (dir === 'e' || dir === 's') {
+        ops.push({ op: dir === 'e' ? 'eq' : 'sub', ai: i - 1, bi: j - 1 });
+        i--; j--;
+      } else if (dir === 'u') {
+        ops.push({ op: 'del', ai: i - 1, bi: -1 });
+        i--;
+      } else {
+        ops.push({ op: 'ins', ai: -1, bi: j - 1 });
+        j--;
+      }
+    }
+    ops.reverse();
+    var max = Math.max(m, n);
+    return { ops: ops, score: max ? 1 - d[m][n] / max : 0 };
+  }
+
+  /* ================= どこを直すか ================= */
+
+  var TONE = {
+    1: '第1声（高いまま平ら）',
+    2: '第2声（下から上へ）',
+    3: '第3声（低く沈めて少し上げる）',
+    4: '第4声（上から下へ落とす）',
+    5: '軽声（軽く短く）'
+  };
+  var ASPIRATED = { p: 1, t: 1, k: 1, q: 1, c: 1, ch: 1 };
+  var BREATH = { b: 'p', p: 'b', d: 't', t: 'd', g: 'k', k: 'g',
+                 j: 'q', q: 'j', z: 'c', c: 'z', zh: 'ch', ch: 'zh' };
+  var TONGUE = { zh: 'z', z: 'zh', ch: 'c', c: 'ch', sh: 's', s: 'sh' };
+
+  function nameOf(ini) { return ini || '（なし）'; }
+
+  /* 判定に使った音そのものから読みを組み立てる。ここで字ごとに引き直すと、
+     語として読みを上書きした場合（睡覺 の 覺 は jué ではなく jiào）に
+     判定と助言が食い違う。 */
+  function fromKey(key) {
+    var m = /^([a-z]+)([1-5])$/.exec(key || '');
+    if (!m) return null;
+    var r = { py: m[1], tone: parseInt(m[2], 10) };
+    r.parts = splitPy(r.py);
+    return r;
+  }
+
+  function zhAdvice(expCh, expKey, heardCh, heardKey) {
+    var e = fromKey(expKey), h = fromKey(heardKey);
+    if (!e || !h) {
+      return expCh + ' → ' + heardCh + '：別の字に聞こえています';
+    }
+    var head = expCh + ' ' + marked(e) + ' → ' + heardCh + ' ' + marked(h);
+    var why = [];
+
+    if (e.parts.i !== h.parts.i) {
+      var m1 = '子音 ' + nameOf(e.parts.i) + ' → ' + nameOf(h.parts.i);
+      if (BREATH[e.parts.i] === h.parts.i) {
+        m1 += ASPIRATED[e.parts.i]
+          ? '（息が足りません。口の前の紙が揺れるほど強く出す）'
+          : '（息が出すぎです。息を止めたまま出す）';
+      } else if (TONGUE[e.parts.i] === h.parts.i) {
+        m1 += (e.parts.i.length === 2)
+          ? '（舌先を上あごへ反らせる）'
+          : '（舌先を反らせず、上の歯の裏へ）';
+      } else if ((e.parts.i === 'n' && h.parts.i === 'l') || (e.parts.i === 'l' && h.parts.i === 'n')) {
+        m1 += '（n は鼻から抜き、l は舌先を上あごに付けて離す）';
+      }
+      why.push(m1);
+    }
+
+    if (e.parts.f !== h.parts.f) {
+      var m2 = '母音 ' + e.parts.f + ' → ' + h.parts.f;
+      var eNg = /ng$/.test(e.parts.f), hNg = /ng$/.test(h.parts.f);
+      if (eNg !== hNg && e.parts.f.replace(/g$/, '') === h.parts.f.replace(/g$/, '')) {
+        m2 += eNg ? '（案外のン。舌先はどこにも付けない）' : '（案内のン。舌先を上あごに付ける）';
+      }
+      why.push(m2);
+    }
+
+    /* 一 と 不 は変調するので、表の声調をそのまま指摘すると誤った助言になる */
+    if (e.tone !== h.tone && '一不'.indexOf(expCh) < 0) {
+      why.push('声調 ' + TONE[e.tone] + ' → ' + TONE[h.tone]);
+    }
+
+    return why.length ? head + '／' + why.join('／') : head + '：同じ音です';
+  }
+
+  function enAdvice(expWord, heardWord) {
+    return expWord + ' → ' + heardWord;
+  }
+
+  /* ================= 表示 ================= */
+
+  var tally = { ok: 0, near: 0, ng: 0 };
+
+  function renderTally() {
+    if (!tallyEl) return;
+    tallyEl.textContent = '発音 ○' + tally.ok + ' △' + tally.near + ' ×' + tally.ng;
+    tallyEl.hidden = false;
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function isOut(n) {
+    return n.nodeType === 1 && typeof n.className === 'string' &&
+           (' ' + n.className + ' ').indexOf(' rec-out ') >= 0;
+  }
+
+  function outFor(el) {
+    for (var i = 0; i < el.childNodes.length; i++) {
+      if (isOut(el.childNodes[i])) return el.childNodes[i];
+    }
+    var span = document.createElement('span');
+    span.className = 'rec-out';
+    el.appendChild(span);
+    return span;
+  }
+
+  function say(el, cls, html) {
+    var out = outFor(el);
+    out.className = 'rec-out' + (cls ? ' ' + cls : '');
+    out.innerHTML = html;
+  }
+
+  /** 聞こえたほうを並べ、ずれた語に印を付ける */
+  function paint(ops, heard, lang) {
+    var sep = lang === 'zh' ? '' : ' ';
+    var out = [];
+    for (var i = 0; i < ops.length; i++) {
+      var o = ops[i];
+      if (o.bi < 0) continue;
+      var w = esc(heard.disp[o.bi]);
+      out.push(o.op === 'eq' ? w : '<span class="miss">' + w + '</span>');
+    }
+    return out.join(sep);
+  }
+
+  /** ずれた場所の説明。多すぎると読めないので3件まで */
+  function advise(ops, target, heard, lang, score) {
+    /* 長い行がほとんど合っていないときに1音ずつ並べても読む意味がない。
+       まず読み上げを聞き直すほうが早い。ただし1〜2音の短い対象は、
+       そこが一番説明の要る場面なので必ず内訳を出す */
+    if (target.key.length >= 3 && score < 0.35) {
+      return '<span class="fix-head">直すところ</span><span class="fix">' +
+        '全体が別の語として聞き取られています。スピーカーの印で音を聞いて、' +
+        'かたまりごと真似るところからやり直してください。</span>';
+    }
+
+    var lines = [], missing = [], extra = [], i;
+    for (i = 0; i < ops.length && lines.length < 3; i++) {
+      if (ops[i].op === 'sub') {
+        lines.push(lang === 'zh'
+          ? zhAdvice(target.disp[ops[i].ai], target.key[ops[i].ai],
+                     heard.disp[ops[i].bi], heard.key[ops[i].bi])
+          : enAdvice(target.disp[ops[i].ai], heard.disp[ops[i].bi]));
+      }
+    }
+    for (i = 0; i < ops.length; i++) {
+      if (ops[i].op === 'del') missing.push(target.disp[ops[i].ai]);
+      else if (ops[i].op === 'ins') extra.push(heard.disp[ops[i].bi]);
+    }
+
+    var join = lang === 'zh' ? '' : ' ';
+    if (missing.length) {
+      lines.push((lang === 'zh' ? '落ちた音：' : '言えていない語：') + missing.join(join) +
+        (lang === 'zh' ? '（漢字1字が1拍。数を合わせて）' : ''));
+    }
+    if (extra.length) {
+      lines.push((lang === 'zh' ? '余分に聞こえた音：' : '余分に聞こえた語：') + extra.join(join));
+    }
+
+    if (!lines.length) return '';
+    var html = '';
+    for (i = 0; i < lines.length; i++) html += '<span class="fix">' + esc(lines[i]) + '</span>';
+    return '<span class="fix-head">直すところ</span>' + html;
+  }
+
+  /** 置き換わった音が、声調だけの違いか、子音・母音から違うか */
+  function subKind(aKey, bKey) {
+    return aKey.replace(/[1-5]$/, '') === bKey.replace(/[1-5]$/, '') ? 'tone' : 'hard';
+  }
+
+  /** その聞き取り結果なら合格になるか。候補を選び直すのに使う */
+  function acceptable(item, text) {
+    if (!item.tok.key.length) return false;
+    var h = tokens(text, item.lang);
+    var a = align(item.tok.key, h.key);
+    for (var i = 0; i < a.ops.length; i++) {
+      if (a.ops[i].op === 'sub' || a.ops[i].op === 'del') {
+        if (item.lang !== 'en') return false;
+        return align(item.tok.key.join('').split(''), h.key.join('').split('')).score >= 0.9;
+      }
+    }
+    return true;
+  }
+
+  function pass(el, shown, note) {
+    tally.ok++;
+    renderTally();
+    say(el, 'ok', '<span class="verdict">○ 通じました</span>　聞こえた：<span class="heard">' +
+      shown + '</span>' + (note ? '<span class="sub">' + note + '</span>' : ''));
+    return true;
+  }
+
+  function verdict(el, item, heardText) {
+    var heard = tokens(heardText, item.lang);
+    var a = align(item.tok.key, heard.key);
+    var shown = paint(a.ops, heard, item.lang) || '（無音）';
+
+    /* 英語は語の単位で数えると厳しすぎる。対象が文まるごとなので、
+       1語ずれただけで落ちてしまう。認識は EasyCard を easy card に割るし、
+       one を wan と書くこともある。どちらも通じる範囲の差なので、
+       語の切れ目を無視した文字単位の一致で見る。 */
+    var flat = item.lang === 'en'
+      ? align(item.tok.key.join('').split(''), heard.key.join('').split('')).score
+      : 1;
+
+    var hard = 0, toneOnly = 0, dels = 0, adds = 0;
+    for (var i = 0; i < a.ops.length; i++) {
+      var o = a.ops[i];
+      if (o.op === 'sub') {
+        if (item.lang === 'zh' &&
+            subKind(item.tok.key[o.ai], heard.key[o.bi]) === 'tone') toneOnly++;
+        else hard++;
+      } else if (o.op === 'del') dels++;
+      else if (o.op === 'ins') adds++;
+    }
+
+    /* 狙った音がすべて順番どおり出ていれば合格。認識エンジンは「謝謝」を
+       「謝謝了」のように前後を足して返すので、そこを減点すると短い語ほど
+       正しく言えているのに落ちてしまう。 */
+    var clean = (hard === 0 && dels === 0 && item.tok.key.length > 0);
+
+    if (clean && toneOnly === 0) {
+      var note = '';
+      if (adds) note = '余計な音も拾っていますが、狙った音はすべて出ています。';
+      else if (item.lang === 'zh' && item.tok.disp.join('') !== heard.disp.join('')) {
+        note = '同じ音の別の字が出ていますが、発音は合っています。';
+      }
+      return pass(el, shown, note);
+    }
+
+    var cls, head;
+    if (item.lang === 'en') {
+      if (flat >= 0.9) {
+        return pass(el, shown, adds || a.score < 1
+          ? '語の切れ目や細かい綴りは違いますが、通じる範囲です。' : '');
+      }
+      /* 語のどれが通らなかったかを直接見る。語単位の対応付けは
+         切れ目がずれると当てにならず、読んでも直しようがない。 */
+      var heardFlat = heard.key.join('');
+      var missed = [];
+      for (var w = 0; w < item.tok.key.length; w++) {
+        if (heardFlat.indexOf(item.tok.key[w]) < 0) missed.push(item.tok.disp[w]);
+      }
+      cls = flat >= 0.6 ? 'near' : 'ng';
+      head = cls === 'near' ? '△ 惜しい' : '× 別の文に聞こえています';
+      tally[cls === 'near' ? 'near' : 'ng']++;
+      renderTally();
+      say(el, cls, '<span class="verdict">' + head + '</span>　聞こえた：<span class="heard">' +
+        shown + '</span><span class="sub">お手本：' + esc(item.raw) + '</span>' +
+        (missed.length
+          ? '<span class="fix-head">直すところ</span><span class="fix">通らなかった語：' +
+            esc(missed.join(' ')) + '</span><span class="fix">' +
+            'まずこの語だけを繰り返して、通るようになってから文に戻してください。</span>'
+          : '<span class="fix-head">直すところ</span><span class="fix">' +
+            '語は合っていますが、並びか区切りがずれています。文を通しで言い直してください。</span>'));
+      return false;
+    }
+    if (clean) {
+      /* 子音と母音は合っていて声調だけずれている場合は、
+         「別の語」ではなく声調の問題として名指しする */
+      cls = 'near';
+      head = '△ 声調だけ違います';
+    } else if (a.score >= 0.5) {
+      cls = 'near';
+      head = '△ 惜しい';
+    } else {
+      cls = 'ng';
+      head = '× 別の語に聞こえています';
+    }
+
+    tally[cls === 'near' ? 'near' : 'ng']++;
+    renderTally();
+    say(el, cls, '<span class="verdict">' + head + '</span>　聞こえた：<span class="heard">' +
+      shown + '</span><span class="sub">お手本：' + esc(item.raw) + '</span>' +
+      advise(a.ops, item.tok, heard, item.lang, clean ? 1 : a.score));
+    return false;
+  }
+
+  /* ================= 認識の実行 ================= */
+
+  var current = null;
+
+  function stopSpeaking() {
+    if (window.speechSynthesis) {
+      var sb = document.getElementById('stopall');
+      if (sb && !sb.hidden) sb.click(); else window.speechSynthesis.cancel();
+    }
+  }
+
+  function release(btn) {
+    btn.classList.remove('on');
+    btn.setAttribute('aria-pressed', 'false');
+    current = null;
+  }
+
+  /* ---- 自分の声を録っておく ----
+     どこが違うかは、文字で言われるより自分の音とお手本を続けて聞くほうが速い。
+     認識と同時にマイクを録り、判定の下に聞き比べのボタンを出す。 */
+
+  function canRecord() {
+    return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+  }
+
+  function closeStream(stream) {
+    if (!stream) return;
+    var t = stream.getTracks();
+    for (var i = 0; i < t.length; i++) t[i].stop();
+  }
+
+  function attachClip(el, chunks) {
+    if (!chunks.length) return;
+    var out = outFor(el);
+    if (out.clipUrl) { try { URL.revokeObjectURL(out.clipUrl); } catch (e) {} }
+
+    var url = URL.createObjectURL(new Blob(chunks, { type: chunks[0].type || 'audio/webm' }));
+    out.clipUrl = url;
+    var audio = new Audio(url);
+
+    var wrap = document.createElement('span');
+    wrap.className = 'plays';
+
+    var mine = document.createElement('button');
+    mine.type = 'button';
+    mine.className = 'play mine';
+    mine.textContent = '▶ 自分の声';
+    mine.addEventListener('click', function (e) {
+      e.stopPropagation();
+      stopSpeaking();
+      try { audio.currentTime = 0; } catch (err) {}
+      audio.play();
+    });
+
+    var model = document.createElement('button');
+    model.type = 'button';
+    model.className = 'play';
+    model.textContent = '▶ お手本';
+    model.addEventListener('click', function (e) {
+      e.stopPropagation();
+      try { audio.pause(); } catch (err) {}
+      /* 読み上げ側のボタンを押す。声の選択と速さの設定をそのまま使うため */
+      var sp = el.querySelector('.speak');
+      if (sp) sp.click();
+    });
+
+    wrap.appendChild(mine);
+    wrap.appendChild(model);
+    out.appendChild(wrap);
+  }
+
+  function start(btn, el, item) {
+    if (current) {
+      try { current.rec.abort(); } catch (e) {}
+      release(current.btn);
+    }
+    stopSpeaking();
+
+    if (!canRecord()) { begin(btn, el, item, null); return; }
+
+    btn.classList.add('on');
+    say(el, '', '<span class="verdict">マイクを準備しています…</span>');
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+      begin(btn, el, item, stream);
+    }).catch(function () {
+      /* 録音が取れなくても判定だけは進める */
+      begin(btn, el, item, null);
+    });
+  }
+
+  function begin(btn, el, item, stream) {
+    var rec;
+    try { rec = new SR(); } catch (e) {
+      closeStream(stream);
+      release(btn);
+      say(el, 'ng', '<span class="verdict">音声認識を開始できませんでした。</span>');
+      return;
+    }
+
+    var chunks = [], mr = null;
+    if (stream) {
+      try {
+        mr = new MediaRecorder(stream);
+        mr.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };
+        mr.onstop = function () { attachClip(el, chunks); closeStream(stream); };
+        mr.start();
+      } catch (e) {
+        mr = null;
+        closeStream(stream);
+      }
+    }
+
+    rec.lang = item.lang === 'zh' ? 'zh-TW' : 'en-US';
+    rec.interimResults = false;
+    rec.continuous = false;
+    rec.maxAlternatives = 5;
+
+    var settled = false;
+    var guard = setTimeout(function () { try { rec.stop(); } catch (e) {} }, 9000);
+
+    btn.classList.add('on');
+    btn.setAttribute('aria-pressed', 'true');
+    say(el, '', '<span class="verdict">聞いています…</span>　' +
+      (item.lang === 'zh' ? '中国語で' : '英語で') + '声に出してください');
+
+    rec.onresult = function (e) {
+      settled = true;
+      var res = e.results[0];
+
+      /* 認識エンジンは候補を最大5つ返し、その順位は前後の文脈込みで決まる。
+         第1候補が外れていても下位に正しい語があるなら、その音として
+         聞き取れているということなので、そちらで判定する。
+         ここで落とすと、正しく言えているのに何度やっても通らない。 */
+      var use = 0;
+      if (!acceptable(item, res[0].transcript)) {
+        for (var k = 1; k < res.length; k++) {
+          if (acceptable(item, res[k].transcript)) { use = k; break; }
+        }
+      }
+      verdict(el, item, res[use].transcript);
+      if (use) {
+        outFor(el).innerHTML += '<span class="sub">第1候補は「' + esc(res[0].transcript) +
+          '」でしたが、候補の中に狙った音があったので合格にしています。</span>';
+      }
+    };
+
+    rec.onerror = function (e) {
+      settled = true;
+      var code = e.error || '';
+      if (code === 'aborted') { say(el, '', ''); return; }
+      if (code === 'no-speech') {
+        say(el, 'ng', '<span class="verdict">聞き取れませんでした。</span>　マイクに近づいてもう一度どうぞ。');
+        return;
+      }
+      if (code === 'not-allowed' || code === 'service-not-allowed') {
+        say(el, 'ng', '<span class="verdict">マイクが使えません。</span>　下の案内を見てください。');
+        note('<strong>マイクが使えません。</strong> ' +
+          (location.protocol === 'file:'
+            ? 'ファイルを直接開いているためです。' + SERVE_HINT
+            : 'アドレスバーの錠前アイコンから、このページのマイクを「許可」にしてください。'));
+        return;
+      }
+      if (code === 'network') {
+        say(el, 'ng', '<span class="verdict">認識サーバーに届きませんでした。</span>　音声認識はネット接続が要ります。');
+        return;
+      }
+      say(el, 'ng', '<span class="verdict">認識できませんでした（' + esc(code) + '）。</span>');
+    };
+
+    rec.onend = function () {
+      clearTimeout(guard);
+      if (!settled) say(el, '', '');
+      release(btn);
+      /* 録音の停止は認識より後。onstop で聞き比べのボタンが付く */
+      if (mr && mr.state !== 'inactive') { try { mr.stop(); } catch (e) { closeStream(stream); } }
+      else closeStream(stream);
+    };
+
+    try {
+      rec.start();
+      current = { rec: rec, btn: btn };
+    } catch (e) {
+      release(btn);
+      say(el, 'ng', '<span class="verdict">続けて押しすぎです。</span>　少し待ってからもう一度どうぞ。');
+    }
+  }
+
+  /* ================= ボタンを付ける ================= */
+
+  function attach(el, lang) {
+    var raw = lang === 'zh' ? zhRaw(el) : enRaw(el);
+    if (!raw) return;
+    var tok = tokens(raw, lang);
+    if (!tok.key.length) return;
+
+    var item = { lang: lang, raw: raw, tok: tok };
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'rec' + (lang === 'zh' ? ' zh' : '');
+    b.innerHTML = MIC;
+    b.setAttribute('aria-pressed', 'false');
+    b.setAttribute('aria-label',
+      (lang === 'zh' ? '中国語の発音をチェック' : '英語の発音をチェック') + '：' + raw);
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (current && current.btn === b) {
+        try { current.rec.stop(); } catch (err) {}
+        return;
+      }
+      start(b, el, item);
+    });
+    el.appendChild(b);
+  }
+
+  var enSel = document.querySelectorAll('.lines-en .en');
+  for (var i = 0; i < enSel.length; i++) attach(enSel[i], 'en');
+
+  var zhSel = document.querySelectorAll(
+    '.lines-zh .zh:not(.lines-tag), .zh-say b, .zh-table td.han, .numbers b');
+  for (var j = 0; j < zhSel.length; j++) attach(zhSel[j], 'zh');
+
+  window.addEventListener('pagehide', function () {
+    if (current) { try { current.rec.abort(); } catch (e) {} }
+  });
+})();
+</script>
+
+<script>
+/* ============================================================
+   マイク確認
+
+   発音チェックが「聞き取れませんでした」を返すとき、原因が
+   Windows 側（既定のデバイスが違う・入力音量が低い）なのか、
+   認識側なのかが切り分けられない。ここでは音声認識を通さず、
+   入力レベルをそのまま見せる。棒が動かなければ Windows 側の問題。
+   ============================================================ */
+(function () {
+  var btn = document.getElementById('micCheckBtn');
+  var panel = document.getElementById('micCheck');
+  if (!btn || !panel) return;
+
+  var md = navigator.mediaDevices;
+  if (!md || !md.getUserMedia || !(window.AudioContext || window.webkitAudioContext)) {
+    btn.disabled = true;
+    btn.title = 'このブラウザでは使えません';
+    return;
+  }
+
+  var devEl = panel.querySelector('.mc-dev');
+  var fillEl = panel.querySelector('.mc-fill');
+  var peakEl = panel.querySelector('.mc-peak');
+  var verdictEl = panel.querySelector('.mc-verdict');
+
+  var stream = null, ctx = null, raf = null;
+  var peak = 0, loudFrames = 0, frames = 0;
+
+  function pct(v) { return Math.min(100, Math.round(v * 100)); }
+
+  function stop() {
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    if (stream) {
+      var t = stream.getTracks();
+      for (var i = 0; i < t.length; i++) t[i].stop();
+      stream = null;
+    }
+    if (ctx) { try { ctx.close(); } catch (e) {} ctx = null; }
+    btn.setAttribute('aria-pressed', 'false');
+    btn.textContent = 'マイク確認';
+  }
+
+  function fail(msg) {
+    stop();
+    panel.hidden = false;
+    devEl.textContent = '';
+    verdictEl.className = 'mc-verdict bad';
+    verdictEl.textContent = msg;
+  }
+
+  function start() {
+    peak = 0; loudFrames = 0; frames = 0;
+    panel.hidden = false;
+    devEl.textContent = 'マイクを開いています…';
+    verdictEl.className = 'mc-verdict';
+    verdictEl.textContent = '';
+    fillEl.style.width = '0';
+    peakEl.style.left = '0';
+
+    md.getUserMedia({ audio: true }).then(function (s) {
+      stream = s;
+      var track = s.getAudioTracks()[0];
+      var label = (track && track.label) || '（名前を取得できません）';
+      var st = {};
+      try { st = track.getSettings ? track.getSettings() : {}; } catch (e) {}
+      devEl.innerHTML = 'いま使われているマイク：' + label.replace(/</g, '&lt;') +
+        (st.sampleRate ? ' <span>' + st.sampleRate + ' Hz</span>' : '');
+
+      var AC = window.AudioContext || window.webkitAudioContext;
+      ctx = new AC();
+      if (ctx.state === 'suspended') ctx.resume();
+      var src = ctx.createMediaStreamSource(s);
+      var an = ctx.createAnalyser();
+      an.fftSize = 2048;
+      src.connect(an);
+      var buf = new Uint8Array(an.fftSize);
+
+      btn.setAttribute('aria-pressed', 'true');
+      btn.textContent = '確認をやめる';
+
+      function tick() {
+        an.getByteTimeDomainData(buf);
+        var sum = 0;
+        for (var i = 0; i < buf.length; i++) {
+          var v = (buf[i] - 128) / 128;
+          sum += v * v;
+        }
+        var rms = Math.sqrt(sum / buf.length);
+        var level = Math.min(1, rms * 6);   /* 話し声がだいたい 0.3〜0.8 に来る倍率 */
+
+        frames++;
+        if (level > 0.12) loudFrames++;
+        if (level > peak) { peak = level; peakEl.style.left = pct(peak) + '%'; }
+
+        fillEl.style.width = pct(level) + '%';
+        fillEl.className = 'mc-fill' + (level > 0.12 ? ' loud' : '');
+
+        if (frames > 60) {
+          if (peak < 0.03) {
+            verdictEl.className = 'mc-verdict bad';
+            verdictEl.textContent = '無音のままです。声を出しても棒が動かないなら、Windows 側で拾えていません。';
+          } else if (peak < 0.12) {
+            verdictEl.className = 'mc-verdict bad';
+            verdictEl.textContent = '音は届いていますが小さすぎます。入力音量を上げるか、マイクに近づいてください。';
+          } else {
+            verdictEl.className = 'mc-verdict good';
+            verdictEl.textContent = '拾えています。この状態なら音声認識も動くはずです。';
+          }
+        }
+        raf = requestAnimationFrame(tick);
+      }
+      tick();
+    }).catch(function (e) {
+      var n = e && e.name;
+      if (n === 'NotAllowedError' || n === 'SecurityError') {
+        fail('マイクの使用が許可されていません。アドレスバーの錠前アイコンから許可にしてください。');
+      } else if (n === 'NotFoundError' || n === 'OverconstrainedError') {
+        fail('マイクが見つかりません。Windows の「サウンド」で入力デバイスを確認してください。');
+      } else if (n === 'NotReadableError') {
+        fail('マイクを他のアプリが使っています。Teams・Zoom・録音アプリを閉じてから、もう一度どうぞ。');
+      } else {
+        fail('マイクを開けませんでした（' + (n || 'unknown') + '）。');
+      }
+    });
+  }
+
+  btn.addEventListener('click', function () {
+    if (stream) { stop(); return; }
+    start();
+  });
+
+  window.addEventListener('pagehide', stop);
+})();
+</script>
+
+</body>
+</html>
