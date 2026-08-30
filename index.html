@@ -1231,7 +1231,7 @@
   <div class="mc-bar"><div class="mc-fill"></div><div class="mc-peak"></div></div>
   <div class="mc-scale"><span>無音</span><span>話し声の目安</span><span>大</span></div>
   <p class="mc-verdict"></p>
-  <p class="mc-note">声を出して棒が動くかを見てください。動かないなら音声認識も拾えません。その場合は Windows の 設定 → システム → サウンド で、<b>入力デバイスが使いたいマイクになっているか</b>と<b>入力音量</b>を確認してください。Chrome 側の入力先は、アドレスバーの錠前アイコン → サイトの設定 → マイク で選べます。</p>
+  <p class="mc-note">声を出して棒が動くかを見てください。動かないなら音声認識も拾えません。その場合は Windows の 設定 → システム → サウンド で、<b>入力デバイスが使いたいマイクになっているか</b>と<b>入力音量</b>を確認してください。Chrome 側の入力先は、アドレスバーの錠前アイコン → サイトの設定 → マイク で選べます。<br><b>スマホで棒は動くのに発音チェックだけ通らない場合</b>は、マイクの取り合いが原因です。スマホでは録音をやめて音声認識を優先します。自分の声は、判定が出たあとの「録って聞き比べる」で録れます。</p>
 </div>
 
 <section id="plan">
@@ -3803,6 +3803,13 @@
      どこが違うかは、文字で言われるより自分の音とお手本を続けて聞くほうが速い。
      認識と同時にマイクを録り、判定の下に聞き比べのボタンを出す。 */
 
+  var DUAL_KEY = 'taipei-rec-dual';
+
+  var NO_RESULT_HINT =
+    '<span class="sub">通信が切れているか、端末の音声認識が使えない状態です。' +
+    'iPhone は 設定 → 一般 → キーボード → <b>音声入力</b> をオンに。' +
+    'Android は Chrome のマイク権限と、Google アプリが有効かを確認してください。</span>';
+
   function canRecord() {
     return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
   }
@@ -3853,14 +3860,90 @@
     out.appendChild(wrap);
   }
 
+  /* ---- 録音と認識を同時に走らせてよい端末か ----
+     スマホでは、マイクは最初に掴んだひとつが握ったままになる。
+     getUserMedia で録音していると音声認識の側には無音しか届かず、
+     録音は正常なのに判定だけ返ってこない。この場合は録音を諦めて
+     認識を通す。聞き比べは判定のあとに別のボタンで録る。 */
+
+  var COARSE = false;
+  try { COARSE = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches); } catch (e) {}
+
+  function dualBlocked() {
+    try {
+      var v = window.localStorage.getItem(DUAL_KEY);
+      if (v === 'no') return true;
+      if (v === 'ok') return false;
+    } catch (e) {}
+    return COARSE;
+  }
+
+  function markDualBlocked() {
+    try { window.localStorage.setItem(DUAL_KEY, 'no'); } catch (e) {}
+  }
+
+  /* 録音と認識を同時に使えない端末むけ。判定のあとに、もう一度言って
+     録るだけのボタンを出す。目的は自分の音とお手本を続けて聞くことなので、
+     判定に使った発話と同じである必要はない。 */
+  function attachRetake(el) {
+    if (!canRecord()) return;
+    var wrap = document.createElement('span');
+    wrap.className = 'plays';
+
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'play';
+    b.textContent = '🎤 録って聞き比べる';
+
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (b.dataset.on === '1') { if (b._stop) b._stop(); return; }
+      stopSpeaking();
+      b.textContent = 'マイクを準備しています…';
+      navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+        var chunks = [], mr2;
+        try { mr2 = new MediaRecorder(stream); } catch (err) {
+          closeStream(stream);
+          b.textContent = '録音できませんでした';
+          return;
+        }
+        var done = false, timer = null;
+        mr2.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };
+        mr2.onstop = function () {
+          closeStream(stream);
+          if (wrap.parentNode) wrap.parentNode.removeChild(wrap);
+          attachClip(el, chunks);
+        };
+        b._stop = function () {
+          if (done) return;
+          done = true;
+          if (timer) clearTimeout(timer);
+          if (mr2.state !== 'inactive') { try { mr2.stop(); } catch (err) { closeStream(stream); } }
+        };
+        mr2.start();
+        b.dataset.on = '1';
+        b.textContent = '■ 録音を止める（6秒で自動停止）';
+        timer = setTimeout(b._stop, 6000);
+      }).catch(function () {
+        b.textContent = 'マイクが使えませんでした';
+      });
+    });
+
+    wrap.appendChild(b);
+    outFor(el).appendChild(wrap);
+  }
+
   function start(btn, el, item) {
     if (current) {
       try { current.rec.abort(); } catch (e) {}
       release(current.btn);
     }
     stopSpeaking();
+    /* マイク確認の棒が出たままだと、その stream がマイクを握っていて
+       認識に音が届かない。開いていれば閉じる。 */
+    if (window.__stopMicCheck) { try { window.__stopMicCheck(); } catch (e) {} }
 
-    if (!canRecord()) { begin(btn, el, item, null); return; }
+    if (!canRecord() || dualBlocked()) { begin(btn, el, item, null); return; }
 
     btn.classList.add('on');
     say(el, '', '<span class="verdict">マイクを準備しています…</span>');
@@ -3926,6 +4009,8 @@
         outFor(el).innerHTML += '<span class="sub">第1候補は「' + esc(res[0].transcript) +
           '」でしたが、候補の中に狙った音があったので合格にしています。</span>';
       }
+      /* innerHTML の書き換えより後。先に足すと消える */
+      if (!mr) attachRetake(el);
     };
 
     rec.onerror = function (e) {
@@ -3933,7 +4018,17 @@
       var code = e.error || '';
       if (code === 'aborted') { say(el, '', ''); return; }
       if (code === 'no-speech') {
-        say(el, 'ng', '<span class="verdict">聞き取れませんでした。</span>　マイクに近づいてもう一度どうぞ。');
+        if (mr) {
+          /* 録音は取れているのに認識だけ無音、はマイクの奪い合い。
+             次からは録音をやめて認識を通す。 */
+          markDualBlocked();
+          say(el, 'ng', '<span class="verdict">聞き取れませんでした。</span>' +
+            '<span class="sub">この端末では録音と音声認識を同時に使えないようです。' +
+            '次からは録音をやめて認識だけを行います。<b>もう一度押してください。</b></span>');
+        } else {
+          say(el, 'ng', '<span class="verdict">聞き取れませんでした。</span>　マイクに近づいてもう一度どうぞ。');
+          attachRetake(el);
+        }
         return;
       }
       if (code === 'not-allowed' || code === 'service-not-allowed') {
@@ -3953,7 +4048,18 @@
 
     rec.onend = function () {
       clearTimeout(guard);
-      if (!settled) say(el, '', '');
+      if (!settled) {
+        /* 結果もエラーも返さずに終わることがある。ここを黙って消すと
+           「押しても何も起きない」に見えるので、原因の候補を出す。 */
+        if (mr) {
+          markDualBlocked();
+          say(el, 'ng', '<span class="verdict">認識が何も返しませんでした。</span>' +
+            '<span class="sub">この端末では録音と音声認識を同時に使えないようです。' +
+            '次からは録音をやめて認識だけを行います。<b>もう一度押してください。</b></span>');
+        } else {
+          say(el, 'ng', '<span class="verdict">認識が何も返しませんでした。</span>' + NO_RESULT_HINT);
+        }
+      }
       release(btn);
       /* 録音の停止は認識より後。onstop で聞き比べのボタンが付く */
       if (mr && mr.state !== 'inactive') { try { mr.stop(); } catch (e) { closeStream(stream); } }
@@ -4140,6 +4246,10 @@
     if (stream) { stop(); return; }
     start();
   });
+
+  /* 発音チェック側から呼ぶ。棒を出したままだとマイクを握り続け、
+     音声認識に音が届かない端末がある。 */
+  window.__stopMicCheck = function () { if (stream) stop(); };
 
   window.addEventListener('pagehide', stop);
 })();
