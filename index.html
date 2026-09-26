@@ -1225,38 +1225,13 @@
   }
   .navbtn:hover { color: var(--jade); border-color: var(--jade); }
   .navbtn:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
-  /* シークバー：場面ごと。動かして離すと、その行から再生 */
-  .seek {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem 0.75rem;
-    flex-wrap: wrap;
-    margin: 0.35rem 0 0.75rem;
-    font-size: 0.75rem;
-    color: var(--muted);
-  }
-  .seek input[type="range"] {
-    flex: 1 1 12rem;
-    min-width: 0;
-    margin: 0;
-    accent-color: var(--jade);
-    cursor: pointer;
-  }
-  .seek-pos {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    white-space: nowrap;
-    color: var(--faint);
-  }
-  .seek-txt {
-    flex: 1 1 100%;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+  /* 語を押すとそこから読む。読んでいる語には色を敷く */
+  .wh .w { cursor: pointer; border-radius: 2px; }
+  .wh .w:hover { background: var(--jade-tint); }
+  .zh.wh .w:hover, .zh-say .wh .w:hover, .zh-say b.wh .w:hover { background: var(--lantern-tint); }
+  .w.wnow { background: var(--jade); color: var(--paper); }
+  .zh .w.wnow, .zh-say .w.wnow { background: var(--lantern); color: var(--paper); }
   @media (pointer: coarse) {
-    .seek input[type="range"] { height: 2rem; }
     .navbtn { padding: 0.45rem 0.9rem; font-size: 0.8125rem; }
     .fromhere { padding: 0.35rem 0.5rem 0.35rem 0; }
   }
@@ -1265,7 +1240,7 @@
     body { background: #fff; color: #000; padding: 0; font-size: 10pt; }
     .fromhere::before { content: none; }
     .line.now { background: none; box-shadow: none; }
-    .toc, .menu-fab, .menu-panel, .panel, .toolbar, .vhelp, .miccheck, .micbtn, .speak, .rec, .rec-out, .playall, .seek, .log-export, .log-today { display: none; }
+    .toc, .menu-fab, .menu-panel, .panel, .toolbar, .vhelp, .miccheck, .micbtn, .speak, .rec, .rec-out, .playall, .log-export, .log-today { display: none; }
     .card { border-color: #bbb; page-break-inside: avoid; }
     header { padding-top: 0; }
     .wrap { gap: 1.5rem; }
@@ -1282,7 +1257,7 @@
 <header id="top">
   <p class="eyebrow">台北 / 出発まで約2か月 / 英語30場面＋中国語50</p>
   <h1>Thirty Scenes in Taipei</h1>
-  <p class="lede">この旅程で実際に口を開く30場面を、英語と中国語の会話でそのまま。どちらも話すことだけに絞り、読み書きは扱いません。英語はすべて A2 レベル、中国語は文法なしの丸暗記です。上のバーで表示する言語を切り替えられます。</p>
+  <p class="lede">この旅程で実際に口を開く30場面を、英語と中国語の会話でそのまま。どちらも話すことだけに絞り、読み書きは扱いません。英語はすべて A2 レベル、中国語は文法なしの丸暗記です。上のバーで表示する言語を切り替えられます。<strong>文の中の語（中国語は1字）を押すと、そこから読み上げます。</strong></p>
   <div class="route">
     <span>松山空港</span>
     <span>リージェント台北</span>
@@ -3306,12 +3281,20 @@
     nowLine = node || null;
     if (!nowLine) return;
     nowLine.classList.add('now');
-    if (active && active._onLine) active._onLine(nowLine);
     // 画面の外へ流れたら追いかける。上端は固定バーに隠れるので少し余裕を見る
     var r = nowLine.getBoundingClientRect();
     if (r.top < 70 || r.bottom > window.innerHeight - 20) {
       nowLine.scrollIntoView({ block: 'center', behavior: 'smooth' });
     }
+  }
+
+  /* いま読んでいる語の目印。音声が語の区切り（onboundary）を知らせてきたときだけ動かす */
+  var nowWord = null;
+  function markWord(w) {
+    if (nowWord === w) return;
+    if (nowWord) nowWord.classList.remove('wnow');
+    nowWord = w || null;
+    if (nowWord) nowWord.classList.add('wnow');
   }
 
   function clearActive() {
@@ -3321,6 +3304,7 @@
       active = null;
     }
     markLine(null);
+    markWord(null);
     stopBtn.hidden = true;
     prevBtn.hidden = true;
     nextBtn.hidden = true;
@@ -3336,19 +3320,29 @@
 
   function run() {
     var g = gen;
-    if (pos >= seq.length) {
-      if (active && active._onEnd) active._onEnd();
-      clearActive();
-      return;
-    }
+    if (pos >= seq.length) { clearActive(); return; }
     var item = seq[pos++];
     markLine(item.node);
     var u = new SpeechSynthesisUtterance(item.text);
     if (voice[item.lang]) u.voice = voice[item.lang];
     u.lang = voice[item.lang] ? voice[item.lang].lang : (item.lang === 'zh' ? 'zh-TW' : 'en-US');
     u.rate = RATES[speed][item.lang];
+    // marks は [文字位置, 語の要素] の並び。読み始めは先頭の語、あとは区切りの通知で追う
+    var marks = item.marks || [];
+    markWord(marks.length ? marks[0][1] : null);
+    if (marks.length) {
+      u.onboundary = function (e) {
+        if (g !== gen || typeof e.charIndex !== 'number') return;
+        var w = null;
+        for (var m = 0; m < marks.length; m++) {
+          if (marks[m][0] <= e.charIndex) w = marks[m][1]; else break;
+        }
+        if (w) markWord(w);
+      };
+    }
     u.onend = function () {
       if (g !== gen) return;
+      markWord(null);
       setTimeout(function () { if (g === gen) run(); }, GAPS[speed][item.lang]);
     };
     u.onerror = function () {
@@ -3420,7 +3414,8 @@
   /** 読み上げない要素を落とし、算用数字を漢数字に置き換えた素の文字列 */
   function zhSrc(el) {
     var clone = el.cloneNode(true);
-    var skip = clone.querySelectorAll('.rom, .tw, .nospeak');
+    // 発音チェックの結果（.rec-out）は同じ要素の中に出るので、読み上げから外す
+    var skip = clone.querySelectorAll('.rom, .tw, .nospeak, .speak, .rec, .rec-out');
     for (var i = 0; i < skip.length; i++) skip[i].remove();
     return clone.textContent
       .replace(/[⋯…]/g, '')
@@ -3457,9 +3452,123 @@
     return out;
   }
 
+  /* ---- 語を押して、そこから読む ----
+     文を語ごとの span.w に分けておき、押された語から後ろだけを読み上げる。
+     英語は空白区切りの1語、中国語は語の切れ目が見えないので1字（ラテン文字は1語）。 */
+
+  var NOWRAP = '.rom, .tw, .nospeak, .say-only, button, .rec-out';
+  var ZH_TOKEN = /[A-Za-z][A-Za-z'.-]*|[㐀-鿿豈-﫿0-9]/g;
+
+  function wrapWords(host, isZh) {
+    var texts = [];
+    var walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, null);
+    var t;
+    while ((t = walker.nextNode())) {
+      var par = t.parentNode;
+      if (par !== host && par.closest && par.closest(NOWRAP)) continue;
+      texts.push(t);
+    }
+    var n = 0;
+    for (var i = 0; i < texts.length; i++) {
+      var s = texts[i].nodeValue;
+      var re = isZh ? ZH_TOKEN : /\S+/g;
+      re.lastIndex = 0;
+      var frag = document.createDocumentFragment();
+      var last = 0, m, hit = false;
+      while ((m = re.exec(s)) !== null) {
+        hit = true;
+        if (m.index > last) frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+        var w = document.createElement('span');
+        w.className = 'w';
+        w.dataset.i = n++;
+        w.textContent = m[0];
+        frag.appendChild(w);
+        last = m.index + m[0].length;
+      }
+      if (!hit) continue;
+      if (last < s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+      texts[i].parentNode.replaceChild(frag, texts[i]);
+    }
+    if (n) host.classList.add('wh');
+  }
+
+  function spansFrom(host, k) {
+    var all = host.querySelectorAll('.w'), out = [];
+    for (var i = 0; i < all.length; i++) if (+all[i].dataset.i >= k) out.push(all[i]);
+    return out;
+  }
+
+  /** 英語：k 番目の語から後ろ。読み方の置き換えは enText と同じ（___ → something、/ → 文の切れ目） */
+  function enItems(host, k) {
+    if (!host.classList.contains('wh')) {
+      var et = enText(host);
+      return et ? [{ text: et, lang: 'en' }] : [];
+    }
+    var rest = spansFrom(host, k), toks = [];
+    for (var i = 0; i < rest.length; i++) {
+      var raw = rest[i].textContent;
+      if (raw === '/') {
+        var prevT = toks.length ? toks[toks.length - 1] : null;
+        if (prevT && !/[.!?]$/.test(prevT.t)) prevT.t += '.';
+        continue;
+      }
+      toks.push({ t: raw.replace(/_+/g, 'something').replace(/\//g, '. '), w: rest[i] });
+    }
+    var text = '', marks = [];
+    for (var j = 0; j < toks.length; j++) {
+      if (j) text += ' ';
+      marks.push([text.length, toks[j].w]);
+      text += toks[j].t;
+    }
+    return text ? [{ text: text, lang: 'en', marks: marks }] : [];
+  }
+
+  /** 中国語：k 番目の字から後ろ。断片の分け方は zhParts のまま、各字に目印の位置を付ける */
+  function zhItems(host, k) {
+    if (!host.classList.contains('wh')) return zhParts(host);
+    var clone = host.cloneNode(true);
+    var cw = clone.querySelectorAll('.w');
+    var first = null;
+    for (var i = 0; i < cw.length; i++) {
+      if (+cw[i].dataset.i < k) cw[i].remove(); else if (!first) first = cw[i];
+    }
+    // 50嵐 の「五十」のような、押した字より前にある読み専用の部分も落とす
+    if (first) {
+      var extra = clone.querySelectorAll('.say-only, .nospeak');
+      for (var x = 0; x < extra.length; x++) {
+        if (extra[x].compareDocumentPosition(first) & Node.DOCUMENT_POSITION_FOLLOWING) extra[x].remove();
+      }
+    }
+    var parts = zhParts(clone);
+    var rest = spansFrom(host, k), p = 0;
+    for (var q = 0; q < parts.length; q++) {
+      var part = parts[q];
+      part.marks = [];
+      if (part.lang === 'en') {
+        while (p < rest.length && rest[p].textContent !== part.text) p++;
+        if (p < rest.length) { part.marks.push([0, rest[p]]); p++; }
+        continue;
+      }
+      for (var ci = 0; ci < part.text.length; ci++) {
+        var ch = part.text.charAt(ci);
+        for (var a = p; a < Math.min(rest.length, p + 3); a++) {
+          var said = DIGIT[rest[a].textContent] || rest[a].textContent;
+          if (said === ch) { part.marks.push([ci, rest[a]]); p = a + 1; break; }
+        }
+      }
+    }
+    return parts;
+  }
+
+  function wordItems(host, k) {
+    return host.classList.contains('zh') || host.closest('.zh-say, .zh-table, .numbers')
+      ? zhItems(host, k || 0) : enItems(host, k || 0);
+  }
+
   /* ---- attach buttons ---- */
 
-  function addButton(el, items, lang) {
+  function addButton(el, lang) {
+    var items = wordItems(el, 0);
     if (!items.length) return;
     var label = [];
     for (var n = 0; n < items.length; n++) label.push(items[n].text);
@@ -3472,25 +3581,38 @@
     b.addEventListener('click', function (e) {
       e.stopPropagation();
       if (active === b) { stopAll(); return; }
-      play(items.slice(), b);
+      play(wordItems(el, 0), b);
     });
     el.appendChild(b);
+    el._speakBtn = b;
   }
 
   var enSel = document.querySelectorAll('.en, .keep-phrase');
   for (var i = 0; i < enSel.length; i++) {
-    var et = enText(enSel[i]);
-    if (et) addButton(enSel[i], [{ text: et, lang: 'en' }], 'en');
+    wrapWords(enSel[i], false);
+    addButton(enSel[i], 'en');
   }
 
-  // .lines-tag（「中文」の見出し）は本文ではないので読み上げない
+  // .lines-tag（「中文」の見出し）は本文ではないので読み上げない。
+  // 表の地名や数字は短いので、字ごとの頭出しは台詞と決め台詞だけにする
   var zhSel = document.querySelectorAll(
     '.zh:not(.lines-tag), .zh-say b, .zh-table td.han, .numbers b');
-  for (var j = 0; j < zhSel.length; j++) addButton(zhSel[j], zhParts(zhSel[j]), 'zh');
+  for (var j = 0; j < zhSel.length; j++) {
+    if (!zhSel[j].closest('.zh-table, .numbers')) wrapWords(zhSel[j], true);
+    addButton(zhSel[j], 'zh');
+  }
+
+  // 語を押したら、その文をその語から読む
+  document.addEventListener('click', function (e) {
+    var w = e.target && e.target.closest ? e.target.closest('.wh .w') : null;
+    if (!w) return;
+    var host = w.closest('.wh');
+    if (!host || !host._speakBtn) return;
+    play(wordItems(host, +w.dataset.i), host._speakBtn);
+  });
 
   /* ---- per-card sequential playback ---- */
 
-  var seekRefreshers = [];   // 表示言語を切り替えたら、各場面のシークバーの行数を数え直す
   var cards = document.querySelectorAll('.card');
   for (var c = 0; c < cards.length; c++) {
     (function (card) {
@@ -3511,105 +3633,18 @@
         var items = [];
         for (var k = 0; k < nodes.length; k++) {
           var line = nodes[k].closest('.line');
-          if (nodes[k].classList.contains('zh')) {
-            var parts = zhParts(nodes[k]);
-            for (var q = 0; q < parts.length; q++) parts[q].node = line;
-            items = items.concat(parts);
-          } else {
-            var t = enText(nodes[k]);
-            if (t) items.push({ text: t, lang: 'en', node: line });
-          }
+          var parts = wordItems(nodes[k], 0);
+          for (var q = 0; q < parts.length; q++) parts[q].node = line;
+          items = items.concat(parts);
         }
         return items;
       }
 
-      /* シークバー。読み上げは文の途中へは飛べないので、目盛りは1行ずつ */
-      var seek = document.createElement('div');
-      seek.className = 'seek';
-      seek.innerHTML = '<input type="range" min="1" max="1" step="1" value="1" aria-label="再生位置（行）">' +
-        '<span class="seek-pos"></span><span class="seek-txt"></span>';
-      var range = seek.querySelector('input');
-      var posEl = seek.querySelector('.seek-pos');
-      var txtEl = seek.querySelector('.seek-txt');
-      var dragging = false;
-
-      /** 各行の最初の断片の位置 */
-      function lineStarts(items) {
-        var out = [];
-        for (var i = 0; i < items.length; i++) {
-          if (i === 0 || items[i].node !== items[i - 1].node) out.push(i);
-        }
-        return out;
-      }
-
-      function lineLabel(node) {
-        if (!node) return '';
-        var who = node.querySelector('.who');
-        var p = node.querySelector('.en, .zh');
-        var t = '';
-        if (p) {
-          var clone = p.cloneNode(true);
-          var skip = clone.querySelectorAll('.rom, .speak, .rec, .rec-out');
-          for (var i = 0; i < skip.length; i++) skip[i].remove();
-          t = clone.textContent.trim();
-        }
-        return (who ? who.textContent.trim() + '　' : '') + t;
-      }
-
-      function show(items, starts) {
-        var n = +range.value;
-        posEl.textContent = n + ' / ' + starts.length;
-        var it = items[starts[n - 1]];
-        txtEl.textContent = it ? lineLabel(it.node) : '';
-      }
-
-      function refresh() {
-        var items = cardItems(), starts = lineStarts(items);
-        range.max = String(Math.max(1, starts.length));
-        if (+range.value > starts.length) range.value = '1';
-        show(items, starts);
-      }
-
-      function playFromBar() {
-        var items = cardItems(), starts = lineStarts(items);
-        var n = +range.value;
-        if (n > starts.length) n = 1;
-        play(items, btn, starts[n - 1] || 0);
-      }
-
-      range.addEventListener('pointerdown', function () { dragging = true; });
-      range.addEventListener('input', function () {
-        var items = cardItems();
-        show(items, lineStarts(items));
-      });
-      range.addEventListener('change', function () {
-        dragging = false;
-        playFromBar();
-      });
-
-      // 再生が進んだらバーも進める。止めたらその位置で止まり、次の通し再生はそこから
-      btn._onLine = function (node) {
-        if (dragging) return;
-        var starts = lineStarts(seq);
-        for (var s = 0; s < starts.length; s++) {
-          if (seq[starts[s]].node === node) {
-            range.value = String(s + 1);
-            show(seq, starts);
-            return;
-          }
-        }
-      };
-      // 最後まで聞き終えたら頭に戻す
-      btn._onEnd = function () { range.value = '1'; refresh(); };
-
       btn.addEventListener('click', function () {
         if (active === btn) { stopAll(); return; }
-        playFromBar();
+        play(cardItems(), btn);
       });
       head.appendChild(btn);
-      head.parentNode.insertBefore(seek, head.nextSibling);
-      refresh();
-      seekRefreshers.push(refresh);
 
       // 話者ラベルを「この行から通し再生」のボタンにする
       var whos = card.querySelectorAll('.lines .line > .who');
@@ -3648,7 +3683,6 @@
     lge.setAttribute('aria-pressed', String(mode === 'en'));
     lgz.setAttribute('aria-pressed', String(mode === 'zh'));
     stopAll();
-    for (var r = 0; r < seekRefreshers.length; r++) seekRefreshers[r]();
   }
   lgb.addEventListener('click', function () { setLang('both'); });
   lge.addEventListener('click', function () { setLang('en'); });
