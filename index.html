@@ -792,6 +792,10 @@
     white-space: nowrap;
   }
   .zh-table td.use { color: var(--ink); }
+  /* 発音チェックの結果は、その行の下に全幅で出す（表の列をつぶさないため） */
+  .zh-table tr:has(+ tr.rec-row) td { border-bottom-color: transparent; padding-bottom: 0.15rem; }
+  .zh-table tr.rec-row td { padding-top: 0; white-space: normal; }
+  .zh-table tr.rec-row .rec-out { margin-top: 0; }
   /* 読み上げにだけ使う文字（50嵐 を「五十嵐」と読ませる など）。画面には出さない */
   .say-only { display: none; }
   .zh-table tr.dest-head td {
@@ -4133,12 +4137,27 @@
   }
 
   function outFor(el) {
+    if (el._recOut) return el._recOut;
     for (var i = 0; i < el.childNodes.length; i++) {
       if (isOut(el.childNodes[i])) return el.childNodes[i];
     }
     var span = document.createElement('span');
     span.className = 'rec-out';
-    el.appendChild(span);
+    var tr = el.tagName === 'TD' && el.closest('.zh-table') ? el.parentNode : null;
+    if (tr) {
+      // 表のセルに入れると、折り返さない漢字の列が判定文の長さまで広がり、
+      // 「使う場面」の列が1文字幅につぶれる。行の下に全幅の行を足してそこに出す
+      var row = document.createElement('tr');
+      var td = document.createElement('td');
+      row.className = 'rec-row';
+      td.colSpan = tr.children.length;
+      td.appendChild(span);
+      row.appendChild(td);
+      tr.parentNode.insertBefore(row, tr.nextSibling);
+    } else {
+      el.appendChild(span);
+    }
+    el._recOut = span;
     return span;
   }
 
