@@ -1225,7 +1225,38 @@
   }
   .navbtn:hover { color: var(--jade); border-color: var(--jade); }
   .navbtn:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+  /* シークバー：場面ごと。動かして離すと、その行から再生 */
+  .seek {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem 0.75rem;
+    flex-wrap: wrap;
+    margin: 0.35rem 0 0.75rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .seek input[type="range"] {
+    flex: 1 1 12rem;
+    min-width: 0;
+    margin: 0;
+    accent-color: var(--jade);
+    cursor: pointer;
+  }
+  .seek-pos {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    white-space: nowrap;
+    color: var(--faint);
+  }
+  .seek-txt {
+    flex: 1 1 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   @media (pointer: coarse) {
+    .seek input[type="range"] { height: 2rem; }
     .navbtn { padding: 0.45rem 0.9rem; font-size: 0.8125rem; }
     .fromhere { padding: 0.35rem 0.5rem 0.35rem 0; }
   }
@@ -1234,7 +1265,7 @@
     body { background: #fff; color: #000; padding: 0; font-size: 10pt; }
     .fromhere::before { content: none; }
     .line.now { background: none; box-shadow: none; }
-    .toc, .menu-fab, .menu-panel, .panel, .toolbar, .vhelp, .miccheck, .micbtn, .speak, .rec, .rec-out, .playall, .log-export, .log-today { display: none; }
+    .toc, .menu-fab, .menu-panel, .panel, .toolbar, .vhelp, .miccheck, .micbtn, .speak, .rec, .rec-out, .playall, .seek, .log-export, .log-today { display: none; }
     .card { border-color: #bbb; page-break-inside: avoid; }
     header { padding-top: 0; }
     .wrap { gap: 1.5rem; }
@@ -3275,6 +3306,7 @@
     nowLine = node || null;
     if (!nowLine) return;
     nowLine.classList.add('now');
+    if (active && active._onLine) active._onLine(nowLine);
     // 画面の外へ流れたら追いかける。上端は固定バーに隠れるので少し余裕を見る
     var r = nowLine.getBoundingClientRect();
     if (r.top < 70 || r.bottom > window.innerHeight - 20) {
@@ -3304,7 +3336,11 @@
 
   function run() {
     var g = gen;
-    if (pos >= seq.length) { clearActive(); return; }
+    if (pos >= seq.length) {
+      if (active && active._onEnd) active._onEnd();
+      clearActive();
+      return;
+    }
     var item = seq[pos++];
     markLine(item.node);
     var u = new SpeechSynthesisUtterance(item.text);
@@ -3454,6 +3490,7 @@
 
   /* ---- per-card sequential playback ---- */
 
+  var seekRefreshers = [];   // 表示言語を切り替えたら、各場面のシークバーの行数を数え直す
   var cards = document.querySelectorAll('.card');
   for (var c = 0; c < cards.length; c++) {
     (function (card) {
@@ -3486,11 +3523,93 @@
         return items;
       }
 
+      /* シークバー。読み上げは文の途中へは飛べないので、目盛りは1行ずつ */
+      var seek = document.createElement('div');
+      seek.className = 'seek';
+      seek.innerHTML = '<input type="range" min="1" max="1" step="1" value="1" aria-label="再生位置（行）">' +
+        '<span class="seek-pos"></span><span class="seek-txt"></span>';
+      var range = seek.querySelector('input');
+      var posEl = seek.querySelector('.seek-pos');
+      var txtEl = seek.querySelector('.seek-txt');
+      var dragging = false;
+
+      /** 各行の最初の断片の位置 */
+      function lineStarts(items) {
+        var out = [];
+        for (var i = 0; i < items.length; i++) {
+          if (i === 0 || items[i].node !== items[i - 1].node) out.push(i);
+        }
+        return out;
+      }
+
+      function lineLabel(node) {
+        if (!node) return '';
+        var who = node.querySelector('.who');
+        var p = node.querySelector('.en, .zh');
+        var t = '';
+        if (p) {
+          var clone = p.cloneNode(true);
+          var skip = clone.querySelectorAll('.rom, .speak, .rec, .rec-out');
+          for (var i = 0; i < skip.length; i++) skip[i].remove();
+          t = clone.textContent.trim();
+        }
+        return (who ? who.textContent.trim() + '　' : '') + t;
+      }
+
+      function show(items, starts) {
+        var n = +range.value;
+        posEl.textContent = n + ' / ' + starts.length;
+        var it = items[starts[n - 1]];
+        txtEl.textContent = it ? lineLabel(it.node) : '';
+      }
+
+      function refresh() {
+        var items = cardItems(), starts = lineStarts(items);
+        range.max = String(Math.max(1, starts.length));
+        if (+range.value > starts.length) range.value = '1';
+        show(items, starts);
+      }
+
+      function playFromBar() {
+        var items = cardItems(), starts = lineStarts(items);
+        var n = +range.value;
+        if (n > starts.length) n = 1;
+        play(items, btn, starts[n - 1] || 0);
+      }
+
+      range.addEventListener('pointerdown', function () { dragging = true; });
+      range.addEventListener('input', function () {
+        var items = cardItems();
+        show(items, lineStarts(items));
+      });
+      range.addEventListener('change', function () {
+        dragging = false;
+        playFromBar();
+      });
+
+      // 再生が進んだらバーも進める。止めたらその位置で止まり、次の通し再生はそこから
+      btn._onLine = function (node) {
+        if (dragging) return;
+        var starts = lineStarts(seq);
+        for (var s = 0; s < starts.length; s++) {
+          if (seq[starts[s]].node === node) {
+            range.value = String(s + 1);
+            show(seq, starts);
+            return;
+          }
+        }
+      };
+      // 最後まで聞き終えたら頭に戻す
+      btn._onEnd = function () { range.value = '1'; refresh(); };
+
       btn.addEventListener('click', function () {
         if (active === btn) { stopAll(); return; }
-        play(cardItems(), btn);
+        playFromBar();
       });
       head.appendChild(btn);
+      head.parentNode.insertBefore(seek, head.nextSibling);
+      refresh();
+      seekRefreshers.push(refresh);
 
       // 話者ラベルを「この行から通し再生」のボタンにする
       var whos = card.querySelectorAll('.lines .line > .who');
@@ -3529,6 +3648,7 @@
     lge.setAttribute('aria-pressed', String(mode === 'en'));
     lgz.setAttribute('aria-pressed', String(mode === 'zh'));
     stopAll();
+    for (var r = 0; r < seekRefreshers.length; r++) seekRefreshers[r]();
   }
   lgb.addEventListener('click', function () { setLang('both'); });
   lge.addEventListener('click', function () { setLang('en'); });
