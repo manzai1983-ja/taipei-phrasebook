@@ -792,6 +792,16 @@
     white-space: nowrap;
   }
   .zh-table td.use { color: var(--ink); }
+  /* 読み上げにだけ使う文字（50嵐 を「五十嵐」と読ませる など）。画面には出さない */
+  .say-only { display: none; }
+  .zh-table tr.dest-head td {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: var(--faint);
+    padding-top: 1rem;
+    white-space: normal;
+  }
 
   .tw {
     font-family: var(--font-mono);
@@ -1175,8 +1185,51 @@
   .playall:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
   .playall.on { color: var(--lantern); border-color: var(--lantern); }
 
+  /* 途中から聞く：話者ラベルの ▶ でその行から通し再生。再生中の行に色を敷く */
+  .fromhere {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0.1rem 0.25rem 0.1rem 0;
+    margin: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 2px;
+  }
+  .fromhere::before { content: "▶"; font-size: 0.55rem; margin-right: 0.3rem; opacity: 0.55; }
+  .fromhere:hover::before { opacity: 1; }
+  .fromhere:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+  .line.now {
+    background: var(--jade-tint);
+    box-shadow: 0 0 0 0.45rem var(--jade-tint);
+    border-radius: 1px;
+  }
+  .lines-zh .line.now { background: var(--lantern-tint); box-shadow: 0 0 0 0.45rem var(--lantern-tint); }
+  .navbtn {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    border-radius: 2px;
+    font-family: var(--font-jp);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    cursor: pointer;
+  }
+  .navbtn:hover { color: var(--jade); border-color: var(--jade); }
+  .navbtn:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+  @media (pointer: coarse) {
+    .navbtn { padding: 0.45rem 0.9rem; font-size: 0.8125rem; }
+    .fromhere { padding: 0.35rem 0.5rem 0.35rem 0; }
+  }
+
   @media print {
     body { background: #fff; color: #000; padding: 0; font-size: 10pt; }
+    .fromhere::before { content: none; }
+    .line.now { background: none; box-shadow: none; }
     .toc, .menu-fab, .menu-panel, .panel, .toolbar, .vhelp, .miccheck, .micbtn, .speak, .rec, .rec-out, .playall, .log-export, .log-today { display: none; }
     .card { border-color: #bbb; page-break-inside: avoid; }
     header { padding-top: 0; }
@@ -1218,7 +1271,9 @@
     <button type="button" id="lg-e" aria-pressed="false">英語</button>
     <button type="button" id="lg-z" aria-pressed="false">中国語</button>
   </span>
+  <button type="button" class="navbtn" id="prevline" hidden aria-label="前の行へ">⏮ 前の行</button>
   <button type="button" class="stopbtn" id="stopall" hidden>停止</button>
+  <button type="button" class="navbtn" id="nextline" hidden aria-label="次の行へ">次の行 ⏭</button>
   <button type="button" class="micbtn" id="micCheckBtn" aria-pressed="false" aria-controls="micCheck">マイク確認</button>
   <span class="vstat" id="vstat">音声を確認しています…</span>
   <span class="rec-tally" id="recTally" hidden></span>
@@ -2459,7 +2514,7 @@
           <tr><td class="han">鍾家原上海生煎包</td><td class="pin">Zhōngjiā yuán Shànghǎi shēngjiānbāo</td><td class="kana">ヂョンジア ユエン シャンハイ ションジエンバオ</td><td class="use">士林夜市。ビブグルマンの焼き小籠包</td></tr>
           <tr><td class="han">忠誠號蚵仔煎</td><td class="pin">Zhōngchéng hào ô-á-tsian</td><td class="kana">ヂョンチョンハオ オアジエン</td><td class="use">士林夜市。牡蠣オムレツ</td></tr>
           <tr><td class="han">王子起司馬鈴薯</td><td class="pin">Wángzǐ qǐsī mǎlíngshǔ</td><td class="kana">ワンズー チースー マーリンシュー</td><td class="use">士林夜市。チーズポテト</td></tr>
-          <tr><td class="han">50嵐</td><td class="pin">Wǔshílán</td><td class="kana">ウーシーラン</td><td class="use">台湾最大級のドリンクチェーン。士林は文林路191號</td></tr>
+          <tr><td class="han"><span class="nospeak">50</span><span class="say-only">五十</span>嵐</td><td class="pin">Wǔshílán</td><td class="kana">ウーシーラン</td><td class="use">台湾最大級のドリンクチェーン。士林は文林路191號</td></tr>
           <tr><td class="han">珍珠奶茶</td><td class="pin">zhēnzhū nǎichá</td><td class="kana">ヂェンヂュー ナイチャー</td><td class="use">タピオカミルクティー。<b>珍珠は小粒</b></td></tr>
           <tr><td class="han">波霸奶茶</td><td class="pin">bōbà nǎichá</td><td class="kana">ボーバー ナイチャー</td><td class="use">大粒タピオカのミルクティー</td></tr>
           <tr><td class="han">半糖少冰</td><td class="pin">bàntáng shǎobīng</td><td class="kana">バンタン シャオビン</td><td class="use">甘さ半分・氷少なめ。<b>迷ったらこれ</b></td></tr>
@@ -2971,14 +3026,35 @@
   </div>
 
   <div class="zh-group">
-    <h3>移動 <span>12</span></h3>
+    <h3>移動 <span>31</span></h3>
     <div class="zh-wrap">
       <table class="zh-table">
         <thead><tr><th>中国語</th><th>ピンイン</th><th>カナ</th><th>使う場面</th></tr></thead>
         <tbody>
           <tr><td class="han">計程車</td><td class="pin">jìchéngchē</td><td class="kana">ジーチョンチャー</td><td class="use">タクシー<span class="tw">台湾</span></td></tr>
           <tr><td class="han">松山機場</td><td class="pin">Sōngshān jīchǎng</td><td class="kana">ソンシャン ジーチャン</td><td class="use">松山空港。帰りのタクシーで行き先として言う</td></tr>
-          <tr><td class="han">故宮博物院</td><td class="pin">Gùgōng Bówùyuàn</td><td class="kana">グーゴン ボーウーユエン</td><td class="use">故宮博物院。タクシーの行き先として言う</td></tr>
+          <tr><td class="han">故宮博物院</td><td class="pin">Gùgōng Bówùyuàn</td><td class="kana">グーゴン ボーウーユエン</td><td class="use">3日目の午後。タクシーの行き先として言う。士林駅からバス紅30も</td></tr>
+          <tr class="dest-head"><td colspan="4">行き先（しおりの地図リンクにある場所）── 「到〇〇，謝謝」の〇〇に入れる</td></tr>
+          <tr><td class="han">晶華酒店</td><td class="pin">Jīnghuá jiǔdiàn</td><td class="kana">ジンホア ジウディエン</td><td class="use">拠点のリージェント台北。帰りのタクシーはこの一語</td></tr>
+          <tr><td class="han">台北車站</td><td class="pin">Táiběi chēzhàn</td><td class="kana">タイベイ チャーヂャン</td><td class="use">台北駅。2日目ツアーの集合</td></tr>
+          <tr><td class="han">松山車站</td><td class="pin">Sōngshān chēzhàn</td><td class="kana">ソンシャン チャーヂャン</td><td class="use">松山駅。2日目の帰り。<span class="tw">空港と別</span></td></tr>
+          <tr><td class="han">永康街</td><td class="pin">Yǒngkāng jiē</td><td class="kana">ヨンカン ジエ</td><td class="use">1日目の昼。MRT東門駅5番出口</td></tr>
+          <tr><td class="han">永康牛肉麵</td><td class="pin">Yǒngkāng niúròumiàn</td><td class="kana">ヨンカン ニウロウミエン</td><td class="use">1日目の昼。金山南路二段31巷17號</td></tr>
+          <tr><td class="han">天津蔥抓餅</td><td class="pin">Tiānjīn cōngzhuābǐng</td><td class="kana">ティエンジン ツォンヂュアビン</td><td class="use">1日目の昼。永康街6巷1號</td></tr>
+          <tr><td class="han">寧夏夜市</td><td class="pin">Níngxià yèshì</td><td class="kana">ニンシア イエシー</td><td class="use">1日目の夜。中山駅1番出口から徒歩10分</td></tr>
+          <tr><td class="han">阜杭豆漿</td><td class="pin">Fùháng dòujiāng</td><td class="kana">フーハン ドウジアン</td><td class="use">2日目の朝。華山市場2階・善導寺駅</td></tr>
+          <tr><td class="han">飯糰覇</td><td class="pin">Fàntuán bà</td><td class="kana">ファントゥアン バー</td><td class="use">2日目の昼。許昌街2號</td></tr>
+          <tr><td class="han">野柳</td><td class="pin">Yěliǔ</td><td class="kana">イエリウ</td><td class="use">2日目ツアー。正式には野柳地質公園</td></tr>
+          <tr><td class="han">阿蘭草仔粿</td><td class="pin">Ā lán cǎozǎiguǒ</td><td class="kana">アーラン ツァオザイグオ</td><td class="use">2日目・九份。基山街90號</td></tr>
+          <tr><td class="han">阿妹茶樓</td><td class="pin">Ā mèi chálóu</td><td class="kana">アーメイ チャーロウ</td><td class="use">2日目・九份。市下巷20號</td></tr>
+          <tr><td class="han">阿柑姨芋圓</td><td class="pin">Ā gān yí yùyuán</td><td class="kana">アーガンイー ユーユエン</td><td class="use">2日目・九份。豎崎路5號</td></tr>
+          <tr><td class="han">饒河街觀光夜市</td><td class="pin">Ráohéjiē guānguāng yèshì</td><td class="kana">ラオホージエ グアングアン イエシー</td><td class="use">2日目ツアーの解散地。MRT松山駅</td></tr>
+          <tr><td class="han">龍山寺</td><td class="pin">Lóngshānsì</td><td class="kana">ロンシャン スー</td><td class="use">3日目の朝。同名のMRT駅がある</td></tr>
+          <tr><td class="han">迪化街</td><td class="pin">Díhuàjiē</td><td class="kana">ディーホアジエ</td><td class="use">3日目の午前。問屋街</td></tr>
+          <tr><td class="han"><span class="nospeak">50</span><span class="say-only">五十</span>嵐 士林文林店</td><td class="pin">Wǔshílán Shìlín Wénlín diàn</td><td class="kana">ウーシーラン シーリン ウェンリン ディエン</td><td class="use">3日目の夜。文林路191號</td></tr>
+          <tr><td class="han">士林夜市</td><td class="pin">Shìlín yèshì</td><td class="kana">シーリン イエシー</td><td class="use">3日目の夜。MRT劍潭駅</td></tr>
+          <tr><td class="han">佳德糕餅</td><td class="pin">Jiā dé gāobǐng</td><td class="kana">ジアドー ガオビン</td><td class="use">4日目の買い物。南京東路五段88號</td></tr>
+          <tr class="dest-head"><td colspan="4">道をたずねる・タクシーで</td></tr>
           <tr><td class="han">捷運站</td><td class="pin">jiéyùn zhàn</td><td class="kana">ジエユン ヂャン</td><td class="use">MRTの駅<span class="tw">台湾</span></td></tr>
           <tr><td class="han">到這裡</td><td class="pin">dào zhèlǐ</td><td class="kana">ダオ ジャーリ</td><td class="use">ここまで。画面を見せながら</td></tr>
           <tr><td class="han">停這裡</td><td class="pin">tíng zhèlǐ</td><td class="kana">ティン ジャーリ</td><td class="use">ここで停めてください</td></tr>
@@ -3132,8 +3208,13 @@
   };
   var speed = 'normal';
   var voice = { en: null, zh: null };
-  var queue = [];
+  var seq = [];      // 読み上げる断片。node があれば、その行を再生中として色を付ける
+  var pos = 0;       // 次に読む断片の位置
+  var gen = 0;       // 止めた・飛ばした後に、古い発話の onend が走っても無視するための番号
   var active = null;
+  var nowLine = null;
+  var prevBtn = document.getElementById('prevline');
+  var nextBtn = document.getElementById('nextline');
 
   var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6.5 9H3v6h3.5L11 19V5z"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.8 6.7a8 8 0 0 1 0 10.6"/></svg>';
 
@@ -3184,45 +3265,102 @@
 
   /* ---- speaking ---- */
 
+  function markLine(node) {
+    if (nowLine === node) return;
+    if (nowLine) nowLine.classList.remove('now');
+    nowLine = node || null;
+    if (!nowLine) return;
+    nowLine.classList.add('now');
+    // 画面の外へ流れたら追いかける。上端は固定バーに隠れるので少し余裕を見る
+    var r = nowLine.getBoundingClientRect();
+    if (r.top < 70 || r.bottom > window.innerHeight - 20) {
+      nowLine.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  }
+
   function clearActive() {
     if (active) {
       active.classList.remove('on');
       if (active.classList.contains('playall')) active.textContent = '通し再生';
       active = null;
     }
+    markLine(null);
     stopBtn.hidden = true;
+    prevBtn.hidden = true;
+    nextBtn.hidden = true;
   }
 
   function stopAll() {
-    queue = [];
+    gen++;
+    seq = [];
+    pos = 0;
     synth.cancel();
     clearActive();
   }
 
   function run() {
-    if (!queue.length) { clearActive(); return; }
-    var item = queue.shift();
+    var g = gen;
+    if (pos >= seq.length) { clearActive(); return; }
+    var item = seq[pos++];
+    markLine(item.node);
     var u = new SpeechSynthesisUtterance(item.text);
     if (voice[item.lang]) u.voice = voice[item.lang];
     u.lang = voice[item.lang] ? voice[item.lang].lang : (item.lang === 'zh' ? 'zh-TW' : 'en-US');
     u.rate = RATES[speed][item.lang];
-    u.onend = function () { setTimeout(run, GAPS[speed][item.lang]); };
-    u.onerror = function () { setTimeout(run, 200); };
+    u.onend = function () {
+      if (g !== gen) return;
+      setTimeout(function () { if (g === gen) run(); }, GAPS[speed][item.lang]);
+    };
+    u.onerror = function () {
+      if (g !== gen) return;
+      setTimeout(function () { if (g === gen) run(); }, 200);
+    };
     synth.speak(u);
   }
 
-  function play(items, btn) {
+  function play(items, btn, start) {
     stopAll();
     if (!items.length) return;
-    queue = items;
+    seq = items;
+    pos = start || 0;
     active = btn;
     btn.classList.add('on');
-    if (btn.classList.contains('playall')) btn.textContent = '停止';
+    var multi = btn.classList.contains('playall');
+    if (multi) btn.textContent = '停止';
     stopBtn.hidden = false;
+    prevBtn.hidden = !multi;
+    nextBtn.hidden = !multi;
     run();
   }
 
+  /** 再生中の場面で、行単位で前後へ飛ぶ。dir は +1（次）か -1（前） */
+  function seekLine(dir) {
+    if (!seq.length) return;
+    var cur = Math.max(0, pos - 1);
+    var node = seq[cur].node;
+    var i = cur;
+    if (dir > 0) {
+      while (i < seq.length && seq[i].node === node) i++;
+      if (i >= seq.length) return;
+    } else {
+      while (i > 0 && seq[i - 1].node === node) i--;      // いまの行の頭
+      if (i > 0) {
+        var prev = seq[i - 1].node;
+        i--;
+        while (i > 0 && seq[i - 1].node === prev) i--;    // ひとつ前の行の頭
+      }
+    }
+    gen++;
+    synth.cancel();
+    pos = i;
+    // cancel 直後の speak は Chrome で落ちることがあるので一拍おく
+    var g = gen;
+    setTimeout(function () { if (g === gen) run(); }, 60);
+  }
+
   stopBtn.addEventListener('click', stopAll);
+  prevBtn.addEventListener('click', function () { seekLine(-1); });
+  nextBtn.addEventListener('click', function () { seekLine(1); });
 
   /* ---- text extraction ---- */
 
@@ -3321,8 +3459,9 @@
       btn.type = 'button';
       btn.className = 'playall';
       btn.textContent = '通し再生';
-      btn.addEventListener('click', function () {
-        if (active === btn) { stopAll(); return; }
+
+      /** 表示中の言語で、この場面の台詞を断片に分けて並べる。各断片に行を持たせる */
+      function cardItems() {
         var mode = (document.body.className.match(/show-(\w+)/) || [0, 'both'])[1];
         var sel = mode === 'zh' ? '.lines-zh .zh:not(.lines-tag)'
           : mode === 'en' ? '.lines-en .en'
@@ -3330,16 +3469,46 @@
         var nodes = card.querySelectorAll(sel);
         var items = [];
         for (var k = 0; k < nodes.length; k++) {
+          var line = nodes[k].closest('.line');
           if (nodes[k].classList.contains('zh')) {
-            items = items.concat(zhParts(nodes[k]));
+            var parts = zhParts(nodes[k]);
+            for (var q = 0; q < parts.length; q++) parts[q].node = line;
+            items = items.concat(parts);
           } else {
             var t = enText(nodes[k]);
-            if (t) items.push({ text: t, lang: 'en' });
+            if (t) items.push({ text: t, lang: 'en', node: line });
           }
         }
-        play(items, btn);
+        return items;
+      }
+
+      btn.addEventListener('click', function () {
+        if (active === btn) { stopAll(); return; }
+        play(cardItems(), btn);
       });
       head.appendChild(btn);
+
+      // 話者ラベルを「この行から通し再生」のボタンにする
+      var whos = card.querySelectorAll('.lines .line > .who');
+      for (var w = 0; w < whos.length; w++) {
+        (function (who) {
+          var line = who.parentNode;
+          var fb = document.createElement('button');
+          fb.type = 'button';
+          fb.className = 'fromhere';
+          fb.title = 'この行から通し再生';
+          fb.setAttribute('aria-label', who.textContent + '：この行から通し再生');
+          fb.textContent = who.textContent;
+          who.textContent = '';
+          who.appendChild(fb);
+          fb.addEventListener('click', function () {
+            var items = cardItems();
+            for (var x = 0; x < items.length; x++) {
+              if (items[x].node === line) { play(items, btn, x); return; }
+            }
+          });
+        })(whos[w]);
+      }
     })(cards[c]);
   }
 
