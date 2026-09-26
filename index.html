@@ -1225,6 +1225,34 @@
   }
   .navbtn:hover { color: var(--jade); border-color: var(--jade); }
   .navbtn:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+  /* 文とボタンの枠。枠は右端に固定し、文が長くても短くても大きさを変えない */
+  .has-ctl {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 0.5rem;
+  }
+  .has-ctl > .txt { flex: 1 1 0; min-width: 0; }
+  .has-ctl > .ctl {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin-top: 0.1rem;
+  }
+  .has-ctl > .rec-out { flex: 1 1 100%; }   /* 判定の結果は文の下に全幅で */
+  .ctl .speak, .ctl .rec {
+    margin: 0;
+    padding: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .keep-phrase.has-ctl { min-width: 12rem; }
+
   /* 語を押すとそこから読む。読んでいる語には色を敷く */
   .wh .w { cursor: pointer; border-radius: 2px; }
   .wh .w:hover { background: var(--jade-tint); }
@@ -1232,6 +1260,10 @@
   .w.wnow { background: var(--jade); color: var(--paper); }
   .zh .w.wnow, .zh-say .w.wnow { background: var(--lantern); color: var(--paper); }
   @media (pointer: coarse) {
+    /* 指で押す大きさ。隣のボタンや語と取り違えないよう、少し離す */
+    .has-ctl > .ctl { gap: 0.35rem; margin-top: -0.3rem; }
+    .ctl .speak, .ctl .rec { width: 2.5rem; height: 2.5rem; }
+    .ctl .speak svg, .ctl .rec svg { width: 1.3rem; height: 1.3rem; }
     .navbtn { padding: 0.45rem 0.9rem; font-size: 0.8125rem; }
     .fromhere { padding: 0.35rem 0.5rem 0.35rem 0; }
   }
@@ -3585,6 +3617,29 @@
     });
     el.appendChild(b);
     el._speakBtn = b;
+    splitCtl(el);
+  }
+
+  /* 文を「本文」と「ボタンの枠」に分ける。
+     ボタンを文の後ろに並べるだけだと、スマホでは折り返しで片方だけ次の行へ落ちたり、
+     押せる語とくっついて押し間違えたりする。枠は右に固定して大きさを変えない。
+     表のセルと数字は短く、横並びのままで困らないので分けない。 */
+  function splitCtl(el) {
+    if (el.tagName !== 'P' && el.tagName !== 'B') return;
+    if (el.closest('.zh-table, .numbers')) return;
+    var txt = document.createElement('span');
+    txt.className = 'txt';
+    var ctl = document.createElement('span');
+    ctl.className = 'ctl';
+    while (el.firstChild) {
+      var n = el.firstChild;
+      if (n === el._speakBtn) { el.removeChild(n); ctl.appendChild(n); }
+      else txt.appendChild(n);
+    }
+    el.appendChild(txt);
+    el.appendChild(ctl);
+    el.classList.add('has-ctl');
+    el._ctl = ctl;
   }
 
   var enSel = document.querySelectorAll('.en, .keep-phrase');
@@ -4804,7 +4859,7 @@
       }
       start(b, el, item);
     });
-    el.appendChild(b);
+    (el._ctl || el).appendChild(b);   // 音声ボタンと同じ、大きさの変わらない枠へ
   }
 
   var enSel = document.querySelectorAll('.lines-en .en');
